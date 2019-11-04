@@ -24,7 +24,18 @@ public class ProductDatabase {
         //How much is the fish?
         System.out.println(ProductList.get("Fish"));
         //       What is the most expensive product?
-        System.out.println(Collections.max(ProductList.values()));
+        Integer MostExpProdPrice = Collections.max(ProductList.values());
+        for (String key : ProductList.keySet()){
+            if (ProductList.get(key) == MostExpProdPrice){
+                System.out.println(key);
+            }
+        }
+        // Or:
+        for (Map.Entry<String, Integer> element: ProductList.entrySet()){
+            if (element.getValue() == MostExpProdPrice){
+                System.out.println(element.getKey());
+            }
+        }
         //       What is the average price?
         int sum = 0;
         for (int price: ProductList.values()){
