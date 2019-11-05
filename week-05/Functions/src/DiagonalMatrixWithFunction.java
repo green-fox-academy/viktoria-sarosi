@@ -1,6 +1,6 @@
 public class DiagonalMatrixWithFunction {
     public static void main(String[] args) {
-        int size = 4;
+        int size = 15;
         int[][] matrix = createMatrix (size);
         printMatrix (matrix);
 
