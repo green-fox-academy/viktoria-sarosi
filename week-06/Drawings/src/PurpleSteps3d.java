@@ -8,10 +8,13 @@ public class PurpleSteps3d {
     public static void mainDraw(Graphics graphics) {
         // Reproduce this:
         // [https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/drawing/assets/r4.png]
-        Color color = Color.magenta;
+// még nem jó!
         int size = 10;
-
-
+        for (int i = 0; i < 6; i++) {
+            graphics.setColor(Color.magenta);
+            graphics.fillRect(10 + size, 10 + size, size, size);
+            size = size + i * 10;
+        }
 
 
     }

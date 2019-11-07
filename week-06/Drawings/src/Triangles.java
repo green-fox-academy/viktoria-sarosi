@@ -11,8 +11,12 @@ public class Triangles {
         for (int i = 1; i <= 15; i++) {
             graphics.drawLine(WIDTH/2 - i *WIDTH / 32, 0 + i * HEIGHT / 16, WIDTH / 2 + i * WIDTH/ 32, 0 + i * HEIGHT / 16);
         }
-
-
+        for (int i = 1; i <= 15; i++) {
+            graphics.drawLine(WIDTH/2 - i *WIDTH / 32, 0 + i * HEIGHT / 16,WIDTH -  i * WIDTH / 16, HEIGHT);
+        }
+        for (int i = 1; i <= 15 ; i++) {
+            graphics.drawLine(WIDTH / 2 + i * WIDTH/ 32, 0 + i * HEIGHT / 16, 0 +  i * WIDTH / 16, HEIGHT);
+        }
     }
 
     // Don't touch the code below
