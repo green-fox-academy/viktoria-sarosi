@@ -4,25 +4,24 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class FunctionToCenter {
+public class StarryNight {
     public static void mainDraw(Graphics graphics) {
-        // Create a function that draws a single line and takes 3 parameters:
-        // The x and y coordinates of the line's starting point and the graphics
-        // and draws a line from that point to the center of the canvas.
-        // Fill the canvas with lines from the edges, every 20 px, to the center.
-        for (int i = 0; i < 16; i++) {
-            rays(0,0 + i * 20, graphics);
-            rays(320,0 + i *20,graphics);
-            rays(0 + i * 20, 0,graphics);
-            rays(0 + i * 20, 320,graphics);
+        // Draw the night sky:
+        //  - The background should be black
+        //  - The stars can be small squares
+        //  - The stars should have random positions on the canvas
+        //  - The stars should have random color (some shade of grey)
+    graphics.setColor(Color.black);
+    graphics.fillRect(0,0,320,320);
+        for (int i = 0; i < 30; i++) {
+            graphics.setColor(new Color((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256)));
+            graphics.fillRect((int)Math.random()*321, (int)Math.random()*321, 3,3);
         }
 
 
-    }
-    public static void rays(int x, int y,Graphics graphics ) {
 
-        graphics.drawLine(x, y, WIDTH / 2, HEIGHT / 2);
     }
+
     // Don't touch the code below
     static int WIDTH = 320;
     static int HEIGHT = 320;

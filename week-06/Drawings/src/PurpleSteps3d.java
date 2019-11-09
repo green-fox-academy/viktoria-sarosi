@@ -10,10 +10,14 @@ public class PurpleSteps3d {
         // [https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/drawing/assets/r4.png]
 // még nem jó!
         int size = 10;
-        for (int i = 0; i < 6; i++) {
+        int x = 10;
+        int y = 10;
+        for (int i = 1; i < 6; i++) {
             graphics.setColor(Color.magenta);
-            graphics.fillRect(10 + size, 10 + size, size, size);
-            size = size + i * 10;
+            graphics.fillRect(x, y, size, size);
+            x += size;
+            y += size;
+            size +=10;
         }
 
 
