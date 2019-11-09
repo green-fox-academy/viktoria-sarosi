@@ -12,19 +12,21 @@ public class StarryNight {
         //  - The stars should have random positions on the canvas
         //  - The stars should have random color (some shade of grey)
     graphics.setColor(Color.black);
-    graphics.fillRect(0,0,320,320);
-        for (int i = 0; i < 30; i++) {
-            graphics.setColor(new Color((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256)));
-            graphics.fillRect((int)Math.random()*321, (int)Math.random()*321, 3,3);
-        }
+    graphics.fillRect(0,0,WIDTH,HEIGHT);
 
+    for (int i = 0; i < 100; i++) {
+        stars(graphics);
+    }
+    }
 
-
+    private static void stars(Graphics graphics) {
+        graphics.setColor(new Color((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256)));
+        graphics.fillRect((int)(Math.random()*WIDTH), (int)(Math.random()*HEIGHT), 3,3);
     }
 
     // Don't touch the code below
-    static int WIDTH = 320;
-    static int HEIGHT = 320;
+    static int WIDTH = 1000;
+    static int HEIGHT = 1000;
 
     public static void main(String[] args) {
         JFrame jFrame = new JFrame("Drawing");
