@@ -12,7 +12,7 @@ public class PrintEachLine {
         try {
             files = Files.readAllLines(filepath);
         } catch (IOException e) {
-            System.out.println("No such file. my-file.txt");
+            System.out.println("No such file: my-file.txt");
 
         }
         for (String line : files){
