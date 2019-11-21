@@ -1,9 +1,9 @@
 package Sharpie;
 
 public class Sharpie {
-    String color;
-    Float width;
-    Float inkAmount;
+    public String color;
+    public Float width;
+    public Float inkAmount;
 
     public Sharpie(String color, Float width) {
         this.color = color;
@@ -13,5 +13,10 @@ public class Sharpie {
 
     public void use(){
         this.inkAmount --;
+    }
+
+    @Override
+    public String toString() {
+        return (color);
     }
 }

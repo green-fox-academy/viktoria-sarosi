@@ -1,8 +1,8 @@
 package Animal;
 
-public class Animal {
-    int hunger;
-    int thirst;
+public class Animal<hunger> {
+    public int hunger;
+    public int thirst;
 
     public Animal(){
         this.hunger = 50;
@@ -19,4 +19,5 @@ public class Animal {
         this.hunger += 1;
         this.thirst += 1;
     }
+
 }
