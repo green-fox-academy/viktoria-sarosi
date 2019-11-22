@@ -1,10 +1,10 @@
 package BlogPost;
 
 public class BlogPost {
-    String authorName;
-    String title;
-    String text;
-    String publicationDate;
+    public String authorName;
+    public String title;
+    public String text;
+    public String publicationDate;
 
 
     public BlogPost(String authorName, String title, String text, String publicationDate) {
@@ -15,5 +15,9 @@ public class BlogPost {
     }
     public void speak (){
         System.out.println(this.authorName + " " + this.title + " " + this.text + " " + this.publicationDate);
+    }
+    @Override
+    public String toString(){
+        return (authorName) + " : " + (title);
     }
 }
