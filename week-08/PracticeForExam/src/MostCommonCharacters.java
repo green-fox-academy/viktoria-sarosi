@@ -48,7 +48,6 @@ public class MostCommonCharacters {
                 counted.replace(chars[i], counted.get(chars[i]) + 1);
             }
         }
-        HashMap<String, Integer> mostCommonCharacters = new HashMap<>();
         String tempString = "";
         Integer tempInteger = 0;
         for (int i = 0; i < 2; i++) {
@@ -59,7 +58,6 @@ public class MostCommonCharacters {
                     break;
                 }
             }
-            mostCommonCharacters.put(tempString, tempInteger);
             counted.remove(tempString, tempInteger);
             System.out.println( tempString + " : " + tempInteger);
 
