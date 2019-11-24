@@ -3,9 +3,7 @@ import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Lottery {
     public static void main(String[] args) {
@@ -20,7 +18,7 @@ public class Lottery {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ArrayList<String> lotterynumberstogether= new ArrayList<>();
+        ArrayList<String> lotterynumberstogether= new ArrayList<>(); // mindegyik sorból kiszedi a lottószámokat
         for (int i = 0; i < lines.size() ; i++) {
             String[] lineparts = lines.get(i).split(";");
             lotterynumberstogether.add(lineparts[11]);
@@ -29,7 +27,29 @@ public class Lottery {
             lotterynumberstogether.add(lineparts[14]);
             lotterynumberstogether.add(lineparts[15]);
         }
-        HashMap<String, Integer> numberscounted = new HashMap<>();
-
+        HashMap<String, Integer> numberscounted = new HashMap<>(); // megszámlálja sorban
+        for (String number : lotterynumberstogether){
+            if (!numberscounted.containsKey(number)){
+                numberscounted.put(number, 1);
+            }else{
+                numberscounted.replace(number, numberscounted.get(number)+1);
+            }
+        }
+        HashMap<String, Integer> mostCommonNumbers = new HashMap<>(); // Ide fogja összeszednia  leggyakoribb lottószámokat
+        String tempString = "";  // ezekben fogja ideiglenesen eltárolni a megtalált legnagyobbat (5x), mielőtt beteszi a végső hashmapbe , mert iterálás közben nem lehet kitörölni a listából, mapből
+        Integer tempInteger = 0;
+        for (int i = 0; i < 5; i++) {
+            for (Map.Entry<String, Integer> entry : numberscounted.entrySet()){
+                if(entry.getValue() == Collections.max(numberscounted.values())) {
+                    tempString = entry.getKey();
+                    tempInteger = entry.getValue();
+                    break;
+                }
+            }
+            numberscounted.remove(tempString, tempInteger);
+            mostCommonNumbers.put(tempString, tempInteger);
+        }
+        System.out.println("Lottery number = times " + mostCommonNumbers);
     }
 }
+
