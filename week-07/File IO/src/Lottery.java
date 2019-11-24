@@ -35,8 +35,7 @@ public class Lottery {
                 numberscounted.replace(number, numberscounted.get(number)+1);
             }
         }
-        HashMap<String, Integer> mostCommonNumbers = new HashMap<>(); // Ide fogja összeszednia  leggyakoribb lottószámokat
-        String tempString = "";  // ezekben fogja ideiglenesen eltárolni a megtalált legnagyobbat (5x), mielőtt beteszi a végső hashmapbe , mert iterálás közben nem lehet kitörölni a listából, mapből
+        String tempString = "";  // ezekben fogja ideiglenesen eltárolni a megtalált legnagyobbat (5x), mert iterálás közben nem lehet kitörölni a listából, mapből
         Integer tempInteger = 0;
         for (int i = 0; i < 5; i++) {
             for (Map.Entry<String, Integer> entry : numberscounted.entrySet()){
@@ -47,9 +46,8 @@ public class Lottery {
                 }
             }
             numberscounted.remove(tempString, tempInteger);
-            mostCommonNumbers.put(tempString, tempInteger);
+            System.out.printf("Number %s was found %d times. \n", tempString, tempInteger);
         }
-        System.out.println("Lottery number = times " + mostCommonNumbers);
     }
 }
 
