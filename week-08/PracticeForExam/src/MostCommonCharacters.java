@@ -2,9 +2,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class MostCommonCharacters {
     public static void main(String[] args) {
@@ -47,9 +45,25 @@ public class MostCommonCharacters {
             if (!counted.containsKey(chars[i])) {
                 counted.put(chars[i], 1);
             } else{
-                counted.put(chars[i], counted.get(chars[i]) + 1);
+                counted.replace(chars[i], counted.get(chars[i]) + 1);
             }
         }
-        System.out.println(counted);
+        HashMap<String, Integer> mostCommonCharacters = new HashMap<>();
+        String tempString = "";
+        Integer tempInteger = 0;
+        for (int i = 0; i < 2; i++) {
+            for(Map.Entry<String, Integer> entry : counted.entrySet()){
+                if(entry.getValue() == Collections.max(counted.values())) {
+                    tempString = entry.getKey();
+                    tempInteger = entry.getValue();
+                    break;
+                }
+            }
+            mostCommonCharacters.put(tempString, tempInteger);
+            counted.remove(tempString, tempInteger);
+            System.out.println( tempString + " : " + tempInteger);
+
+        }
+
     }
 }
