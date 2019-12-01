@@ -5,23 +5,22 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class SierpinskySimple {
     public static void mainDraw(Graphics graphics) {
-        drawsSierpinsky(0, 0, WIDTH / 3, 4, graphics);
+        drawsSierpinsky(0, 0, WIDTH, 6, graphics);
     }
 
     private static void drawsSierpinsky(int x, int y, int size, int level, Graphics graphics) {
-        if(level == 0){
+        if (level == 0) {
             return;
         }
-        graphics.fillRect(x + size, y + size, size, size);
         graphics.fillRect(x + size / 3, y + size / 3, size / 3, size / 3);
-        graphics.fillRect(x + size / 3 + size, y + size / 3, size / 3, size / 3);
-        graphics.fillRect(x + size / 3 + size * 2, y + size / 3, size / 3, size / 3);
-        graphics.fillRect(x + size / 3, y + size / 3 + size, size / 3, size / 3);
-        graphics.fillRect(x + size / 3 + size * 2, y + size / 3 + size, size / 3, size / 3);
-        graphics.fillRect(x + size / 3, y + size / 3 + size * 2, size / 3, size / 3);
-        graphics.fillRect(x + size / 3 + size, y + size / 3 + size * 2, size / 3, size / 3);
-        graphics.fillRect(x + size / 3 + size * 2, y + size / 3 + size * 2, size / 3, size / 3);
-        drawsSierpinsky(x,y,size / 3, level - 1, graphics);
+        drawsSierpinsky(x, y, size / 3, level - 1, graphics);
+        drawsSierpinsky(x + size / 3, y, size / 3, level - 1, graphics);
+        drawsSierpinsky(x + size / 3 * 2, y, size / 3, level - 1, graphics);
+        drawsSierpinsky(x, y + size / 3, size / 3, level - 1, graphics);
+        drawsSierpinsky(x + size / 3 * 2, y + size / 3, size / 3, level - 1, graphics);
+        drawsSierpinsky(x, y + size / 3 * 2, size / 3, level - 1, graphics);
+        drawsSierpinsky(x + size / 3, y + size / 3 * 2, size / 3, level - 1, graphics);
+        drawsSierpinsky(x + size / 3 * 2, y + size / 3 * 2, size / 3, level - 1, graphics);
     }
 
     // Don't touch the code below
