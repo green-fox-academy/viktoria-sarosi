@@ -3,6 +3,9 @@ public class Plant {
     private double currentWaterLevel;
     private double absorption;
 
+    public Plant() {
+    }
+
     public Plant(String color, double currentWater) {
         this.color = color;
         this.currentWaterLevel = currentWaterLevel;
@@ -27,4 +30,5 @@ public class Plant {
     public String getColor() {
         return color;
     }
+
 }
