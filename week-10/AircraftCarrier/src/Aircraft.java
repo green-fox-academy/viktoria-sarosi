@@ -10,22 +10,24 @@ public class Aircraft {
         int dealtDamage = this.baseDamage * this.ammunition;
     }
 
-    public int fight(){
+    public int fight() {
         this.ammunition = 0;
         return this.dealtDamage;
     }
-    public int refill(int storeOfAmmo){
+
+    public int refill(int storeOfAmmo) {
         int remainingAmmo = storeOfAmmo - (maxAmmo - ammunition);
         this.ammunition = this.maxAmmo;
+        this.setDealtDamage(this.ammunition * this.baseDamage);
         return remainingAmmo;
     }
 
-    public String getType(){
+    public String getType() {
         return this.getClass().getSimpleName(); //Stringben adja vissza  a class nevét
     }
 
-    public String getStatus(){
-        String status ="Type: " + getType() + ", Ammunition: " + getAmmunition() + ", " +
+    public String getStatus() {
+        String status = "Type: " + getType() + ", Ammunition: " + getAmmunition() + ", " +
                 "Base Damage: " + getBaseDamage() + " All Damage: " + getDealtDamage();
         return status;
     }
@@ -65,5 +67,9 @@ public class Aircraft {
 
     public int getDealtDamage() {
         return dealtDamage;
+    }
+
+    public void setDealtDamage(int dealtDamage) {
+        this.dealtDamage = dealtDamage;
     }
 }
