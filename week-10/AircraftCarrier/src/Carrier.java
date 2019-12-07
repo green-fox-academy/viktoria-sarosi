@@ -34,11 +34,11 @@ public class Carrier {
                 storeOfAmmo = fleet.get(i).refill(storeOfAmmo);
             }
         }
-        int totaldamageCount = 0;
+        int totalDamageCount = 0;
         for (int i = 0; i < fleet.size(); i++) {
-            totaldamageCount += fleet.get(i).getDealtDamage();
+            totalDamageCount += fleet.get(i).getDealtDamage();
         }
-        this.setTotalDamage(totaldamageCount);
+        this.setTotalDamage(totalDamageCount);
 
         if (storeOfAmmo == 0) {
             throw new NoAmmoException();
