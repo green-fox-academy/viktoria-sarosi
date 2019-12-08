@@ -11,7 +11,5 @@ public class main {
         botanicalGarden.state();
         botanicalGarden.waterTheGarden(70);
         botanicalGarden.state();
-
-
     }
 }

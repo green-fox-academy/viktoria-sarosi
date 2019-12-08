@@ -2,6 +2,7 @@ public class Plant {
     private String color;
     private double currentWaterLevel;
     private double absorption;
+    private int limitWhenNeedsWater;
 
     public Plant() {
     }
@@ -9,6 +10,15 @@ public class Plant {
     public Plant(String color, double currentWater) {
         this.color = color;
         this.currentWaterLevel = currentWaterLevel;
+        this.absorption = absorption;
+        this.limitWhenNeedsWater = limitWhenNeedsWater;
+    }
+    public boolean needsWater(){
+        if(this.currentWaterLevel >= this.limitWhenNeedsWater){
+            return false;
+        }else{
+            return true;
+        }
     }
 
     public double getCurrentWaterLevel() {
@@ -30,5 +40,10 @@ public class Plant {
     public String getColor() {
         return color;
     }
+
+    public void setLimitWhenNeedsWater(int limitWhenNeedsWater) {
+        this.limitWhenNeedsWater = limitWhenNeedsWater;
+    }
+    //TODO needsWater functiont irni a Plantbe, (booleant ad vissza)
 
 }
