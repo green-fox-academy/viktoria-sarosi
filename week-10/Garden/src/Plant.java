@@ -13,10 +13,11 @@ public class Plant {
         this.absorption = absorption;
         this.limitWhenNeedsWater = limitWhenNeedsWater;
     }
-    public boolean needsWater(){
-        if(this.currentWaterLevel >= this.limitWhenNeedsWater){
+
+    public boolean needsWater() {
+        if (this.currentWaterLevel >= this.limitWhenNeedsWater) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
@@ -44,6 +45,4 @@ public class Plant {
     public void setLimitWhenNeedsWater(int limitWhenNeedsWater) {
         this.limitWhenNeedsWater = limitWhenNeedsWater;
     }
-    //TODO needsWater functiont irni a Plantbe, (booleant ad vissza)
-
 }
