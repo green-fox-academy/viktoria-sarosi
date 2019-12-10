@@ -1,4 +1,4 @@
-public class Helicopter extends Vehicle implements  Flyable {
+public class Helicopter extends Vehicle implements Flyable {
 
     public Helicopter() {
     }
