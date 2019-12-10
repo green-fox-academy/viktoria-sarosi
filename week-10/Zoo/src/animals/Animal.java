@@ -6,7 +6,7 @@ public abstract class Animal {
     private double weight;
     private String gender;
 
-    public Animal(String name){
+    public Animal(String name) {
         this.name = name;
     }
 

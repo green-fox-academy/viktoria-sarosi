@@ -4,9 +4,10 @@ public class Reptile extends Animal {
     private String color;
     private String habitat;
 
-    public Reptile(String name){
+    public Reptile(String name) {
         super(name);
     }
+
     @Override
     public String breed() {
         return "laying eggs";

@@ -1,12 +1,13 @@
 package animals;
 
-public class Bird extends Animal implements Flyable{
+public class Bird extends Animal implements Flyable {
     private String color;
     private String song;
 
-    public Bird(String name){
+    public Bird(String name) {
         super(name);
     }
+
     @Override
     public String breed() {
         return "laying eggs";
