@@ -1,5 +1,3 @@
-package Domino;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +5,9 @@ public class Dominoes {
     public static void main(String[] args) {
         List<Domino> dominoes = initializeDominoes();
         System.out.println(dominoes);
-
+        for (Domino d : dominoes) {
+            d.printAllFields();
+        }
         List<Domino> dominoesInOrder = new ArrayList<Domino>();
         dominoesInOrder.add(dominoes.get(0));
         dominoes.remove(0);
