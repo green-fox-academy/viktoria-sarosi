@@ -12,5 +12,9 @@ public class ZooApp {
         System.out.println("A " + reptile.getName() + " is breeding by " + reptile.breed());
         System.out.println("A " + mammal.getName() + " is breeding by " + mammal.breed());
         System.out.println("A " + bird.getName() + " is breeding by " + bird.breed());
+
+        bird.takeOff();
+        bird.fly();
+        bird.land();
     }
 }
