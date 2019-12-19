@@ -3,7 +3,7 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class SierpinskyFixColorSizes {
+public class SierpinskyFixColorQuarters {
     public static void mainDraw(Graphics graphics) {
         drawsSierpinsky(0, 0, WIDTH, 6, graphics);
     }
@@ -12,32 +12,49 @@ public class SierpinskyFixColorSizes {
         if (level == 0) {
             return;
         }
-        if( level == 6){
-            graphics.setColor(Color.red);
+        if (level == 5){
+            graphics.setColor(Color.white);
         }
-        if(level == 5){
+        if (x <= WIDTH / 3 && y < HEIGHT / 3) {
+            graphics.setColor(Color.pink);
+        }
+        if (WIDTH / 3 <= x && x < WIDTH / 3 * 2 && y < HEIGHT / 3) {
+            graphics.setColor(Color.green);
+        }
+        if (x >= WIDTH / 3 * 2 && y < HEIGHT / 3) {
             graphics.setColor(Color.blue);
         }
-        if(level == 4){
+        if (WIDTH / 3 >= x && HEIGHT / 3 <= y && HEIGHT / 3 * 2 > y) {
             graphics.setColor(Color.orange);
         }
-        if(level == 3){
-            graphics.setColor(Color.green);
+        if (x >= WIDTH / 3 * 2 && y >= HEIGHT / 3 && y < HEIGHT / 3 * 2) {
+            graphics.setColor(Color.red);
         }
-        if(level == 2){
-            graphics.setColor(Color.black);
+        if (x <= WIDTH / 3 && y >= HEIGHT / 3 * 2) {
+            graphics.setColor(Color.cyan);
         }
-        if(level == 1){
-            graphics.setColor(Color.green);
+        if (x >= WIDTH / 3 && x < WIDTH / 3 * 2 && y >= HEIGHT / 3 * 2) {
+            graphics.setColor(Color.gray);
+        }
+        if (x >= WIDTH / 3 * 2 && y >= HEIGHT / 3 * 2) {
+            graphics.setColor(Color.yellow);
         }
         graphics.fillRect(x + size / 3, y + size / 3, size / 3, size / 3);
+
         drawsSierpinsky(x, y, size / 3, level - 1, graphics);
+
         drawsSierpinsky(x + size / 3, y, size / 3, level - 1, graphics);
+
         drawsSierpinsky(x + size / 3 * 2, y, size / 3, level - 1, graphics);
+
         drawsSierpinsky(x, y + size / 3, size / 3, level - 1, graphics);
+
         drawsSierpinsky(x + size / 3 * 2, y + size / 3, size / 3, level - 1, graphics);
+
         drawsSierpinsky(x, y + size / 3 * 2, size / 3, level - 1, graphics);
+
         drawsSierpinsky(x + size / 3, y + size / 3 * 2, size / 3, level - 1, graphics);
+
         drawsSierpinsky(x + size / 3 * 2, y + size / 3 * 2, size / 3, level - 1, graphics);
     }
 
@@ -65,3 +82,4 @@ public class SierpinskyFixColorSizes {
     }
 
 }
+
