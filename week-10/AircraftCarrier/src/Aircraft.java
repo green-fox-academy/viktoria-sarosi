@@ -72,4 +72,5 @@ public class Aircraft {
     public void setDealtDamage(int dealtDamage) {
         this.dealtDamage = dealtDamage;
     }
+
 }

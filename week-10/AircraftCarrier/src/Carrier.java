@@ -1,3 +1,4 @@
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class Carrier {
@@ -10,9 +11,14 @@ public class Carrier {
         this.fleet = new ArrayList<Aircraft>();
         this.storeOfAmmo = 1000;
         this.healthPoints = 6000;
+        this.totalDamage = 0;
+    }
+
+    public int calculateTotalDamage(ArrayList<Aircraft> fleet) {
         for (int i = 0; i < this.fleet.size(); i++) {
             this.totalDamage += this.fleet.get(i).getDealtDamage();
         }
+        return totalDamage;
     }
 
     public void addAircraft(Aircraft airplane) {
@@ -24,44 +30,43 @@ public class Carrier {
         for (int i = 0; i < fleet.size(); i++) {
             totalNeededAmmo += fleet.get(i).getMaxAmmo() - fleet.get(i).getAmmunition();
         }
-        for (int i = 0; i < fleet.size(); i++) {
-            if (fleet.get(i) instanceof F35) {
-                storeOfAmmo = fleet.get(i).refill(storeOfAmmo);
-            }
-        }
-        for (int i = 0; i < fleet.size(); i++) {
-            if (fleet.get(i) instanceof F16) {
-                storeOfAmmo = fleet.get(i).refill(storeOfAmmo);
-            }
-        }
-        int totalDamageCount = 0;
-        for (int i = 0; i < fleet.size(); i++) {
-            totalDamageCount += fleet.get(i).getDealtDamage();
-        }
-        this.setTotalDamage(totalDamageCount);
+        refillByAircraft("F35");
+        refillByAircraft("F16");
 
+        this.setTotalDamage(calculateTotalDamage(fleet));
         if (storeOfAmmo == 0) {
             throw new NoAmmoException();
         }
     }
 
+    public void refillByAircraft(String Brand) {
+        for (int i = 0; i < fleet.size(); i++) {
+            if (((fleet.get(i).getType())).equals(Brand)) {
+                storeOfAmmo = fleet.get(i).refill(storeOfAmmo);
+            }
+        }
+    }
+
     public void fight(Carrier otherCarrier) {
+        this.battle(otherCarrier);
+        otherCarrier.battle(this);
+        this.updateDealtDamageAfterFight();
+        otherCarrier.updateDealtDamageAfterFight();
+        this.setTotalDamage(0);
+        otherCarrier.setTotalDamage(0);
+    }
+
+    public void battle(Carrier enemyCarrier) {
         for (int i = 0; i < this.fleet.size(); i++) {
             this.fleet.get(i).fight();
-            otherCarrier.healthPoints -= this.fleet.get(i).fight();
+            enemyCarrier.healthPoints -= this.fleet.get(i).fight();
         }
-        for (int i = 0; i < otherCarrier.fleet.size(); i++) {
-            otherCarrier.fleet.get(i).fight();
-            this.healthPoints -= otherCarrier.fleet.get(i).fight();
-        }
+    }
+
+    public void updateDealtDamageAfterFight() {
         for (int i = 0; i < this.fleet.size(); i++) {
             this.fleet.get(i).setDealtDamage(0);
         }
-        for (int i = 0; i < otherCarrier.fleet.size(); i++) {
-            otherCarrier.fleet.get(i).setDealtDamage(0);
-        }
-        this.setTotalDamage(0);
-        otherCarrier.setTotalDamage(0);
     }
 
     public String getStatus() {
