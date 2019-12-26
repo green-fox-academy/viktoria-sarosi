@@ -15,7 +15,7 @@ public class Unique {
     private static ArrayList<Integer> unique(ArrayList<Integer> ints) {
         ArrayList<Integer> second = new ArrayList<Integer>();
         for (int i = 0; i < ints.size(); i++) {
-            if(!second.contains(ints.get(i))){
+            if (!second.contains(ints.get(i))) {
                 second.add(ints.get(i));
             }
         }

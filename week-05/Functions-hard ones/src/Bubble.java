@@ -20,17 +20,17 @@ public class Bubble {
     }
 
     private static ArrayList<Integer> advancedBubble(ArrayList<Integer> first, boolean well) {
-        if(well){
+        if (well) {
             Collections.sort(first, Collections.reverseOrder());
             return first;
-        }else{
+        } else {
             Collections.sort(first);
             return first;
         }
     }
 
     private static ArrayList<Integer> bubble(ArrayList<Integer> first) {
-            Collections.sort(first);
+        Collections.sort(first);
         return first;
     }
 }
