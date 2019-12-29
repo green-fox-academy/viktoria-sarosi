@@ -20,8 +20,8 @@ public class MostCommonCharacters {
         //  "e": 6,
         //  "l": 4
         //}
-            Path filename = Paths.get("myfile.txt");
-            mostCommonChar(filename);
+        Path filename = Paths.get("myfile.txt");
+        mostCommonChar(filename);
 
     }
 
@@ -38,28 +38,27 @@ public class MostCommonCharacters {
             together += lines.get(i);
         }
 
-        String[]chars = together.split("");
+        String[] chars = together.split("");
         HashMap<String, Integer> counted = new HashMap<>();
-        int counter = 0;
-        for (int i = 0; i < chars.length ; i++) {
+        for (int i = 0; i < chars.length; i++) {
             if (!counted.containsKey(chars[i])) {
                 counted.put(chars[i], 1);
-            } else{
+            } else {
                 counted.replace(chars[i], counted.get(chars[i]) + 1);
             }
         }
         String tempString = "";
         Integer tempInteger = 0;
         for (int i = 0; i < 2; i++) {
-            for(Map.Entry<String, Integer> entry : counted.entrySet()){
-                if(entry.getValue() == Collections.max(counted.values())) {
+            for (Map.Entry<String, Integer> entry : counted.entrySet()) {
+                if (entry.getValue() == Collections.max(counted.values())) {
                     tempString = entry.getKey();
                     tempInteger = entry.getValue();
                     break;
                 }
             }
             counted.remove(tempString, tempInteger);
-            System.out.println( tempString + " : " + tempInteger);
+            System.out.println(tempString + " : " + tempInteger);
 
         }
 
