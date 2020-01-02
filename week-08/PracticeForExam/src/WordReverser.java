@@ -4,7 +4,7 @@ public class WordReverser {
         System.out.println(reverse(input));
     }
 
-    private static String reverse(String input) {
+    public static String reverse(String input) {
         StringBuilder reversedInput = new StringBuilder();
         String[] splittedInput = input.split(" ");
         for (int i = 0; i < splittedInput.length; i++) {
@@ -13,6 +13,7 @@ public class WordReverser {
             reversedWords.reverse();
             reversedInput.append(reversedWords + " ");
         }
+        reversedInput.deleteCharAt(reversedInput.length() - 1);
         String reversedString = reversedInput.toString();
         return reversedString;
     }
