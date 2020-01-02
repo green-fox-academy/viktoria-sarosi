@@ -6,6 +6,26 @@ public class Animal {
     private int healCost;
     private String name;
 
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
+
+    public int getHealCost() {
+        return healCost;
+    }
+
+    public boolean isHealthy() {
+        return isHealthy;
+    }
+
+    public void setHealthy(boolean healthy) {
+        isHealthy = healthy;
+    }
+
     public Animal(String name, boolean isHealthy) {
         this.name = name;
         ownerName = ownerName;
@@ -23,7 +43,7 @@ public class Animal {
 
     @Override
     public String toString() {
-        return name + " is " + (isHealthy ? "is healthy and adoptable" : "is not healthy (heal cost : " + healCost + ") and is not adoptable");
+        return name + " is " + (isHealthy ? "healthy and adoptable" : "not healthy (healing would cost : " + healCost + ") and is not adoptable");
     }
 
     public boolean isAdaptable() {
