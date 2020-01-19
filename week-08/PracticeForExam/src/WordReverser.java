@@ -1,5 +1,3 @@
-package WordReverser;
-
 public class WordReverser {
    // public static void main(String[] args) throws EmptyStringException {
      //   String input = "lleW ,enod taht saw ton taht drah";
@@ -10,7 +8,7 @@ public class WordReverser {
         }
     }*/
 
-    public static String reverse(String input) throws EmptyStringException{
+    public static String reverse(String input) throws EmptyStringException {
         if (input.length() == 0) {
             throw new EmptyStringException();
         } else {

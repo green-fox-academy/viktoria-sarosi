@@ -1,4 +1,4 @@
-public class Person {
+public class Person implements Cloneable{
     private String name;
     private int age;
     private String gender;
@@ -33,5 +33,10 @@ public class Person {
 
     public String getGender() {
         return gender;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

@@ -39,3 +39,7 @@ public class Garden {
         System.out.println();
     }
 }
+//TODO needs water ? igy : úgy a state-be. (a state-be)
+//TODO state a Plant-be?
+//TODO nem kell this. a constructorban
+// TODO dividedwater nél a camelcase

@@ -6,7 +6,7 @@ public class Tree extends Plant {
         this.setLimitWhenNeedsWater(10);
     }
 
-
+//TODO public static final absorption és limit (nem kell getter setter)
 }
 
 

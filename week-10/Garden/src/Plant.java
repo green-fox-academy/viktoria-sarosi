@@ -7,7 +7,7 @@ public class Plant {
     public Plant() {
     }
 
-    public Plant(String color, double currentWater) {
+    public Plant(String color, double currentWaterLevel) {
         this.color = color;
         this.currentWaterLevel = currentWaterLevel;
         this.absorption = absorption;
@@ -46,3 +46,6 @@ public class Plant {
         this.limitWhenNeedsWater = limitWhenNeedsWater;
     }
 }
+//TODO a constructorba be lehet tenni az absorptiont és a limitet
+//TODO needswatert elég egy sorban, ha kisebb mint a current
+

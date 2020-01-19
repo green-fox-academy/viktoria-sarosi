@@ -17,7 +17,7 @@ public class EncodedLinesCode {
         try {
             lines = Files.readAllLines(filepath);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("There is something wrong with the txt file.");
         }
         for (int i = 0; i < lines.size(); i++) {
             char[] charLine = lines.get(i).toCharArray();
