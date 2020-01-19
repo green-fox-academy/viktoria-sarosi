@@ -1,14 +1,14 @@
 package WordReverser;
 
 public class WordReverser {
-    public static void main(String[] args) throws EmptyStringException {
-        String input = "lleW ,enod taht saw ton taht drah";
-        try {
-            System.out.println(reverse(input));
-        } catch (EmptyStringException e) {
-            System.out.println(e.getMessage());
+   // public static void main(String[] args) throws EmptyStringException {
+     //   String input = "lleW ,enod taht saw ton taht drah";
+       // try {
+         //   System.out.println(reverse(input));
+        //} catch (EmptyStringException e) {
+           /* System.out.println(e.getMessage());
         }
-    }
+    }*/
 
     public static String reverse(String input) throws EmptyStringException{
         if (input.length() == 0) {
