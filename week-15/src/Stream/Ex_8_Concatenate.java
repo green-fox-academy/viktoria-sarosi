@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Concatenate {
+public class Ex_8_Concatenate {
     public static void main(String[] args) {
         List<Character> input = Arrays.asList('a', 'b', 'l', 'a', 'k');
         String result = input.stream()

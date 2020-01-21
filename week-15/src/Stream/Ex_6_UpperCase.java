@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import static java.lang.Character.isUpperCase;
 
-public class UpperCase {
+public class Ex_6_UpperCase {
     public static void main(String[] args) {
         String input = "Who Is The Boss?";
         input.chars()

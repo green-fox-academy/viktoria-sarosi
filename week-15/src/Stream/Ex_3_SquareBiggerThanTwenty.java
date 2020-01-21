@@ -3,7 +3,7 @@ package Stream;
 import java.util.Arrays;
 import java.util.List;
 
-public class SquareBiggerThanTwenty {
+public class Ex_3_SquareBiggerThanTwenty {
     public static void main(String[] args) {
         List<Integer> numbers = Arrays.asList(3, 9, 2, 8, 6, 5);
         numbers.stream()
