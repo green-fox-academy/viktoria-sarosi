@@ -36,7 +36,6 @@ th:last-child{
     max-width: 360px;
 } 
 
-
 tr th:not(:last-child),
 tr td:not(:last-child)
 {
@@ -46,8 +45,6 @@ tr td:not(:last-child)
 tr{
     color: grey;
 }
-
-
 
 tr:nth-child(odd){
     background-color: white;
