@@ -3,34 +3,84 @@ body{
 
 }
 table{
-    align-self: center;
-    border-radius: 4px;
-    border-color: dodgerblue;
-    background-color: #e3e7e8;
+    margin: 50px auto;
+    border-collapse: collapse;
+    background-color: dodgerblue;
     text-align: left;
-    /*padding: 10px;*/
-    font-size: x-large;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Heebo', sans-serif;
 }
 
 th{
     background-color: black;
-    color: grey;
-    min-width: 400px;
-    max-width: 400px;
-    height: 80px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    color: lavender;
+    /* min-width: 350px;
+    max-width: 350px; */
+    height: 85px;
+    padding: 5px 25px;
+    font-size: 34px;
+    font-weight: 300;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    border-bottom-color:#A9A9A9;
+}
+
+th:first-child{
+    min-width: 340px;
+    max-width: 340px;
+} 
+
+th:last-child{
+    min-width: 360px;
+    max-width: 360px;
+} 
+
+
+tr th:not(:last-child),
+tr td:not(:last-child)
+{
+    border-right: 2px solid #A9A9A9;
 }
 
 tr{
     color: grey;
-
 }
+
+
 
 tr:nth-child(odd){
-    background-color: white  ;
-    
+    background-color: white;
 }
 
+tr:nth-child(even){
+    background-color: #d3d3d3;
+}
 td{
-height: 80px;
+    height: 72px;
+    padding: 5px 25px;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+tbody tr:last-child td:first-child{
+    border-bottom-left-radius: 4px;
+}
+
+tbody tr:last-child td:last-child{
+    border-bottom-right-radius: 4px;
+}
+
+tbody tr:not(:last-child){
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color:#A9A9A9;
+}
+
+.amount::before{
+    content: "$ ";
+}
+
+.amount::after{
+    content: ".00";
 }
