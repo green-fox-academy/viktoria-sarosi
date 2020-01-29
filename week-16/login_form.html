@@ -12,13 +12,13 @@
             <form action=""></form>
                 <div>
                     <label class="form-title" for="name">USERNAME</label>
-                    <input class="field" id="name" type="text">
+                    <input class="field" id="name" type="text" autofocus required>
                 </div>
-                <div>
+                <div >
                     <label class="form-title" for="password">PASSWORD</label>
-                    <input class="field" type="text" id="password">
-                    
-                    <input class="hide" type="image" src="eye.png" alt="eyeeye" width="10" height="10">
+                    <input class="field" type="text" id="password" minlength="6">
+                    <input class="hide" type="image" src="eye.png" alt="eye" width="10" height="10">
+                    <!-- <button><type="image" src="eye.png" alt="eye" width="10" height="10"></type></button> -->
                 </div>
                 <div>
                     <input class="forgot" type="button" value="Forgot Password?">
@@ -30,3 +30,5 @@
         </section>
     </body>
 </html>
+
+
