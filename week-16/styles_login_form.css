@@ -12,7 +12,6 @@ section {
     margin: 50px auto;
     padding-top: 30px;
     padding-left: 50px;
-    /* padding-right: 55px;  */
     border-radius: 4px;
 }
     
@@ -39,7 +38,6 @@ label{
 }
 
 .forgot {
-    /* text-align: left; */
     border: 0px;
     background-color: white;
     font-size: 8px;
@@ -57,4 +55,9 @@ label{
     font-size: 11px;
     border-radius: 20px;
     border: solid 1px black;
+}
+
+.hide {
+    border: 0px;
+    
 }
