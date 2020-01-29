@@ -1,0 +1,60 @@
+body {
+    background-color: #e8e8e8;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+
+section {
+    max-width: 330px;
+    min-width: 330px;
+    height: 320px;
+    background-color: white;
+    margin: 50px auto;
+    padding-top: 30px;
+    padding-left: 50px;
+    /* padding-right: 55px;  */
+    border-radius: 4px;
+}
+    
+h1 { 
+    font-weight: 400;
+    font-size: 20px;
+}
+
+label{
+    display: block;
+}
+
+.form-title {
+    font-size: 8px;
+    margin-top: 20px;
+    }
+
+.field {
+    margin-top: 5px;
+    margin-bottom: 0px; 
+    height: 30px;
+    width: 270px;
+    color: lightgrey;
+}
+
+.forgot {
+    /* text-align: left; */
+    border: 0px;
+    background-color: white;
+    font-size: 8px;
+    margin-left: 195px;
+    width: 90px;
+    
+}
+
+#login {
+    margin-top: 40px;
+    width: 100px;
+    height: 36px;
+    background-color: black;
+    color: white;
+    font-size: 11px;
+    border-radius: 20px;
+    border: solid 1px black;
+}
