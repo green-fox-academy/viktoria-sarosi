@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Login form</title>
+    <title>Login form</title>
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400&display=swap" rel="stylesheet">
     <link href="styles_login_form.css" rel="stylesheet" type="text/css">
@@ -9,7 +9,7 @@
     <body> 
         <section>
             <h1>ACCOUNT LOGIN</h1>
-            <form action=""></form>
+            <form>
                 <div>
                     <label class="form-title" for="name">USERNAME</label>
                     <input class="field" id="name" type="text" autofocus required>
@@ -17,11 +17,11 @@
                 <div >
                     <label class="form-title" for="password">PASSWORD</label>
                     <input class="field" type="text" id="password" minlength="6">
-                    <input class="hide" type="image" src="eye.png" alt="eye" width="10" height="10">
-                    <!-- <button><type="image" src="eye.png" alt="eye" width="10" height="10"></type></button> -->
+                    <!-- <input class="hide" type="image" src="eye.png" alt="eye" width="10" height="10"> -->
+                    <input id="eye" type="button" value="&#128065;">
                 </div>
                 <div>
-                    <input class="forgot" type="button" value="Forgot Password?">
+                    <input id="forgot" type="button" value="Forgot Password?">
                 </div>
                 <div>
                     <input id="login" type="submit" value="Login">

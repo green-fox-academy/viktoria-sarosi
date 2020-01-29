@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Newsletter</title>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400&display=swap" rel="stylesheet">
+        <link href="styles_newsletter.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <form action="https://newsletter-ws.herokuapp.com/signup" method="POST">
+            <div>
+                <label class="form-title" for="name">NAME</label>
+                <input class="field" id="name" type="text" required>
+            </div>
+            <div >
+                <label class="form-title" for="email">EMAIL</label>
+                <input class="field" type="email" id="email" minlength="6" required>
+            </div>
+            <div>
+                <input type="submit" value="Send">
+            </div>
+        </form>
+    </body>
+</html>
