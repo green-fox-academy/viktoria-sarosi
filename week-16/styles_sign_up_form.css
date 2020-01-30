@@ -1,5 +1,6 @@
 body {
     background-color: lightgrey;
+    font-family: 'Open Sans', sans-serif;
 }
 
 * {
@@ -24,11 +25,44 @@ section {
     display: table;
 }
 .left, .right {
-    width: 43%;
-    background-color: green;
+    width: 40%;
+}
+.left {
+    font-size: 25px;
+    font-weight: 100;
+    padding-left: 50px;
+}
+.middle {
+    width: 20%;
 }
 
-.middle {
-    width: 14%;
-    background-color: lightcoral;
+ .field {
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom-color: black;
+    border-bottom-width: 1px;
+    padding-left: 5px;
+    padding-right: 85px;
+    margin: 5px 0px;
+    /* margin-left: 0px;
+    margin-right: 0px; */
+    line-height: 10px;
+    
+    
+} 
+.field:focus {
+    border-bottom-width: 2px;
+    border-bottom-color: green;
+    outline: none;
 }
+
+/* input {
+  width: 220px;
+  padding: 12px;
+  margin: 5px 0;
+  display: block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; /* remove underline from anchors */
+} */
