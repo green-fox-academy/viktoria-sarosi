@@ -1,0 +1,34 @@
+body {
+    background-color: lightgrey;
+}
+
+* {
+    box-sizing: border-box;
+}
+section {
+    background-color: white;
+    width: 750px;
+    height: 500px;
+    margin: 50px auto;
+    border-radius: 3px;
+    box-shadow: 3px 2px 5px 0px rgba(143,140,143,0.67);
+}
+
+.column {
+    float: left;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.left, .right {
+    width: 43%;
+    background-color: green;
+}
+
+.middle {
+    width: 14%;
+    background-color: lightcoral;
+}
