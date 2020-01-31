@@ -9,29 +9,29 @@
     <body>
         <section>
             <div class="row">
+                <form action=https://newsletter-ws.herokuapp.com/register method="POST">
                 <div class="column left">
                     <h1 class="signUp">Sign up</h1>
-                    <h1>
                         <input class="field" type="text" id="name" name="Name" autofocus required placeholder="Username">
-                    </h1>
-                    <h1>
                         <input class="field" type="email" id="email" required placeholder="E-mail">
-                    </h1>
-                    <h1>
                         <input class="field" type="password" id="password" name="password" required placeholder="Password">
-                    </h1>
-                    <h1>
                         <input class="field" type="password" id="passwordConfirmation" name="passwordConfirmation" required placeholder="Retype password">
-                    </h1>
-                    <h1>
-                        <h1><input type="button" id="sign_up" value="SIGN ME UP"></h1>
-                    </h1>
-                </div>
+                        <input type="button" id="sign_up" value="SIGN ME UP">
+                 </div>
+                </form>
                 <div class="column middle">
-                    <h1><input type="text" id="or" value="OR"></h1>
+                    <input type="text" id="or" value="OR">
                 </div>
                 <div class="column right">
-                    <h1></h1>
+                    <div class="fb">
+                        <button id="facebook" onclick="window.location.href='https://www.facebook.com/';">Log in with facebook</button>
+                    </div>
+                    <div class="tw">
+                        <button id="twitter" onclick="window.location.href='https://www.twitter.com/';">Log in with Twitter</button>
+                    </div>
+                    <div class="gg">
+                        <button id="google" onclick="window.location.href='https://www.google.com/';">Log in with Google+</button>
+                    </div>
                 </div>
             </div>   
         </section>

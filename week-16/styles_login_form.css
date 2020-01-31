@@ -71,7 +71,7 @@ label{
 }
 
 .field:focus {
-    outline: none !important;
+    outline: none ;
     border:1px solid green;
 } 
 #login:focus {
