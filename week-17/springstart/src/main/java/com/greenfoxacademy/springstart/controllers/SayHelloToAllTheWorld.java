@@ -3,6 +3,7 @@ package com.greenfoxacademy.springstart.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class SayHelloToAllTheWorld {
@@ -12,8 +13,10 @@ public class SayHelloToAllTheWorld {
             "Sa-wat-dee", "Merhaba", "Selam", "Vitayu", "Xin chào", "Hylo", "Sut Mae", "Sholem Aleychem", "Sawubona"};
 
     @RequestMapping("/web/diffgreetings")
-    public String sayHello(Model model) {
+    public String sayHello(@RequestParam String color, @RequestParam Integer size, Model model) {
         model.addAttribute("hello", hellos[(int) (Math.random() * hellos.length)]);
+        model.addAttribute("size", size);
+        model.addAttribute("color", color);
         return "hellos";
     }
 }
