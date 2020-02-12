@@ -17,19 +17,27 @@ public class FizzBuzzWoof {
         counter.getAndIncrement();
         int count = counter.intValue();
         String result = "";
+        int size = 0;
         if (count % 3 == 0) {
             model.addAttribute("result", (result += "Fizz"));
+            size += 24;
+            model.addAttribute("size", size);
         }
         if (count % 5 == 0) {
             model.addAttribute("result", (result += "Buzz"));
+            size += 24;
+            model.addAttribute("size", size);
         }
         if (count % 7 == 0) {
             model.addAttribute("result", (result += "Woof"));
-        }
-        else if ((count % 3 != 0) && (count % 5 != 0) && (count % 7 != 0)) {
+            size += 24;
+            model.addAttribute("size", size);
+        } else if ((count % 3 != 0) && (count % 5 != 0) && (count % 7 != 0)) {
             model.addAttribute("result", (result = counter.toString()));
+            size = 12;
+            model.addAttribute("size", size);
         }
-        return"fizz";
+        return "fizz";
     }
 
 }
