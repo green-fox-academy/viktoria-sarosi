@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @SpringBootApplication
 @Controller
 public class SpringstartApplication {
-    @RequestMapping(value="/hello")
+    @RequestMapping(value = "/hello")
     @ResponseBody
     public String hello() {
         return "Hello World!";

@@ -9,8 +9,9 @@ import java.util.concurrent.atomic.AtomicLong;
 @RestController
 public class RESTGreetCounterApp {
     AtomicLong greetCount = new AtomicLong(1);
-    @RequestMapping(value ="/greetingCount")
-    public String greetingCounter(@RequestParam(value = "name") String name){
+
+    @RequestMapping(value = "/greetingCount")
+    public String greetingCounter(@RequestParam(value = "name") String name) {
         greetCount.getAndIncrement();
         return "greetcount: " + greetCount + ", " + "content: " + "Hello " + name;
     }
