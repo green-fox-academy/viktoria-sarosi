@@ -2,16 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bank_Of_Simba</title>
+    <title>Title</title>
 </head>
 <body>
-<div>
-    <div th:object="${accounts}">
+<div th:each="account : ${accounts}">
+    <div th:object="${account}">
         <h1 th:text="'Name: ' + *{name}"></h1>
         <h1 th:text="'Balance: ' + *{#numbers.formatDecimal(balance, 0, 2, 'POINT')} + ' Zebras'"></h1>
         <h1 th:text="'Animal Type: ' + *{animalType}"></h1>
     </div>
 </div>
-
 </body>
 </html>
