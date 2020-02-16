@@ -4,6 +4,8 @@ import com.greenfoxacademy.bankofsimba.models.BankAccount;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +42,21 @@ public class BankController {
 
     @GetMapping("/showAllAccounts")
     public String ShowAllAccounts(Model model){
+        model.addAttribute("accounts", accounts);
+        return "showAllAccounts";
+    }
+
+    @PostMapping("/showAllAccounts")
+    public String raiseBalance(String name, Model model){
+        for (int i = 0; i <accounts.size() ; i++) {
+            if(name.equalsIgnoreCase(accounts.get(i).getName())){
+                if (accounts.get(i).isKing()){
+                    accounts.get(i).setBalance(accounts.get(i).getBalance() + 100);
+                }else{
+                    accounts.get(i).setBalance(accounts.get(i).getBalance() + 10);
+                }
+            }
+        }
         model.addAttribute("accounts", accounts);
         return "showAllAccounts";
     }

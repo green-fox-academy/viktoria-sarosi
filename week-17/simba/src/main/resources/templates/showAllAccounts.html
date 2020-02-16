@@ -29,8 +29,12 @@
     </tr>
     </tbody>
 </table>
-<form>
-    <button id="raise">Raise the Balance!</button>
+<form action="/showAllAccounts" method="post">
+    <label id="whose" for="name">Whose balance would you like to raise?</label>
+    <select id="name" name="name">
+        <option th:each="account : ${accounts}" th:object="${account}" th:value="*{name}" th:text="*{name}"></option>
+    </select>
+    <button type="submit" id="raise" >Raise the Balance!</button>
 </form>
 </body>
 </html>
