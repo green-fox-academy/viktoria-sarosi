@@ -2,15 +2,32 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Bank of Simba</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Pangolin&display=swap" rel="stylesheet">
 </head>
 <body>
-<div th:each="account : ${accounts}">
-    <div th:object="${account}">
-        <h1 th:text="'Name: ' + *{name}"></h1>
-        <h1 th:text="'Balance: ' + *{#numbers.formatDecimal(balance, 0, 2, 'POINT')} + ' Zebras'"></h1>
-        <h1 th:text="'Animal Type: ' + *{animalType}"></h1>
-    </div>
-</div>
+<table>
+    <thead>
+    <tr>
+        <th class="short">Index</th>
+        <th>Name</th>
+        <th>Balance</th>
+        <th>Animal Type</th>
+        <th class="short">Is King?</th>
+        <th class="short">Is Good?</th>
+    </tr>
+    </thead>
+    <tbody th:each="account : ${accounts}" th:object="${account}">
+    <tr class="<% if *{isKing()} 'king' %>">
+        <td th:text=" ${accountStat.index} "></td>
+        <td th:text=" *{name} "></td>
+        <td th:text=" *{#numbers.formatDecimal(balance, 0, 2, 'POINT')} + ' Zebra' "></td>
+        <td th:text=" *{animalType} "></td>
+        <td th:text=" *{isKing() ? 'King' : ''} "></td>
+        <td th:text=" *{isGood() ? 'Good One' : 'Bad Guy'} "></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

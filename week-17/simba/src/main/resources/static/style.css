@@ -1,0 +1,45 @@
+body {
+    background-color: khaki;
+}
+
+table {
+    margin: 50px auto;
+    background-color: ivory;
+    border-radius: 4px;
+    border-collapse: collapse;
+}
+
+thead {
+    width: 250px;
+    height: 75px;
+}
+th {
+    width: 230px;
+    height: 70px;
+    /*border-radius: 6px;*/
+    background-color: black;
+    color: ivory;
+    font-family: 'Amatic SC', cursive;
+    font-size: 36px;
+    border-top: ivory 1px solid;
+    border-bottom: black 1px solid;
+    border-left: ivory 1px solid;
+    border-right: ivory 1px solid;
+}
+
+td {
+    padding-left: 20px;
+    font-family: 'Pangolin', cursive;
+    height: 40px;
+    border: black 1px solid;
+}
+
+.short {
+    width: 100px;
+}
+
+.king {
+    background-color: #D4AF37;
+}
+
+

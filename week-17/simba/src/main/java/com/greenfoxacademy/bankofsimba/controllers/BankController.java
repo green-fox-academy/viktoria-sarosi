@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Controller
 public class BankController {
@@ -14,15 +15,14 @@ public class BankController {
     private List<BankAccount> accounts = new ArrayList<>();
 
     public BankController() {
-        accounts.add(new BankAccount("Simba", 2000, "lion"));
-        accounts.add(new BankAccount("Nala", 2000, "lion"));
-        accounts.add(new BankAccount("Timon", 1850, "meercat"));
-        accounts.add(new BankAccount("Pumba", 1900, "warthog"));
-        accounts.add(new BankAccount("Scar", 1910, "lion"));
-        accounts.add(new BankAccount("Sarabi", 1870, "lion"));
-        accounts.add(new BankAccount("Zazu", 1790, "hornbill"));
-        accounts.add(new BankAccount("Shenzi", 1800, "hyena"));
-        accounts.add(new BankAccount("Ed", 1870, "hyena"));
+        accounts.add(new BankAccount("Simba", 2000, "lion", true, true));
+        accounts.add(new BankAccount("Nala", 2000, "lion", false, true));
+        accounts.add(new BankAccount("Timon", 1850, "meercat", false, true));
+        accounts.add(new BankAccount("Scar", 1910, "lion", false, false));
+        accounts.add(new BankAccount("Sarabi", 1870, "lion", false, true));
+        accounts.add(new BankAccount("Zazu", 1790, "hornbill", false, true));
+        accounts.add(new BankAccount("Shenzi", 1800, "hyena", false, false));
+        accounts.add(new BankAccount("Ed", 1870, "hyena", false, false));
 
     }
 
