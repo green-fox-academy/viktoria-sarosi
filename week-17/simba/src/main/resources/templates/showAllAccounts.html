@@ -18,8 +18,8 @@
         <th class="short">Is Good?</th>
     </tr>
     </thead>
-    <tbody th:each="account : ${accounts}" th:object="${account}">
-    <tr class="<% if *{isKing()} 'king' %>">
+    <tbody th:each="account : ${accounts}" th:object="${account}" th:attr="class=*{isKing()} ? 'king'">
+    <tr>
         <td th:text=" ${accountStat.index} "></td>
         <td th:text=" *{name} "></td>
         <td th:text=" *{#numbers.formatDecimal(balance, 0, 2, 'POINT')} + ' Zebra' "></td>
@@ -29,5 +29,8 @@
     </tr>
     </tbody>
 </table>
+<form>
+    <button id="raise">Raise the Balance!</button>
+</form>
 </body>
 </html>

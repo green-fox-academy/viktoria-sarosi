@@ -1,5 +1,7 @@
 body {
-    background-color: khaki;
+    /*background-color: khaki;*/
+    background: url("https://image.freepik.com/free-vector/orange-abstract-background-with-lines_1123-45.jpg");
+    background-size: 100% ;
 }
 
 table {
@@ -39,7 +41,18 @@ td {
 }
 
 .king {
-    background-color: #D4AF37;
+    color: darkgoldenrod;
+    font-size: 18px;
 }
 
-
+#raise {
+    background-color: ivory;
+    color: black;
+    font-family: 'Amatic SC', cursive;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    outline: none;
+    font-size: 16px;
+    font-weight: bold;
+}
