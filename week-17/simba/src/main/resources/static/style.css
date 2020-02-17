@@ -5,8 +5,28 @@ body {
     background: url("Savannah-background.jpg") center center;
 }
 
+bank {
+    display: flow;
+}
+
+.lion {
+    width: 10%;
+    height: 10%;
+}
+
+#bos {
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
+    font-size: 26px;
+    color: goldenrod;
+    margin: 30px 850px 0px 220px;
+    padding-left: 20px;
+    border: darkgoldenrod 3px solid;
+    background-color: black;
+}
+
 table {
-    margin: 30px auto;
+    margin: 0px auto;
     background-color: ivory;
     border-radius: 4px;
     border-collapse: collapse;
