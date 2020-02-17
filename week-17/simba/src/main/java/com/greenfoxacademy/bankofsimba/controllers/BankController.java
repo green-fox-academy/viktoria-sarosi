@@ -4,12 +4,11 @@ import com.greenfoxacademy.bankofsimba.models.BankAccount;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Controller
 public class BankController {
@@ -35,29 +34,40 @@ public class BankController {
     }
 
     @GetMapping("/ception")
-    public String htmlception(Model model){
+    public String htmlception(Model model) {
         model.addAttribute("text", "This is an <em>HTML</em> text. <b>Enjoy yourself!</b>");
         return "ception";
     }
 
-    @GetMapping("/showAllAccounts")
-    public String ShowAllAccounts(Model model){
+    @GetMapping("/show-all-accounts")
+    public String renderAllAccounts(Model model) {
         model.addAttribute("accounts", accounts);
-        return "showAllAccounts";
+        return "show-all-accounts";
     }
 
-    @PostMapping("/showAllAccounts")
-    public String raiseBalance(String name, Model model){
-        for (int i = 0; i <accounts.size() ; i++) {
-            if(name.equalsIgnoreCase(accounts.get(i).getName())){
-                if (accounts.get(i).isKing()){
+    @PostMapping("/show-all-accounts")
+    public String raiseBalance(String name) {
+        for (int i = 0; i < accounts.size(); i++) {
+            if (name.equalsIgnoreCase(accounts.get(i).getName())) {
+                if (accounts.get(i).isKing()) {
                     accounts.get(i).setBalance(accounts.get(i).getBalance() + 100);
-                }else{
+                } else {
                     accounts.get(i).setBalance(accounts.get(i).getBalance() + 10);
                 }
             }
         }
-        model.addAttribute("accounts", accounts);
-        return "showAllAccounts";
+
+        return "redirect:/show-all-accounts";
+    }
+
+    @GetMapping("/new-account")
+    public String renderAddForm(Model model) {
+        return "new-account";
+    }
+
+    @PostMapping("/new-account")
+    public String addNewAccount(@ModelAttribute BankAccount account) {
+        accounts.add(account);
+        return "redirect:/show-all-accounts";
     }
 }

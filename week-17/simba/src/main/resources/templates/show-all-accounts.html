@@ -5,14 +5,15 @@
     <title>Bank of Simba</title>
     <link rel="stylesheet" th:href="@{/style.css}"/>
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Pangolin&display=swap" rel="stylesheet">
+    <link rel="icon" href="29609-8-the-lion-king.png">
 </head>
 <body>
 <table>
     <thead>
     <tr>
-        <th class="short">Index</th>
+        <th class="shorter">Index</th>
         <th>Name</th>
-        <th>Balance</th>
+        <th colspan="2">Balance</th>
         <th>Animal Type</th>
         <th class="short">Is King?</th>
         <th class="short">Is Good?</th>
@@ -20,16 +21,17 @@
     </thead>
     <tbody th:each="account : ${accounts}" th:object="${account}" th:attr="class=*{isKing()} ? 'king'">
     <tr>
-        <td th:text=" ${accountStat.index} "></td>
+        <td id="index" th:text=" ${accountStat.count} "></td>
         <td th:text=" *{name} "></td>
-        <td th:text=" *{#numbers.formatDecimal(balance, 0, 2, 'POINT')} + ' Zebra' "></td>
+        <td id="balanceleft" th:text=" *{#numbers.formatDecimal(balance, 0, 2, 'POINT')}"></td>
+        <td id="balanceright">Zebra</td>
         <td th:text=" *{animalType} "></td>
         <td th:text=" *{isKing() ? 'King' : ''} "></td>
         <td th:text=" *{isGood() ? 'Good One' : 'Bad Guy'} "></td>
     </tr>
     </tbody>
 </table>
-<form action="/showAllAccounts" method="post">
+<form action="/show-all-accounts" method="post">
     <label id="whose" for="name">Whose balance would you like to raise?</label>
     <select id="name" name="name">
         <option th:each="account : ${accounts}" th:object="${account}" th:value="*{name}" th:text="*{name}"></option>

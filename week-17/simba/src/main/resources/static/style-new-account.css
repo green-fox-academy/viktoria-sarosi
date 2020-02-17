@@ -1,0 +1,31 @@
+body {
+    background-size: cover ;
+    background: url("Savannah-background.jpg") center center;
+}
+
+form {
+    margin: 50px auto;
+    alignment: center;
+    color: ivory;
+    font-size: 26px;
+    padding-right: 200px;
+    padding-left: 200px;
+}
+
+.form-title {
+    font-family: 'Amatic SC', cursive;
+    font-size: 26px;
+    font-weight: bold;
+
+}
+
+.field {
+    font-family: 'Amatic SC', cursive;
+    font-size: 18px;
+    font-weight: bold;
+}
+.cell {
+    font-size: 26px;
+    padding-right: 200px;
+    padding-left: 200px;
+}
