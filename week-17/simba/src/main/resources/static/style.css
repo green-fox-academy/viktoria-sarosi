@@ -18,11 +18,12 @@ bank {
     font-family: 'Amatic SC', cursive;
     font-weight: bold;
     font-size: 26px;
-    color: goldenrod;
+    color: black;
     margin: 30px 850px 0px 217px;
     text-align: center;
     border: darkgoldenrod 3px solid;
-    background-color: black;
+    background-color: ivory;
+    border-radius: 20px;
 }
 
 table {
