@@ -3,13 +3,32 @@ body {
     background: url("Savannah-background.jpg") center center;
 }
 
-form {
-    margin: 50px auto;
-    alignment: center;
-    color: ivory;
+.lion {
+    width: 10%;
+    height: 10%;
+}
+
+#bos {
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
     font-size: 26px;
-    padding-right: 200px;
-    padding-left: 200px;
+    color: goldenrod;
+    margin: 60px 850px 0 200px;
+    text-align: center;
+    border: darkgoldenrod 3px solid;
+    background-color: black;
+}
+
+form {
+    margin: 0 200px;
+    alignment: center;
+    color: darkgoldenrod;
+    font-size: 26px;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-bottom: 40px;
+    border: black solid 3px;
+    background-color: ivory;
 }
 
 .form-title {
@@ -25,12 +44,23 @@ form {
 }
 .cell {
     font-size: 26px;
-    padding-right: 200px;
-    padding-left: 200px;
 }
 
 .option {
     font-family: 'Amatic SC', cursive;
     font-size: 26px;
-    margin-left: 50px;
+    margin-left: 20px;
+}
+
+#submit {
+    margin-left: 600px;
+    background-color: ivory;
+    color: black;
+    font-family: 'Amatic SC', cursive;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    outline: darkgoldenrod;
+    font-size: 18px;
+    font-weight: bold;
 }

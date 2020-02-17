@@ -19,14 +19,14 @@ bank {
     font-weight: bold;
     font-size: 26px;
     color: goldenrod;
-    margin: 30px 850px 0px 220px;
-    padding-left: 20px;
+    margin: 30px 850px 0px 217px;
+    text-align: center;
     border: darkgoldenrod 3px solid;
     background-color: black;
 }
 
 table {
-    margin: 0px auto;
+    margin: 0 auto;
     background-color: ivory;
     border-radius: 4px;
     border-collapse: collapse;
