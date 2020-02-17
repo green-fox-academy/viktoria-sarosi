@@ -46,29 +46,36 @@ td {
     color: darkgoldenrod;
 }
 
+form {
+    margin-left: 340px;
+}
 #raise {
     background-color: ivory;
     color: black;
     font-family: 'Amatic SC', cursive;
-    width: 80px;
-    height: 80px;
-    border-radius: 40px;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
     outline: none;
     font-size: 18px;
     font-weight: bold;
-    /*margin-left: 400px;*/
-    margin-top: -18px;
+    margin-top: 10px;
+    margin-left: 15px;
+
 }
 
 #whose {
     font-family: 'Amatic SC', cursive;
-    font-size: 18px;
+    font-size: 28px;
     font-weight: bold;
+    display: block;
 }
 
 #name {
     font-family: 'Amatic SC', cursive;
     font-weight: bold;
+    margin-left: 30px;
+    margin-top: 10px;
 }
 
 #index {
@@ -87,4 +94,17 @@ td {
 
 .shorter {
     width: 70px;
+}
+
+#redirect-to-new-account {
+    margin-left: 200px;
+    background-color: ivory;
+    color: black;
+    font-family: 'Amatic SC', cursive;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    outline: none;
+    font-size: 18px;
+    font-weight: bold;
 }

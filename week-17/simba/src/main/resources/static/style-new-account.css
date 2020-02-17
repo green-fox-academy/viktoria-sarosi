@@ -16,7 +16,6 @@ form {
     font-family: 'Amatic SC', cursive;
     font-size: 26px;
     font-weight: bold;
-
 }
 
 .field {
@@ -28,4 +27,10 @@ form {
     font-size: 26px;
     padding-right: 200px;
     padding-left: 200px;
+}
+
+.option {
+    font-family: 'Amatic SC', cursive;
+    font-size: 26px;
+    margin-left: 50px;
 }
