@@ -12,10 +12,10 @@ body {
     font-family: 'Amatic SC', cursive;
     font-weight: bold;
     font-size: 26px;
-    color: black;
+    color: darkgoldenrod;
     margin: 60px 850px 0 200px;
     text-align: center;
-    border: darkgoldenrod 3px solid;
+    border: black 3px solid;
     background-color: ivory;
     border-radius: 20px;
 }

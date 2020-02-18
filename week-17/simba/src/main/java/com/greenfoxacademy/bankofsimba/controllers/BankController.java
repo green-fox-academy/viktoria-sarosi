@@ -49,7 +49,7 @@ public class BankController {
     public String raiseBalance(String name) {
         for (int i = 0; i < accounts.size(); i++) {
             if (name.equalsIgnoreCase(accounts.get(i).getName())) {
-                if (accounts.get(i).isKing()) {
+                if (accounts.get(i).getIsKing()) {
                     accounts.get(i).setBalance(accounts.get(i).getBalance() + 100);
                 } else {
                     accounts.get(i).setBalance(accounts.get(i).getBalance() + 10);

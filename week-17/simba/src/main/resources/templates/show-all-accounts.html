@@ -9,7 +9,7 @@
 </head>
 <body>
 <span id="bank">
-    <h1 id="bos" ><img class="lion" src="29609-8-the-lion-king.png" alt="lion">  BANK of SIMBA</h1>
+    <h1 id="bos"><img class="lion" src="29609-8-the-lion-king.png" alt="lion">  BANK of SIMBA</h1>
 </span>
 <table>
     <thead>
@@ -22,28 +22,30 @@
         <th class="short">Is Good?</th>
     </tr>
     </thead>
-    <tbody th:each="account : ${accounts}" th:object="${account}" th:attr="class=*{isKing()} ? 'king'">
+    <tbody th:each="account : ${accounts}" th:object="${account}" th:attr="class=*{getIsKing()} ? 'king'">
     <tr>
         <td id="index" th:text=" ${accountStat.count} "></td>
         <td th:text=" *{name} "></td>
         <td id="balanceleft" th:text=" *{#numbers.formatDecimal(balance, 0, 'COMMA', 2, 'POINT')}"></td>
         <td id="balanceright">Zebra</td>
         <td th:text=" *{animalType} "></td>
-        <td th:text=" *{isKing() ? 'King' : ''} "></td>
-        <td th:text=" *{isGood() ? 'Good One' : 'Bad Guy'} "></td>
+        <td th:text=" *{getIsKing() ? 'King' : ''} "></td>
+        <td th:text=" *{getIsGood() ? 'Good One' : 'Bad Guy'} "></td>
     </tr>
     </tbody>
 </table>
-<form action="/show-all-accounts" method="post">
-    <label id="whose" for="name">Whose balance would you like to raise?</label>
-    <select id="name" name="name">
-        <option th:each="account : ${accounts}" th:object="${account}" th:value="*{name}" th:text="*{name}"></option>
-    </select>
-    <button type="submit" id="raise" >Raise the Balance!</button>
-
-</form>
-<div>
-    <button id="redirect-to-new-account" onclick="window.location.href='/new-account';">New account</button>
-</div>
+<section id="bottom">
+    <form action="/show-all-accounts" method="post">
+        <label id="whose" for="name">Whose balance would you like to raise?</label>
+        <select id="name" name="name">
+            <option th:each="account : ${accounts}" th:object="${account}" th:value="*{name}"
+                    th:text="*{name}"></option>
+        </select>
+        <button type="submit" id="raise">Raise the Balance!</button>
+    </form>
+    <div>
+        <button id="redirect-to-new-account" onclick="window.location.href='/new-account';">New account</button>
+    </div>
+</section>
 </body>
 </html>

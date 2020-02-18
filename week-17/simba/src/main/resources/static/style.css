@@ -18,10 +18,10 @@ bank {
     font-family: 'Amatic SC', cursive;
     font-weight: bold;
     font-size: 26px;
-    color: black;
+    color: darkgoldenrod;
     margin: 30px 850px 0px 217px;
     text-align: center;
-    border: darkgoldenrod 3px solid;
+    border: black 3px solid;
     background-color: ivory;
     border-radius: 20px;
 }
@@ -67,8 +67,9 @@ td {
     color: darkgoldenrod;
 }
 
-form {
-    margin-left: 340px;
+#bottom {
+    margin-top: 30px;
+    padding: 0 300px;
 }
 #raise {
     background-color: ivory;
@@ -80,8 +81,8 @@ form {
     outline: none;
     font-size: 18px;
     font-weight: bold;
-    margin-top: 10px;
-    margin-left: 15px;
+    margin-top: -12px;
+    margin-left: 200px;
 
 }
 
@@ -118,7 +119,8 @@ form {
 }
 
 #redirect-to-new-account {
-    margin-left: 200px;
+    margin-left: 350px;
+    margin-top: 30px;
     background-color: ivory;
     color: black;
     font-family: 'Amatic SC', cursive;
