@@ -72,10 +72,14 @@ public class BankController {
     }
 
     @GetMapping("/different-new-account")
-    public String renderDifferentAddForm(Model model, @ModelAttribute(name="account") BankAccount account){
-        model.addAttribute("accounts", account);
+    public String renderDifferentAddForm(Model model) {
         return "different-new-account";
     }
 
-    <!-- másik fajta add-ot befejezni th-kkal -->
+    @PostMapping("/different-new-account")
+    public String addDifferentAddForm(Model model, @ModelAttribute(name = "account") BankAccount account) {
+        accounts.add(account);
+        return "redirect:show-all-accounts";
+    }
+
 }

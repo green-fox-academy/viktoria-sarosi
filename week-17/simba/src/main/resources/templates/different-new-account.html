@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank of Simba</title>
+    <link rel="stylesheet" th:href="@{/style-new-account.css}"/>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Pangolin&display=swap" rel="stylesheet">
+    <link rel="icon" href="29609-8-the-lion-king.png">
+</head>
+<body>
+<span id="bank">
+    <h1 id="bos" ><img class="lion" src="29609-8-the-lion-king.png" alt="lion">  BANK of SIMBA</h1>
+</span>
+<form th:action="@{/different-new-account}" method="POST" th:object="${account}">
+    <h1>Enter the new account's details:</h1>
+    <div class="cell">
+        <label class="form-title" for="name">Name of the owner of the account</label>
+        <input class="field" id="name" type="text" th:name="name" >
+    </div>
+    <div class="cell">
+        <label class="form-title" for="balance">Amount of money to put on the account</label>
+        <input class="field" id="balance" th:name="balance" type="number" >
+    </div>
+    <div class="cell">
+        <label class="form-title" for="animal type">Animal type</label>
+        <input class="field" id="animal type" th:name="animalType" type="text" >
+    </div>
+    <div class="cell">
+        <span class="form-title">Are You a King?</span>
+        <label class="option" for="King">I am a King</label>
+        <input type="radio" class="field" id="King" name="isKing" th:value="true">
+        <label class="option" for="NotKing">I am not a King</label>
+        <input type="radio" class="field" id="NotKing" name="isKing" th:value="false">
+
+    </div>
+    <div class="cell">
+        <span class="form-title">Are You a Good Guy?</span>
+        <label class="option" for="Good">Good One</label>
+        <input type="radio" class="field" id="Good" name="isGood" value="true">
+        <label class="option" for="Bad">Bad Guy</label>
+        <input type="radio" class="field" id="Bad" name="isGood" value="false">
+    </div>
+    <div>
+        <input id="submit" type="submit" class="form-title" value="submit">
+    </div>
+</form>
+</body>
+</html>
