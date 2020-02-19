@@ -33,7 +33,10 @@ form {
 
 h1 {
     color: darkgoldenrod;
+    font-family: 'Amatic SC', cursive;
+    margin-left: 150px;
 }
+
 .form-title {
     font-family: 'Amatic SC', cursive;
     font-size: 26px;
@@ -48,6 +51,7 @@ h1 {
 }
 .cell {
     font-size: 26px;
+    padding-left: 100px;
 }
 
 .option {
