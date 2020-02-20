@@ -45,7 +45,7 @@ public class BankController {
         return "show-all-accounts";
     }
 
-    @PostMapping("/show-all-accounts")
+    @PostMapping("/raise-balance")
     public String raiseBalance(String name) {
         for (int i = 0; i < accounts.size(); i++) {
             if (name.equalsIgnoreCase(accounts.get(i).getName())) {

@@ -20,6 +20,7 @@
         <th>Animal Type</th>
         <th class="short">Is King?</th>
         <th class="short">Is Good?</th>
+        <th class="short">Raise</th>
     </tr>
     </thead>
     <tbody th:each="account : ${accounts}" th:object="${account}" th:attr="class=*{getIsKing()} ? 'king'">
@@ -31,11 +32,18 @@
         <td th:text=" *{animalType} "></td>
         <td th:text=" *{getIsKing() ? 'King' : ''} "></td>
         <td th:text=" *{getIsGood() ? 'Good One' : 'Bad Guy'} "></td>
+        <td>
+            <form th:action="@{/raise-balance}" method="post">
+                <!--<input type="hidden" name="name" th:value="*{name}">
+                <button type="submit" >Raise</button>-->
+                <button type="submit" th:name="name" th:value="*{name}">Raise</button>
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>
 <section id="bottom">
-    <form action="/show-all-accounts" method="post">
+    <form action="/raise-balance" method="post">
         <label id="whose" for="name">Whose balance would you like to raise?</label>
         <select id="name" name="name">
             <option th:each="account : ${accounts}" th:object="${account}" th:value="*{name}"
