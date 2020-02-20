@@ -1,4 +1,4 @@
-package com.greenfoxacademy.dependency.dependency;
+package com.greenfoxacademy.dependency.color;
 
 public interface MyColor {
     public void PrintColor();

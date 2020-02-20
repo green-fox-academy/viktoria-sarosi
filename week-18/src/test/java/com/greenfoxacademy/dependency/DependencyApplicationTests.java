@@ -1,4 +1,4 @@
-package com.greenfoxacademy.dependency.dependency;
+package com.greenfoxacademy.dependency;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

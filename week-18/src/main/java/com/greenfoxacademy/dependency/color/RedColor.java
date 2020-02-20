@@ -1,6 +1,5 @@
-package com.greenfoxacademy.dependency.dependency;
+package com.greenfoxacademy.dependency.color;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
