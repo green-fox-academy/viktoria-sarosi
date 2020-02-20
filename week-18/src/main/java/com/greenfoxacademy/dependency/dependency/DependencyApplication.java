@@ -1,6 +1,7 @@
 package com.greenfoxacademy.dependency.dependency;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,11 +9,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class DependencyApplication implements CommandLineRunner {
 
-    Printer printer;
+    private Printer printer;
+    private MyColor color;
 
     @Autowired
-    public DependencyApplication(Printer printer) {
+    public DependencyApplication(Printer printer, @Qualifier("blue") MyColor color) {
         this.printer = printer;
+        this.color = color;
     }
 
     public static void main(String[] args) {
@@ -22,5 +25,6 @@ public class DependencyApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         printer.log("First exercise");
+        color.PrintColor();
     }
 }
