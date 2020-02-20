@@ -32,11 +32,11 @@
         <td th:text=" *{animalType} "></td>
         <td th:text=" *{getIsKing() ? 'King' : ''} "></td>
         <td th:text=" *{getIsGood() ? 'Good One' : 'Bad Guy'} "></td>
-        <td>
+        <td id="up">
             <form th:action="@{/raise-balance}" method="post">
                 <!--<input type="hidden" name="name" th:value="*{name}">
                 <button type="submit" >Raise</button>-->
-                <button type="submit" th:name="name" th:value="*{name}">Raise</button>
+                <button id="arrow" type="submit" th:name="name" th:value="*{name}">&#8593;</button>
             </form>
         </td>
     </tr>

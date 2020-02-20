@@ -101,7 +101,7 @@ td {
 }
 
 #index {
-    text-align: center;
+    align: center;
 }
 
 #balanceright {
@@ -130,4 +130,12 @@ td {
     outline: none;
     font-size: 18px;
     font-weight: bold;
+}
+
+#up {
+    align: center;
+}
+
+#arrow {
+    color: darkgoldenrod;
 }
