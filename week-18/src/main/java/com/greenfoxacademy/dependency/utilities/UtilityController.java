@@ -24,22 +24,32 @@ public class UtilityController {
     }
 
     @GetMapping("/useful/color")
-    public String renderColor(Model model){
+    public String renderColor(Model model) {
         model.addAttribute("color", utilityService.randomColor());
         return "/useful/color";
     }
 
     @GetMapping("/useful/email")
-    public String renderEmailValidator(Model model, @RequestParam (name="email", required = false) String emailToValidate){
-        if (utilityService.isValid(emailToValidate)){
+    public String renderEmailValidator(Model model, @RequestParam(name = "email", required = false) String emailToValidate) {
+        if (utilityService.isValid(emailToValidate)) {
             model.addAttribute("email", emailToValidate + "is a valid email address");
             model.addAttribute("color", "green");
-        }else{
+        } else {
             model.addAttribute("email", emailToValidate + "is not a valid email address");
             model.addAttribute("color", "red");
         }
         return "useful/email";
     }
 
+    @GetMapping("/useful/encoder")
+    public String encodeText(Model model, @RequestParam(name = "text") String text, @RequestParam(name = "number") int number) {
+        model.addAttribute("encoded", utilityService.caesar(text, number));
+        return "useful/encode";
+    }
 
+    @GetMapping("/useful/decode")
+    public String decodeText(Model model, @RequestParam(name = "text") String text, @RequestParam(name = "number") int number) {
+        model.addAttribute("decoded", utilityService.caesar(text, -number));
+        return "useful/decode";
+    }
 }
