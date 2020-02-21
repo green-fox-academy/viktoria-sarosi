@@ -42,13 +42,13 @@ public class UtilityController {
     }
 
     @GetMapping("/useful/encoder")
-    public String encodeText(Model model, @RequestParam(name = "text") String text, @RequestParam(name = "number") int number) {
+    public String encodeText(Model model, @RequestParam(name = "text") String text, @RequestParam(name = "number") Integer number) {
         model.addAttribute("encoded", utilityService.caesar(text, number));
         return "useful/encode";
     }
 
     @GetMapping("/useful/decode")
-    public String decodeText(Model model, @RequestParam(name = "text") String text, @RequestParam(name = "number") int number) {
+    public String decodeText(Model model, @RequestParam(name = "text") String text, @RequestParam(name = "number") Integer number) {
         model.addAttribute("decoded", utilityService.caesar(text, -number));
         return "useful/decode";
     }

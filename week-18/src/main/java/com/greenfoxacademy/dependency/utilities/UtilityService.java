@@ -25,8 +25,8 @@ public class UtilityService {
     }
 
 
-    public String caesar(String text, int number) {
-        if(text== null){
+    public String caesar(String text, Integer number) {
+        if(text== null || number == null){
             return "There is no text to encode.";
         }
         if (number < 0) {
