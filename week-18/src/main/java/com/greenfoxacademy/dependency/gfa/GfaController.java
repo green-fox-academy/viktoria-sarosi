@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
+
 @Controller
 public class GfaController {
 
@@ -17,7 +19,8 @@ public class GfaController {
     }
 
     @GetMapping("/gfa")
-    public String renderGfaMain() {
+    public String renderGfaMain(Model model) {
+        model.addAttribute("count", studentService.count(studentService.findAll()));
         return "gfa";
     }
 
@@ -27,10 +30,10 @@ public class GfaController {
         return "gfa/list";
     }
 
-    @PostMapping("gfa/add")
+    @PostMapping("gfa/save")
     public String addNewStudent(String name) {
         studentService.save(name);
-        return "gfa/add";
+        return "redirect:/gfa/list";
     }
 
     @GetMapping("gfa/add")
@@ -38,4 +41,16 @@ public class GfaController {
         model.addAttribute("name", "name");
         return "gfa/add";
     }
+
+    @GetMapping("gfa/check")
+    public String renderStudentChecker(Model model) {
+        return "gfa/check";
+    }
+
+    @PostMapping("gfa/check")
+    public String checkStudent(String name, Model model) {
+        model.addAttribute("studentornot", studentService.check(name, studentService.findAll()));
+        return "gfa/check";
+    }
+
 }
