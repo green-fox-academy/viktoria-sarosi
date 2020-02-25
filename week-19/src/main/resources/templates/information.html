@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Information</title>
 </head>
-<body>
+<body th:object="${fox}">
 <img src="/greenfox.png">
 <div th:text="'This is ' + ${fox.getName()} + '. Currently living on ' + ${fox.getFood()} + ' and ' + ${fox.getDrink()} + '. He knows ' + ${fox.getListOfTricks().size()} + ' trics.' "></div>
 <div>Known Trics:</div>
@@ -12,5 +12,6 @@
     <li th:text="${trick}"></li>
 </ul>
 <div th:unless="${fox.getListOfTricks().size() > 0}">Learn some tricks! You can do it!</div>
+<a th:href="'/?name='+ *{name}">Back to the Main Page</a>
 </body>
 </html>

@@ -44,9 +44,18 @@ public class MainController {
         return "information";
     }
 
-    @GetMapping("/nutritionStore")
+    @GetMapping("/nutrition-store")
     public String renderNutritionStore(Model model, @RequestParam(name = "name", required = true) String name) {
-
-        return "nutritionStore";
+        model.addAttribute("drinks", foxService.getDrinks());
+        model.addAttribute("foods", foxService.getFoods());
+        model.addAttribute("fox", foxService.find(name));
+        return "nutrition-store";
     }
+
+    @PostMapping("/nutrition-store")
+    public String selectFoodAndDrink(Model model, String food, String drink, String name){
+        foxService.addFoodAndDrink(food, drink, foxService.find(name));
+        return "redirect:/information?name=" + name;
+    }
+
 }
