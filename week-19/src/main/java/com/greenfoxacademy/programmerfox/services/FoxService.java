@@ -12,6 +12,7 @@ public class FoxService {
     private List<Fox> foxPack;
     private List<String> foods;
     private List<String> drinks;
+    private List<String> tricks;
 
     public FoxService() {
         foxPack = new ArrayList<>();
@@ -23,6 +24,12 @@ public class FoxService {
         drinks.add("water");
         drinks.add("milk");
         drinks.add("wine");
+        tricks = new ArrayList<>();
+        tricks.add("Learn Java");
+        tricks.add("Cook dinner ");
+        tricks.add("Card tricks");
+        tricks.add("Speak Hungarian");
+        tricks.add("Sing");
 
     }
 
@@ -38,6 +45,10 @@ public class FoxService {
         return drinks;
     }
 
+    public List<String> getTricks() {
+        return tricks;
+    }
+
     public void add(Fox fox) {
         foxPack.add(fox);
     }
@@ -51,9 +62,13 @@ public class FoxService {
         return null;
     }
 
-    public Fox addFoodAndDrink(String food, String drink, Fox fox) {
+    public void addFoodAndDrink(String food, String drink, Fox fox) {
         fox.setFood(food);
         fox.setDrink(drink);
-        return fox;
+        return;
+    }
+
+    public void addNewTrick(String trick, Fox fox){
+        fox.setListOfTricks(trick);
     }
 }

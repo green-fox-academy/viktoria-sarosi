@@ -6,11 +6,12 @@
 </head>
 <body th:object="${fox}">
 <img src="greenfox.png"> <br>
-<a href="login">Log In</a> <br>
-<a th:href="'information/?name='+ *{name}">Information Page</a> <br>
-<a th:href="'nutrition-store/?name=' + *{name}">Nutrition Store</a> <br>
-<a href="trickcenter">Trick Center</a>
-
+<nav>
+    <a href="login">Log In</a> <br>
+    <a th:href="'information/?name='+ *{name}">Information Page</a> <br>
+    <a th:href="'nutrition-store/?name=' + *{name}">Nutrition Store</a> <br>
+    <a th:href="'trick-center/?name=' + *{name}">Trick Center</a>
+</nav>
 <!--<div>This is Mr. Fox. Currently living on pizza and lemonade. He knows 2 tricks.</div>
 <header>Known trics</header>
 <ul>

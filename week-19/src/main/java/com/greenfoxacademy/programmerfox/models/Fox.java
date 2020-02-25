@@ -31,8 +31,8 @@ public class Fox {
         return listOfTricks;
     }
 
-    public void setListOfTricks(ArrayList<String> listOfTricks) {
-        this.listOfTricks = listOfTricks;
+    public void setListOfTricks(String trick) {
+        listOfTricks.add(trick);
     }
 
     public String getFood() {

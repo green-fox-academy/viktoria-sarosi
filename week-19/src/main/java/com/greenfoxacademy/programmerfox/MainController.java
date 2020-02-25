@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+
 @Controller
 public class MainController {
 
@@ -40,22 +42,34 @@ public class MainController {
     @GetMapping("/information")
     public String renderInfo(Model model, @RequestParam(name = "name", required = true) String name) {
         model.addAttribute("fox", foxService.find(name));
-
         return "information";
     }
 
     @GetMapping("/nutrition-store")
-    public String renderNutritionStore(Model model, @RequestParam(name = "name", required = true) String name) {
+    public String renderNutritionStore(Model model, @RequestParam(name = "name", required = true) String name ) {
         model.addAttribute("drinks", foxService.getDrinks());
         model.addAttribute("foods", foxService.getFoods());
         model.addAttribute("fox", foxService.find(name));
         return "nutrition-store";
     }
 
-    @PostMapping("/nutrition-store")
-    public String selectFoodAndDrink(Model model, String food, String drink, String name){
+    @PostMapping("nutrition-store")
+    public String selectFoodAndDrink(Model model, String food, String drink, @RequestParam(name = "name", required = true) String name) {
         foxService.addFoodAndDrink(food, drink, foxService.find(name));
         return "redirect:/information?name=" + name;
     }
 
+    @GetMapping("/trick-center")
+    public String renderTrickCenter(Model model, @RequestParam(name = "name", required = true) String name) {
+        model.addAttribute("name", name);
+        model.addAttribute("tricks", foxService.getTricks());
+        model.addAttribute("fox", foxService.find(name));
+        return "trick-center";
+    }
+
+    @PostMapping("/trick-center")
+    public String learnTrick(Model model, @RequestParam(name = "name", required = true) String name, String trick){
+        foxService.addNewTrick(trick, foxService.find(name));
+        return "redirect:/information?name=" + name;
+    }
 }

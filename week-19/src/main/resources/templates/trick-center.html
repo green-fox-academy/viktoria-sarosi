@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trick Center</title>
+</head>
+<body>
+<img src="/greenfox.png">
+<form th:action="@{/trick-center}" th:method="POST">
+    <label for="tricks">Which trick do you want to learn?</label>
+    <select id="tricks" th:name="trick">
+        <option th:each="trick : ${tricks}" th:value="${trick}" th:text="${trick}"></option>
+
+    </select>
+    <input type="hidden" name="name" th:value="${fox.getName()}">
+    <input type="submit" value="Learn this!">
+</form>
+</body>
+</html>
