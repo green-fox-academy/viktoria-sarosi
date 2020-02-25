@@ -5,15 +5,18 @@ import java.util.ArrayList;
 public class Fox {
 
     private String name;
-    private ArrayList<String> listOfTrics;
+    private ArrayList<String> listOfTricks;
     private String food;
     private String drink;
+    private boolean isHungry;
 
     public Fox() {
+        listOfTricks = new ArrayList<>();
     }
 
     public Fox(String name) {
         this.name = name;
+        listOfTricks = new ArrayList<>();
     }
 
     public String getName() {
@@ -24,12 +27,12 @@ public class Fox {
         this.name = name;
     }
 
-    public ArrayList<String> getListOfTrics() {
-        return listOfTrics;
+    public ArrayList<String> getListOfTricks() {
+        return listOfTricks;
     }
 
-    public void setListOfTrics(ArrayList<String> listOfTrics) {
-        this.listOfTrics = listOfTrics;
+    public void setListOfTricks(ArrayList<String> listOfTricks) {
+        this.listOfTricks = listOfTricks;
     }
 
     public String getFood() {
@@ -47,4 +50,5 @@ public class Fox {
     public void setDrink(String drink) {
         this.drink = drink;
     }
-}
+
+    }

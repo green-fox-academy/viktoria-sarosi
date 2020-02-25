@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th ="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Information</title>
 </head>
-<body th:object="${fox}">
-<img src="greenfox.png">
-<div th:text="'This is ' + *{getName()} + '. Currently living on ' + *{getFood()} + ' and ' + *{getDrink()} + '. He knows ' + *{getListOfTrics().size()} + ' trics.' "></div>
-
+<body>
+<img src="/greenfox.png">
+<div th:text="'This is ' + ${fox.getName()} + '. Currently living on ' + ${fox.getFood()} + ' and ' + ${fox.getDrink()} + '. He knows ' + ${fox.getListOfTricks().size()} + ' trics.' "></div>
+<div>Known Trics:</div>
+<ul th:if="${fox.getListOfTricks().size() > 0}" th:each="trick:${fox.getListOfTricks()}">
+    <li th:text="${trick}"></li>
+</ul>
+<div th:unless="${fox.getListOfTricks().size() > 0}">Learn some tricks! You can do it!</div>
 </body>
 </html>

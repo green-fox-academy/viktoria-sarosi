@@ -19,12 +19,11 @@ public class FoxService {
     }
 
     public Fox find(String name) {
-        Fox foxToFind = new Fox();
         for (int i = 0; i < foxPack.size(); i++) {
             if (foxPack.get(i).getName().equalsIgnoreCase(name)) {
-                foxToFind = foxPack.get(i);
+                return foxPack.get(i);
             }
         }
-        return foxToFind;
+        return null;
     }
 }

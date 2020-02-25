@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <title>Programmer Fox Club</title>
 </head>
-<body>
-<img src="greenfox.png">
-<a href="/information">Information Page</a>
+<body th:object="${fox}">
+<img src="greenfox.png"> <br>
+<a href="login">Log In</a> <br>
+<a th:href="'information/?name='+ *{name}">Information Page</a> <br>
+<a href="nutritionstore">Nutrition Store</a> <br>
+<a href="trickcenter">Trick Center</a>
 
 <!--<div>This is Mr. Fox. Currently living on pizza and lemonade. He knows 2 tricks.</div>
 <header>Known trics</header>

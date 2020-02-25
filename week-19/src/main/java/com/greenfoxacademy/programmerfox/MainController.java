@@ -20,8 +20,8 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String index(Model model, @RequestParam(name = "name", required = true) String name) {
-        model.addAttribute("fox",  foxService.find(name));
+    public String index(Model model, @RequestParam(name = "name", required = false) String name) {
+        model.addAttribute("fox", foxService.find(name));
         return "index";
     }
 
@@ -30,16 +30,23 @@ public class MainController {
         return "login";
     }
 
-    @PostMapping("login")
+    @PostMapping("/login")
     public String login(Model model, String name) {
-        foxService.add(new Fox("name"));
+        foxService.add(new Fox(name));
 
         return "redirect:/?name=" + name;
     }
 
-    @GetMapping("information")
+    @GetMapping("/information")
     public String renderInfo(Model model, @RequestParam(name = "name", required = true) String name) {
         model.addAttribute("fox", foxService.find(name));
+
         return "information";
+    }
+
+    @GetMapping("/nutritionStore")
+    public String renderNutritionStore(Model model, @RequestParam(name = "name", required = true) String name) {
+
+        return "nutritionStore";
     }
 }
