@@ -5,7 +5,7 @@
     <title>Information</title>
 </head>
 <body th:object="${fox}">
-<img src="/greenfox.png">
+<img src="/greenfox.png" alt="A fox is hiding here.">
 <div th:text="'This is ' + ${fox.getName()} + '. Currently living on ' + ${fox.getFood()} + ' and ' + ${fox.getDrink()} + '. He knows ' + ${fox.getListOfTricks().size()} + ' trics.' "></div>
 <div>Known Trics:</div>
 <ul th:if="${fox.getListOfTricks().size() > 0}" th:each="trick : ${fox.getListOfTricks()}">
