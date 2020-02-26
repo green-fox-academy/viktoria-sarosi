@@ -8,7 +8,6 @@ public class Fox {
     private ArrayList<String> listOfTricks;
     private String food;
     private String drink;
-    private boolean isHungry;
 
     public Fox() {
         listOfTricks = new ArrayList<>();
@@ -17,6 +16,8 @@ public class Fox {
     public Fox(String name) {
         this.name = name;
         listOfTricks = new ArrayList<>();
+        this.food = "apple";
+        this.drink = "hot chocolate";
     }
 
     public String getName() {

@@ -33,9 +33,8 @@ public class MainController {
     }
 
     @PostMapping("/login")
-    public String login(Model model, String name) {
-        foxService.add(new Fox(name));
-
+    public String login(String name) {
+        foxService.add(name);
         return "redirect:/?name=" + name;
     }
 
@@ -46,7 +45,7 @@ public class MainController {
     }
 
     @GetMapping("/nutrition-store")
-    public String renderNutritionStore(Model model, @RequestParam(name = "name", required = true) String name ) {
+    public String renderNutritionStore(Model model, @RequestParam(name = "name", required = true) String name) {
         model.addAttribute("drinks", foxService.getDrinks());
         model.addAttribute("foods", foxService.getFoods());
         model.addAttribute("fox", foxService.find(name));
@@ -54,7 +53,7 @@ public class MainController {
     }
 
     @PostMapping("nutrition-store")
-    public String selectFoodAndDrink(Model model, String food, String drink, @RequestParam(name = "name", required = true) String name) {
+    public String selectFoodAndDrink(  String food, String drink, @RequestParam(name = "name", required = true) String name) {
         foxService.addFoodAndDrink(food, drink, foxService.find(name));
         return "redirect:/information?name=" + name;
     }
@@ -68,7 +67,7 @@ public class MainController {
     }
 
     @PostMapping("/trick-center")
-    public String learnTrick(Model model, @RequestParam(name = "name", required = true) String name, String trick){
+    public String learnTrick(@RequestParam(name = "name", required = true) String name, String trick) {
         foxService.addNewTrick(trick, foxService.find(name));
         return "redirect:/information?name=" + name;
     }

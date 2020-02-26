@@ -49,8 +49,10 @@ public class FoxService {
         return tricks;
     }
 
-    public void add(Fox fox) {
-        foxPack.add(fox);
+    public void add(String name) {
+        if (find(name) == null) {
+            foxPack.add(new Fox(name));
+        }
     }
 
     public Fox find(String name) {
@@ -65,10 +67,9 @@ public class FoxService {
     public void addFoodAndDrink(String food, String drink, Fox fox) {
         fox.setFood(food);
         fox.setDrink(drink);
-        return;
     }
 
-    public void addNewTrick(String trick, Fox fox){
+    public void addNewTrick(String trick, Fox fox) {
         fox.setListOfTricks(trick);
     }
 }
