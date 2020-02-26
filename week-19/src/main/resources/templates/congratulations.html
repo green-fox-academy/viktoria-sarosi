@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Congratulations!</title>
+</head>
+<body>
+<img src="/greenfox.png" alt="A fox is hiding here.">
+<div th:text="${fox.getName()} + ' has learned all the trics in the tricks center! Congratulations!'">
+</div>
+<a th:href="'/?name='+ *{name}">Back to the Main Page</a>
+</body>
+</html>

@@ -63,7 +63,13 @@ public class MainController {
         model.addAttribute("name", name);
         model.addAttribute("tricks", foxService.getTricks());
         model.addAttribute("fox", foxService.find(name));
-        return "trick-center";
+        if(foxService.getTricks().size() == 0) {
+            return "congratulations";
+        }
+        else{
+            return "trick-center";
+        }
+
     }
 
     @PostMapping("/trick-center")
@@ -71,5 +77,11 @@ public class MainController {
         foxService.addNewTrick(trick, foxService.find(name));
         foxService.removeLearnedTrick(trick);
         return "redirect:/information?name=" + name;
+    }
+
+    @GetMapping("/congratulations")
+    public String renderCongratulations(Model model, @RequestParam(name = "name", required = true) String name){
+        model.addAttribute("fox", foxService.find(name));
+        return "congratulations";
     }
 }

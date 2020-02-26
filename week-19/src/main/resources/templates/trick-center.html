@@ -6,7 +6,7 @@
 </head>
 <body>
 <img src="/greenfox.png" alt="A fox is hiding here.">
-<form th:if="${fox.getListOfTricks().size()} == 0" th:action="@{/trick-center}" th:method="POST">
+<form th:action="@{/trick-center}" th:method="POST">
     <label for="tricks">Which trick do you want to learn?</label>
     <select id="tricks" th:name="trick">
         <option th:each="trick : ${tricks}" th:value="${trick}" th:text="${trick}"></option>
@@ -14,8 +14,5 @@
     <input type="hidden" name="name" th:value="${fox.getName()}">
     <input type="submit" value="Learn this!">
 </form>
-<div th:unless="${fox.getListOfTricks().size()} == 0"
-     th:text="${fox.getName()} + ' has learned all the trics in the tricks center! Congratulations!'">
-</div>
 </body>
 </html>
