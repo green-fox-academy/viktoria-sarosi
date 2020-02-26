@@ -61,6 +61,9 @@ public class Fox {
     }
 
     public void setActions(String action) {
+        if(getActions().size() == 5){
+            getActions().remove(0);
+        }
         this.getActions().add(action);
     }
 }
