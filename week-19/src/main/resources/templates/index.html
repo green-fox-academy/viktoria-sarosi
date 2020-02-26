@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
+<link href="style_index.css" rel="stylesheet" type="text/css">
 <head>
     <meta charset="UTF-8">
     <title>Programmer Fox Club</title>
 </head>
 <body th:object="${fox}">
-<img src="greenfox.png" alt="A fox is hiding here."> <br>
-<nav>
-    <a href="login">Log In</a> <br>
-    <a th:href="'information/?name='+ *{name}">Information Page</a> <br>
-    <a th:href="'nutrition-store/?name=' + *{name}">Nutrition Store</a> <br>
-    <a th:href="'trick-center/?name=' + *{name}">Trick Center</a> <br>
-    <a th:href="'action-history/?name=' + *{name}">Action History</a>
-</nav>
-<!--<div>This is Mr. Fox. Currently living on pizza and lemonade. He knows 2 tricks.</div>
-<header>Known trics</header>
 <ul>
-    <li>Write HTML</li>
-    <li>Code in Java</li>
-</ul>-->
+    <li><a class="active" th:href="'index/?name=' + *{name}">Home</a> </li>
+    <li><a href="login">Log In</a></li>
+    <li><a th:href="'information/?name='+ *{name}">Information Page</a></li>
+    <li><a th:href="'nutrition-store/?name=' + *{name}">Nutrition Store</a></li>
+    <li><a th:href="'trick-center/?name=' + *{name}">Trick Center</a></li>
+    <li><a th:href="'action-history/?name=' + *{name}">Action History</a></li>
+</ul>
+<img src="greenfox.png" alt="A fox is hiding here."> <br>
 </body>
 </html>

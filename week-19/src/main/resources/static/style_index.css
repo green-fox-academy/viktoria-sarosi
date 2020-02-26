@@ -1,0 +1,50 @@
+body {
+    background-color: palegoldenrod;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: darkslategrey;
+    color: ivory;
+}
+
+li {
+    float: left;
+}
+
+a {
+    display: block;
+    padding: 8px;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-right: 1px solid lightslategray;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a:hover {
+    background-color: lightslategray;
+    color: darkslategrey;
+}
+
+.active {
+    background-color: slategrey;
+    color: black;
+}
+
+img {
+    margin-top: 50px;
+
+}
+
