@@ -72,4 +72,8 @@ public class FoxService {
     public void addNewTrick(String trick, Fox fox) {
         fox.setListOfTricks(trick);
     }
+
+    public void removeLearnedTrick(String trick) {
+        getTricks().remove(trick);
+    }
 }

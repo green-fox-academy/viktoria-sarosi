@@ -69,6 +69,7 @@ public class MainController {
     @PostMapping("/trick-center")
     public String learnTrick(@RequestParam(name = "name", required = true) String name, String trick) {
         foxService.addNewTrick(trick, foxService.find(name));
+        foxService.removeLearnedTrick(trick);
         return "redirect:/information?name=" + name;
     }
 }
