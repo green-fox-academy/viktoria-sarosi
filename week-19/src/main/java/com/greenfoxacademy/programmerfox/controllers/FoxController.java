@@ -1,6 +1,5 @@
-package com.greenfoxacademy.programmerfox;
+package com.greenfoxacademy.programmerfox.controllers;
 
-import com.greenfoxacademy.programmerfox.models.Fox;
 import com.greenfoxacademy.programmerfox.services.FoxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,39 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
-
 @Controller
-public class MainController {
+public class FoxController {
 
     private FoxService foxService;
 
     @Autowired
-    public MainController(FoxService foxService) {
+    public FoxController(FoxService foxService) {
         this.foxService = foxService;
-    }
-
-    @GetMapping("/")
-    public String index(Model model, @RequestParam(name = "name", required = false) String name) {
-        model.addAttribute("fox", foxService.find(name));
-        return "index";
-    }
-
-    @GetMapping("/login")
-    public String renderLogin() {
-        return "login";
-    }
-
-    @PostMapping("/login")
-    public String login(String name) {
-        foxService.add(name);
-        return "redirect:/?name=" + name;
-    }
-
-    @GetMapping("/information")
-    public String renderInfo(Model model, @RequestParam(name = "name", required = true) String name) {
-        model.addAttribute("fox", foxService.find(name));
-        return "information";
     }
 
     @GetMapping("/nutrition-store")
@@ -54,9 +28,11 @@ public class MainController {
 
     @PostMapping("nutrition-store")
     public String selectFoodAndDrink(  String food, String drink, @RequestParam(name = "name", required = true) String name) {
-        foxService.addFoodAndDrink(food, drink, foxService.find(name));
+        foxService.addFood(food, foxService.find(name));
+        foxService.addDrink(drink, foxService.find(name));
         return "redirect:/information?name=" + name;
     }
+
 
     @GetMapping("/trick-center")
     public String renderTrickCenter(Model model, @RequestParam(name = "name", required = true) String name) {
@@ -83,5 +59,11 @@ public class MainController {
     public String renderCongratulations(Model model, @RequestParam(name = "name", required = true) String name){
         model.addAttribute("fox", foxService.find(name));
         return "congratulations";
+    }
+
+    @GetMapping("/action-history")
+    public String renderActionHistory(Model model, @RequestParam(name = "name", required = true) String name ){
+        model.addAttribute("fox", foxService.find(name));
+        return "action-history";
     }
 }

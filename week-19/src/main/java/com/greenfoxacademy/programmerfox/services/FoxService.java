@@ -3,6 +3,8 @@ package com.greenfoxacademy.programmerfox.services;
 import com.greenfoxacademy.programmerfox.models.Fox;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,11 +27,11 @@ public class FoxService {
         drinks.add("milk");
         drinks.add("wine");
         tricks = new ArrayList<>();
-        tricks.add("Learn Java");
-        tricks.add("Cook dinner ");
-        tricks.add("Card tricks");
-        tricks.add("Speak Hungarian");
-        tricks.add("Sing");
+        tricks.add("code in Java");
+        tricks.add("cook dinner ");
+        tricks.add("do card tricks");
+        tricks.add("speak Hungarian");
+        tricks.add("sing");
 
     }
 
@@ -64,16 +66,26 @@ public class FoxService {
         return null;
     }
 
-    public void addFoodAndDrink(String food, String drink, Fox fox) {
+    public void addFood(String food, Fox fox) {
+        fox.setActions(LocalDateTime.now() + " Food has been changed from " + fox.getFood() + " to " + food);
         fox.setFood(food);
+    }
+
+    public void addDrink(String drink, Fox fox){
+        fox.setActions(LocalDateTime.now() + " Drink has been changed from " + fox.getDrink() + " to " + drink);
         fox.setDrink(drink);
     }
 
     public void addNewTrick(String trick, Fox fox) {
         fox.setListOfTricks(trick);
+        fox.setActions(LocalDateTime.now() + " Learned to " + trick);
     }
 
     public void removeLearnedTrick(String trick) {
         getTricks().remove(trick);
+    }
+
+    public void addAction(String action, Fox fox){
+        fox.setActions(action);
     }
 }
