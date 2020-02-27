@@ -64,7 +64,7 @@ public class Fox {
         this.getActions().add(action);
     }
 
-    public List<String> getLatestFiveActions(){
+    public List<String> getAllOrLatestFiveActions(){
         if(this.getActions().size() < 5){
             return this.getActions();
         }else {

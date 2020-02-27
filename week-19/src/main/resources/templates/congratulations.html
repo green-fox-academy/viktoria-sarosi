@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<link href="style_index.css" rel="stylesheet" type="text/css">
+<link href="style.css" rel="stylesheet" type="text/css">
 <head>
     <meta charset="UTF-8">
     <title>Congratulations!</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 </head>
 <body>
 <div th:replace="navigation-bar :: topnav">
 </div>
 <img src="/greenfox.png" alt="A fox is hiding here.">
-<div th:text="${fox.getName()} + ' has learned all the trics in the tricks center! Congratulations!'">
+<div th:text="${fox.getName()} + ' has learned all the tricks in the tricks center! Congratulations!'">
 </div>
 <a th:href="'/?name='+ *{name}">Back to the Main Page</a>
 </body>

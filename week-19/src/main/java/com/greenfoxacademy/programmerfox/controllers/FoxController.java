@@ -23,6 +23,7 @@ public class FoxController {
         model.addAttribute("drinks", foxService.getDrinks());
         model.addAttribute("foods", foxService.getFoods());
         model.addAttribute("fox", foxService.find(name));
+        model.addAttribute("active", "nutrition-store");
         return "nutrition-store";
     }
 
@@ -39,6 +40,7 @@ public class FoxController {
         model.addAttribute("name", name);
         model.addAttribute("tricks", foxService.getTricks());
         model.addAttribute("fox", foxService.find(name));
+        model.addAttribute("active", "trick-center");
         if(foxService.getTricks().size() == 0) {
             return "congratulations";
         }
@@ -64,6 +66,7 @@ public class FoxController {
     @GetMapping("/action-history")
     public String renderActionHistory(Model model, @RequestParam(name = "name", required = true) String name ){
         model.addAttribute("fox", foxService.find(name));
+        model.addAttribute("active", "action-history");
         return "action-history";
     }
 }

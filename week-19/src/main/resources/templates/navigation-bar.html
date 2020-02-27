@@ -2,7 +2,7 @@
 <div th:fragment="topnav" th:object="${fox}">
     <ul>
         <li><a th:attr="class=${active == 'index'} ? 'active'" th:href="'/?name=' + *{name}">Home</a></li>
-        <li><a href="login">Log In</a></li>
+        <li><a th:attr="class=${active == 'login'} ? 'active'" th:href="'/login/?name='+ *{name}">Log In</a></li>
         <li><a th:attr="class=${active == 'information'} ? 'active'" th:href="'/information/?name='+ *{name}">Information Page</a></li>
         <li><a th:attr="class=${active == 'nutrition-store'} ? 'active'" th:href="'/nutrition-store/?name=' + *{name}">Nutrition Store</a>
         </li>

@@ -1,5 +1,6 @@
 body {
     background-color: palegoldenrod;
+    font-family: 'Quicksand', sans-serif ;
 }
 
 ul {
@@ -7,7 +8,6 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: darkslategrey;
     color: ivory;
 }
 
@@ -18,6 +18,7 @@ li {
 a {
     display: block;
     padding: 8px;
+    background-color: darkslategrey;
 }
 
 li a {
@@ -43,8 +44,13 @@ li a:hover {
     color: black;
 }
 
-img {
-    margin-top: 50px;
-
+.icon-credit, .back {
+    background-color: palegoldenrod;
+    color: black;
 }
+
+.actions-li {
+    color: black;
+}
+
 

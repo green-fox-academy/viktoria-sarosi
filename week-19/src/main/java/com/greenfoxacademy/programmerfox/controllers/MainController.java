@@ -29,7 +29,8 @@ public class MainController {
     }
 
     @GetMapping("/login")
-    public String renderLogin() {
+    public String renderLogin(Model model, @RequestParam(name = "name", required = false) String name) {
+        model.addAttribute("active", "login");
         return "login";
     }
 

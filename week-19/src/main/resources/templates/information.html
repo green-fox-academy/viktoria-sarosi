@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Information</title>
-    <link href="/style_index.css" rel="stylesheet" type="text/css">
+    <link href="/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 </head>
 <body th:object="${fox}">
 <div th:replace="navigation-bar :: topnav">
@@ -12,12 +13,13 @@
 <div th:text="'This is ' + ${fox.getName()} + '. Currently living on ' + ${fox.getFood()} + ' and ' + ${fox.getDrink()} + '. He knows ' + ${fox.getListOfTricks().size()} + ' trics.' "></div>
 <div>Known Trics:</div>
 <ul th:if="${fox.getListOfTricks().size() > 0}" th:each="trick : ${fox.getListOfTricks()}">
-    <li th:text="${trick}"></li>
+    <li class="actions-li" th:text="${trick}"></li>
 </ul>
 <div th:unless="${fox.getListOfTricks().size() > 0}">Learn some tricks! You can do it!</div>
-<ul th:each="action : ${fox.getLatestFiveActions()}">
-    <li th:text="${action}"></li>
+<ul  class="actions-ul" th:each="action : ${fox.getAllOrLatestFiveActions()}">
+    <li class="actions-li" th:text="${action}" ></li>
 </ul>
-<a th:href="'/?name='+ *{name}">Back to the Main Page</a>
+<a class="back" th:href="'/?name='+ *{name}">Back to the Main Page</a>
+<img src="/littlefox.png"  alt="fox icon">
 </body>
 </html>
