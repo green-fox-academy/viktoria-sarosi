@@ -24,6 +24,7 @@ public class MainController {
     @GetMapping("/")
     public String index(Model model, @RequestParam(name = "name", required = false) String name) {
         model.addAttribute("fox", foxService.find(name));
+        model.addAttribute("active", "index");
         return "index";
     }
 
@@ -41,6 +42,7 @@ public class MainController {
     @GetMapping("/information")
     public String renderInfo(Model model, @RequestParam(name = "name", required = true) String name) {
         model.addAttribute("fox", foxService.find(name));
+        model.addAttribute("active", "information");
         return "information";
     }
 }

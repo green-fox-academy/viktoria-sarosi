@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Trick Center</title>
+    <link href="/style_index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<div th:replace="navigation-bar :: topnav">
+</div>
 <img src="/greenfox.png" alt="A fox is hiding here.">
 <form th:action="@{/trick-center}" th:method="POST">
     <label for="tricks">Which trick do you want to learn?</label>

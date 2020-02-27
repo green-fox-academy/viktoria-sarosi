@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Action History</title>
+    <link href="/style_index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<div th:replace="navigation-bar :: topnav">
+</div>
 <img src="/greenfox.png" alt="A fox is hiding here.">
 <ul th:each="action : ${fox.getActions()}">
     <li th:text="${action}"></li>

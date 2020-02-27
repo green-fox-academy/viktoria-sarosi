@@ -37,7 +37,7 @@ public class FoxService {
         tricks.add("speak Hungarian");
         tricks.add("sing");
         now = LocalDateTime.now();
-        format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        format = DateTimeFormatter.ofPattern("yyyy-MMMM-dd- HH:mm:ss");
         formatDateTime = now.format(format);
     }
 
@@ -94,4 +94,6 @@ public class FoxService {
     public void addAction(String action, Fox fox) {
         fox.setActions(action);
     }
+
+
 }

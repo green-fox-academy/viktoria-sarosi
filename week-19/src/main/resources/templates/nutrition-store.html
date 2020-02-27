@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Nutrition Store</title>
+    <link href="/style_index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<div th:replace="navigation-bar :: topnav">
+</div>
 <img src="/greenfox.png" alt="A fox is hiding here.">
 <form th:action="@{/nutrition-store}" th:method="POST">
     <label for="foods">Available foods</label>

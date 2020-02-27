@@ -61,9 +61,18 @@ public class Fox {
     }
 
     public void setActions(String action) {
-        if(getActions().size() == 5){
-            getActions().remove(0);
-        }
         this.getActions().add(action);
+    }
+
+    public List<String> getLatestFiveActions(){
+        if(this.getActions().size() < 5){
+            return this.getActions();
+        }else {
+            List<String> latestFive = new ArrayList<>();
+            for (int i = 0; i < 5; i++) {
+                latestFive.add(this.getActions().get(this.getActions().size() - (5 - i)));
+            }
+            return latestFive;
+        }
     }
 }
