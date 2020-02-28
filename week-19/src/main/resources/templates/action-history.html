@@ -11,7 +11,10 @@
 </div>
 <img src="/greenfox.png" alt="A fox is hiding here.">
 <ul class="actions-ul" th:each="action : ${fox.getActions()}">
-    <li class="actions-li" th:text="${action}"></li>
+    <li class="actions-li" >
+        <img src="/littlefox.png" >
+        <label th:text="${action}" ></label>
+    </li>
 </ul>
 </body>
 </html>

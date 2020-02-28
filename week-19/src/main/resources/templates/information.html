@@ -10,16 +10,23 @@
 <div th:replace="navigation-bar :: topnav">
 </div>
 <img src="/greenfox.png" alt="A fox is hiding here.">
-<div th:text="'This is ' + ${fox.getName()} + '. Currently living on ' + ${fox.getFood()} + ' and ' + ${fox.getDrink()} + '. He knows ' + ${fox.getListOfTricks().size()} + ' trics.' "></div>
-<div>Known Trics:</div>
+<div  class="info" th:text="'This is ' + ${fox.getName()} + '. Currently living on ' + ${fox.getFood()} + ' and ' + ${fox.getDrink()} + '. He knows ' + ${fox.getListOfTricks().size()} + ' trics.' "></div><br>
+<div class="chapter" >Known Trics:</div>
 <ul th:if="${fox.getListOfTricks().size() > 0}" th:each="trick : ${fox.getListOfTricks()}">
-    <li class="actions-li" th:text="${trick}"></li>
+    <li class="actions-li" >
+        <img src="/littlefox.png">
+        <lable th:text="${trick}" ></lable>
+    </li>
 </ul>
-<div th:unless="${fox.getListOfTricks().size() > 0}">Learn some tricks! You can do it!</div>
+<div th:unless="${fox.getListOfTricks().size() > 0}">Learn some tricks! You can do it!</div><br>
+<div class="chapter" >Last five actions:</div>
 <ul  class="actions-ul" th:each="action : ${fox.getAllOrLatestFiveActions()}">
-    <li class="actions-li" th:text="${action}" ></li>
-</ul>
+    <li class="actions-li">
+        <img src="/littlefox.png" >
+        <label th:text="${action}" ></label>
+    </li>
+</ul><br>
 <a class="back" th:href="'/?name='+ *{name}">Back to the Main Page</a>
-<img src="/littlefox.png"  alt="fox icon">
+
 </body>
 </html>

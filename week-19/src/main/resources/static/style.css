@@ -53,4 +53,11 @@ li a:hover {
     color: black;
 }
 
+.info {
+    font-weight: bold;
+}
 
+.chapter {
+    font-style: italic;
+    color: darkslategrey;
+}
