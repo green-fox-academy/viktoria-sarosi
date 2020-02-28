@@ -20,8 +20,8 @@ public class Fox {
         this.name = name;
         listOfTricks = new ArrayList<>();
         actions = new ArrayList<>();
-        this.food = "apple";
-        this.drink = "hot chocolate";
+        //this.food = "apple";
+        //this.drink = "hot chocolate";
     }
 
     public String getName() {

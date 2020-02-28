@@ -26,10 +26,12 @@ public class FoxService {
         foods.add("steak");
         foods.add("chicken");
         foods.add("egg");
+        foods.add("apple");
         drinks = new ArrayList<>();
         drinks.add("water");
         drinks.add("milk");
         drinks.add("wine");
+        drinks.add("hot chocolate");
         tricks = new ArrayList<>();
         tricks.add("code in Java");
         tricks.add("cook dinner ");
@@ -73,13 +75,17 @@ public class FoxService {
     }
 
     public void addFood(String food, Fox fox) {
-        fox.setActions(formatDateTime + " Food has been changed from " + fox.getFood() + " to " + food);
-        fox.setFood(food);
+        if(!food.equalsIgnoreCase(fox.getFood()))  {
+            fox.setActions(formatDateTime + " Food has been changed from " + fox.getFood() + " to " + food);
+            fox.setFood(food);
+        }
     }
 
     public void addDrink(String drink, Fox fox) {
-        fox.setActions(formatDateTime + " Drink has been changed from " + fox.getDrink() + " to " + drink);
-        fox.setDrink(drink);
+        if(!drink.equalsIgnoreCase(fox.getDrink())) {
+            fox.setActions(formatDateTime + " Drink has been changed from " + fox.getDrink() + " to " + drink);
+            fox.setDrink(drink);
+        }
     }
 
     public void addNewTrick(String trick, Fox fox) {

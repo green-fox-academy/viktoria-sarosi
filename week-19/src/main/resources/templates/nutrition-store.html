@@ -13,11 +13,11 @@
 <form th:action="@{/nutrition-store}" th:method="POST">
     <label for="foods">Available foods</label>
     <select id="foods" th:name="food">
-        <option th:each="food : ${foods}" th:value="${food}" th:text="${food}"></option>
+        <option th:each="food : ${foods}" th:value="${food}" th:text="${food}" th:selected="(${fox.getFood()} == ${food})" ></option>
     </select>
     <label for="drinks">Available drinks</label>
     <select id="drinks" name="drink">
-        <option th:each="drink : ${drinks}" th:value="${drink}" th:text="${drink}"></option>
+        <option th:each="drink : ${drinks}" th:value="${drink}" th:text="${drink}" th:selected="(${fox.getDrink()} == ${drink})"></option>
     </select>
     <input type="hidden" name="name" th:value="${fox.getName()}">
     <input type="submit" value="Yummy!">
