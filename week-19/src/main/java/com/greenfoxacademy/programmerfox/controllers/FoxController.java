@@ -28,9 +28,11 @@ public class FoxController {
     }
 
     @PostMapping("nutrition-store")
-    public String selectFoodAndDrink(  String food, String drink, @RequestParam(name = "name", required = true) String name) {
+    public String selectFoodAndDrink(String food, String drink, @RequestParam(name = "name", required = true) String name, Integer foodAmount, Integer drinkAmount) {
         foxService.addFood(food, foxService.find(name));
+        foxService.find(name).setFoodAmount(foodAmount);
         foxService.addDrink(drink, foxService.find(name));
+        foxService.find(name).setDrinkAmount(drinkAmount);
         return "redirect:/information?name=" + name;
     }
 
@@ -41,10 +43,9 @@ public class FoxController {
         model.addAttribute("tricks", foxService.getTricks());
         model.addAttribute("fox", foxService.find(name));
         model.addAttribute("active", "trick-center");
-        if(foxService.getTricks().size() == 0) {
+        if (foxService.getTricks().size() == 0) {
             return "congratulations";
-        }
-        else{
+        } else {
             return "trick-center";
         }
 
@@ -58,15 +59,17 @@ public class FoxController {
     }
 
     @GetMapping("/congratulations")
-    public String renderCongratulations(Model model, @RequestParam(name = "name", required = true) String name){
+    public String renderCongratulations(Model model, @RequestParam(name = "name", required = true) String name) {
         model.addAttribute("fox", foxService.find(name));
         return "congratulations";
     }
 
     @GetMapping("/action-history")
-    public String renderActionHistory(Model model, @RequestParam(name = "name", required = true) String name ){
+    public String renderActionHistory(Model model, @RequestParam(name = "name", required = true) String name) {
         model.addAttribute("fox", foxService.find(name));
         model.addAttribute("active", "action-history");
         return "action-history";
     }
+
+
 }

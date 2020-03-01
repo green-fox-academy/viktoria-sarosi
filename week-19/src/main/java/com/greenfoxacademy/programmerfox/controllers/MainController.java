@@ -44,6 +44,7 @@ public class MainController {
     public String renderInfo(Model model, @RequestParam(name = "name", required = true) String name) {
         model.addAttribute("fox", foxService.find(name));
         model.addAttribute("active", "information");
+        foxService.decreaseFoodAndDrink(foxService.find(name));
         return "information";
     }
 }

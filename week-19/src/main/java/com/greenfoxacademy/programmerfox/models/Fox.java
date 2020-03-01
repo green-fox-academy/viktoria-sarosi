@@ -10,6 +10,8 @@ public class Fox {
     private String food;
     private String drink;
     private List<String> actions;
+    private Integer foodAmount;
+    private Integer drinkAmount;
 
     public Fox() {
         listOfTricks = new ArrayList<>();
@@ -20,8 +22,22 @@ public class Fox {
         this.name = name;
         listOfTricks = new ArrayList<>();
         actions = new ArrayList<>();
-        //this.food = "apple";
-        //this.drink = "hot chocolate";
+    }
+
+    public Integer getFoodAmount() {
+        return foodAmount;
+    }
+
+    public void setFoodAmount(Integer foodAmount) {
+        this.foodAmount = foodAmount;
+    }
+
+    public Integer getDrinkAmount() {
+        return drinkAmount;
+    }
+
+    public void setDrinkAmount(Integer drinkAmount) {
+        this.drinkAmount = drinkAmount;
     }
 
     public String getName() {

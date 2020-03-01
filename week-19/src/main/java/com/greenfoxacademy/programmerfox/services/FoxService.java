@@ -3,11 +3,12 @@ package com.greenfoxacademy.programmerfox.services;
 import com.greenfoxacademy.programmerfox.models.Fox;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 @Service
 public class FoxService {
@@ -18,7 +19,8 @@ public class FoxService {
     private List<String> tricks;
     private String formatDateTime;
     private LocalDateTime now;
-    DateTimeFormatter format;
+    private DateTimeFormatter format;
+    private final long amountDecreaseSpeed = 10000;
 
     public FoxService() {
         foxPack = new ArrayList<>();
@@ -75,14 +77,14 @@ public class FoxService {
     }
 
     public void addFood(String food, Fox fox) {
-        if(!food.equalsIgnoreCase(fox.getFood()))  {
+        if (!food.equalsIgnoreCase(fox.getFood())) {
             fox.setActions(formatDateTime + " Food has been changed from " + fox.getFood() + " to " + food);
             fox.setFood(food);
         }
     }
 
     public void addDrink(String drink, Fox fox) {
-        if(!drink.equalsIgnoreCase(fox.getDrink())) {
+        if (!drink.equalsIgnoreCase(fox.getDrink())) {
             fox.setActions(formatDateTime + " Drink has been changed from " + fox.getDrink() + " to " + drink);
             fox.setDrink(drink);
         }
@@ -101,5 +103,36 @@ public class FoxService {
         fox.setActions(action);
     }
 
+    private static TimerTask foodDecrease(Fox fox) {
+        return new TimerTask() {
+            @Override
+            public void run() {
+                fox.setFoodAmount(fox.getFoodAmount() - 1);
+            }
+        };
+    }
 
+    private static TimerTask drinkDecrease(Fox fox) {
+        return new TimerTask() {
+            @Override
+            public void run() {
+                fox.setDrinkAmount(fox.getDrinkAmount() - 1);
+            }
+        };
+    }
+
+    public void decreaseFoodAndDrink(Fox fox) {
+        if (fox.getFoodAmount() != null) {
+            if (fox.getFoodAmount() > 0) {
+                Timer timer = new Timer();
+                timer.scheduleAtFixedRate(foodDecrease(fox), amountDecreaseSpeed, amountDecreaseSpeed);
+            }
+        }
+        if (fox.getDrinkAmount() != null) {
+            if (fox.getDrinkAmount() > 0) {
+                Timer timer = new Timer();
+                timer.scheduleAtFixedRate(drinkDecrease(fox), amountDecreaseSpeed, amountDecreaseSpeed);
+            }
+        }
+    }
 }

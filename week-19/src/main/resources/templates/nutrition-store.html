@@ -15,9 +15,23 @@
     <select id="foods" th:name="food">
         <option th:each="food : ${foods}" th:value="${food}" th:text="${food}" th:selected="(${fox.getFood()} == ${food})" ></option>
     </select>
+    <label for="food_amount">Choose amount of food</label>
+    <select id="food_amount" name="foodAmount">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
     <label for="drinks">Available drinks</label>
     <select id="drinks" name="drink">
         <option th:each="drink : ${drinks}" th:value="${drink}" th:text="${drink}" th:selected="(${fox.getDrink()} == ${drink})"></option>
+    </select>
+    <label for="drink_amount" >Choose amount of drink</label>
+    <select id="drink_amount" name="drinkAmount">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
     </select>
     <input type="hidden" name="name" th:value="${fox.getName()}">
     <input type="submit" value="Yummy!">
