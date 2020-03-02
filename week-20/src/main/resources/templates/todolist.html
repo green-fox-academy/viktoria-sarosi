@@ -6,11 +6,8 @@
 </head>
 <body>
 <h1>Todos for today:</h1>
-<ul>
-    <li>Start the day</li>
-    <li>Finish H2 workshop1</li>
-    <li>Finish H2 workshopo2</li>
-    <li>Create CRUD project</li>
+<ul th:each="todo : ${todos}" >
+    <li th:text="${todo.getTitle()}" ></li>
 </ul>
 </body>
 </html>
