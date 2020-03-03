@@ -121,18 +121,19 @@ public class FoxService {
         };
     }
 
-    public void decreaseFoodAndDrink(Fox fox) {
-        if (fox.getFoodAmount() != null) {
-            if (fox.getFoodAmount() > 0) {
-                Timer timer = new Timer();
-                timer.scheduleAtFixedRate(foodDecrease(fox), amountDecreaseSpeed, amountDecreaseSpeed);
-            }
-        }
-        if (fox.getDrinkAmount() != null) {
-            if (fox.getDrinkAmount() > 0) {
-                Timer timer = new Timer();
-                timer.scheduleAtFixedRate(drinkDecrease(fox), amountDecreaseSpeed, amountDecreaseSpeed);
-            }
+    public void decreaseFood(Fox fox) {
+        if (fox.getFoodAmount() != null && fox.getFoodAmount() > 0) {
+            Timer timer = new Timer();
+            timer.scheduleAtFixedRate(foodDecrease(fox), amountDecreaseSpeed, amountDecreaseSpeed);
         }
     }
+
+
+    public void decreaseDrink(Fox fox) {
+        if (fox.getDrinkAmount() != null && fox.getDrinkAmount() > 0) {
+            Timer timer = new Timer();
+            timer.scheduleAtFixedRate(drinkDecrease(fox), amountDecreaseSpeed, amountDecreaseSpeed);
+        }
+    }
+
 }

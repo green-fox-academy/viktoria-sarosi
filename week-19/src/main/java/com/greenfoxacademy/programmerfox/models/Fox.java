@@ -5,6 +5,9 @@ import java.util.List;
 
 public class Fox {
 
+    public static final int FOODAMOUNT_MIN_LIMIT = 0;
+    public static final int DRINKAMOUNT_MIN_LIMIT = 0;
+
     private String name;
     private ArrayList<String> listOfTricks;
     private String food;
@@ -29,6 +32,7 @@ public class Fox {
     }
 
     public void setFoodAmount(Integer foodAmount) {
+        if (foodAmount < 0) return;
         this.foodAmount = foodAmount;
     }
 
@@ -37,6 +41,7 @@ public class Fox {
     }
 
     public void setDrinkAmount(Integer drinkAmount) {
+        if (drinkAmount < 0) return;
         this.drinkAmount = drinkAmount;
     }
 
