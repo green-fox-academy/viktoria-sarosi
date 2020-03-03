@@ -27,6 +27,9 @@ public class ConnectionwithmyslApplication implements CommandLineRunner {
         todoRepository.save(todo);
         Todo otherTodo = new Todo("Finish excercise");
         todoRepository.save(otherTodo);
+        todoRepository.save(new Todo("Cook dinner", true, false));
+        todoRepository.save(new Todo("Get presents", true, false));
+        todoRepository.save(new Todo("Get haircut", false, true));
     }
 
 

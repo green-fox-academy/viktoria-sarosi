@@ -3,11 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>todolist</title>
+    <link rel="stylesheet" th:href="@{/todoliststyle.css}"/>
 </head>
 <body>
-<h1>Todos for today:</h1>
-<ul th:each="todo : ${todos}" >
-    <li th:text="${todo.getTitle()}" ></li>
-</ul>
+<h1>TODOS FOR TODAY:</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Action</th>
+        <th>Done</th>
+        <th>Urgent</th>
+    </tr>
+    </thead>
+    <tbody th:each="todo : ${todos}" th:object="${todo}">
+    <tr>
+        <td th:text="*{id}"></td>
+        <td th:text="*{title}"></td>
+        <td th:text="*{getDone()}"></td>
+        <td th:text="*{getUrgent()}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

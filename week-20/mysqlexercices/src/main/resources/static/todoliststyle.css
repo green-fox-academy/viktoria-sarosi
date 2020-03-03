@@ -1,0 +1,16 @@
+h1 {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+table{
+    margin: 0 auto;
+}
+thead {
+    font-weight: bold;
+}
+
+td {
+    border: 1px solid;
+}
