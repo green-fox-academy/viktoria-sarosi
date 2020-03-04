@@ -1,6 +1,7 @@
 package com.greenfoxacademy.connectionwithmysl.controllers;
 
 import com.greenfoxacademy.connectionwithmysl.repositories.TodoRepository;
+import com.greenfoxacademy.connectionwithmysl.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,21 +13,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/todo")
 public class TodoController {
 
-    private TodoRepository todoRepository;
+    private TodoService todoService;
 
     @Autowired
-    public TodoController(TodoRepository todoRepository) {
-        this.todoRepository = todoRepository;
+    public TodoController(TodoService todoService) {
+        this.todoService = todoService;
     }
-
 
     @RequestMapping(value = {"/", "/list"}, method = RequestMethod.GET)
     public String list(Model model, @RequestParam(name = "isActive", required = false) String isActive) {
         if (isActive == null) {
-            model.addAttribute("todos", todoRepository.findAll());
+            model.addAttribute("todos", todoService.findAllTodos());
         } else {
-            boolean activeBoolean = (isActive.equalsIgnoreCase("false"));
-            model.addAttribute("todos", todoRepository.findAllByIsDone(activeBoolean));
+            model.addAttribute("todos", todoService.findAllTodosByIsDone(isActive));
         }
         return "todolist";
     }
