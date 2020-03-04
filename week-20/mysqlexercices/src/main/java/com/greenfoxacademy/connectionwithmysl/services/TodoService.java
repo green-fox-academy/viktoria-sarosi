@@ -35,8 +35,10 @@ public class TodoService {
         todoRepository.deleteById(id);
     }
 
-    public void editTodoById(long id) {
-        todoRepository.save(findTodoById(id));
+    public void editTodoById(long id, boolean newDone, boolean newUrgent) {
+        Todo todoToEdit = findTodoById(id);
+        todoToEdit.setDone(newDone);
+        todoToEdit.setUrgent(newUrgent);
     }
 
     public Todo findTodoById(long id) {

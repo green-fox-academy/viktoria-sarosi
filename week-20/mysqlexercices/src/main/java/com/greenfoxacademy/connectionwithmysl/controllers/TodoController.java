@@ -53,8 +53,8 @@ public class TodoController {
     }
 
     @PostMapping({"/{id}/edit"})
-    public String editTodoById(Model model, @ModelAttribute (name= "todo") Todo todo,  @PathVariable (value = "id", required = false)  long id){
-        todoService.editTodoById(id);
+    public String editTodoById( Model model, @ModelAttribute(name = "todo") Todo todo, @PathVariable(value = "id", required = false) long id, boolean isUrgent, boolean isDone){
+        todoService.editTodoById(id, isDone, isUrgent);
         return "redirect:/todo/list";
     }
 }
