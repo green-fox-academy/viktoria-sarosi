@@ -29,6 +29,10 @@ public class TodoService {
     public void saveNewTodo(String title) {
         todoRepository.save(new Todo(title));
     }
+
+    public void deleteTodoById(long id) {
+        todoRepository.deleteById(id);
+    }
 }
 
 

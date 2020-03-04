@@ -15,6 +15,7 @@
         <th>Action</th>
         <th>Done</th>
         <th>Urgent</th>
+        <th></th>
     </tr>
     </thead>
     <tbody th:each="todo : ${todos}" th:object="${todo}">
@@ -23,6 +24,11 @@
         <td th:text="*{title}"></td>
         <td th:text="*{getDone()}"></td>
         <td th:text="*{getUrgent()}"></td>
+        <td>
+            <form th:action="${todo.getId()} + '/delete'" method="post">
+                <button type="submit" th:name="todo" th:value="${todo.getId()}">delete</button>
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>

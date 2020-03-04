@@ -29,13 +29,19 @@ public class TodoController {
     }
 
     @GetMapping("/add")
-    public String renderAdd(Model model) {
+    public String renderAdd() {
         return "/add";
     }
 
     @PostMapping("/add")
-    public String saveNewTodo(String title){
+    public String saveNewTodo(String title) {
         todoService.saveNewTodo(title);
+        return "redirect:list";
+    }
+
+    @PostMapping(value = "/{id}/delete")
+    public String deleteTodoById(@PathVariable long id) {
+        todoService.deleteTodoById(id);
         return "redirect:list";
     }
 }
