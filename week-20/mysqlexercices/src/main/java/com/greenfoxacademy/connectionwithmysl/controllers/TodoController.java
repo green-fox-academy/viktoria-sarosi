@@ -5,9 +5,7 @@ import com.greenfoxacademy.connectionwithmysl.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/todo")
@@ -21,13 +19,24 @@ public class TodoController {
     }
 
     @RequestMapping(value = {"/", "/list"}, method = RequestMethod.GET)
-    public String list(Model model, @RequestParam(name = "isActive", required = false) String isActive) {
+    public String renderList(Model model, @RequestParam(name = "isActive", required = false) String isActive) {
         if (isActive == null) {
             model.addAttribute("todos", todoService.findAllTodos());
         } else {
             model.addAttribute("todos", todoService.findAllTodosByIsDone(isActive));
         }
         return "todolist";
+    }
+
+    @GetMapping("/add")
+    public String renderAdd(Model model) {
+        return "/add";
+    }
+
+    @PostMapping("/add")
+    public String saveNewTodo(String title){
+        todoService.saveNewTodo(title);
+        return "redirect:list";
     }
 }
 

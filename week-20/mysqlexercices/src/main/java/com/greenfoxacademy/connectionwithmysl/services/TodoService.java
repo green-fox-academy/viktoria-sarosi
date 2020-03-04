@@ -25,6 +25,10 @@ public class TodoService {
         Boolean activeBoolean = (isActive.equalsIgnoreCase("false"));
         return (List<Todo>) todoRepository.findAllByIsDone(activeBoolean);
     }
+
+    public void saveNewTodo(String title) {
+        todoRepository.save(new Todo(title));
+    }
 }
 
 
