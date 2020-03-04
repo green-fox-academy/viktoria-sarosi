@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TodoService {
@@ -27,19 +26,20 @@ public class TodoService {
         return (List<Todo>) todoRepository.findAllByIsDone(activeBoolean);
     }
 
-    public void saveNewTodo(String title) {
-        todoRepository.save(new Todo(title));
+    public void saveTodo(Todo todo) {
+        todoRepository.save(todo);
+
     }
 
     public void deleteTodoById(long id) {
         todoRepository.deleteById(id);
     }
 
-    public void editTodoById(long id, boolean newDone, boolean newUrgent) {
+   /* public void editTodoById(long id, boolean newDone, boolean newUrgent) {
         Todo todoToEdit = findTodoById(id);
         todoToEdit.setDone(newDone);
         todoToEdit.setUrgent(newUrgent);
-    }
+    }*/
 
     public Todo findTodoById(long id) {
         if (todoRepository.findById(id).isPresent()) {

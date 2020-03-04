@@ -30,13 +30,14 @@ public class TodoController {
     }
 
     @GetMapping("/add")
-    public String renderAdd() {
+    public String renderAdd(Model model, @ModelAttribute ("todo") Todo todo) {
+        model.addAttribute("todo", todo);
         return "/add";
     }
 
     @PostMapping("/add")
-    public String saveNewTodo(String title) {
-        todoService.saveNewTodo(title);
+    public String saveNewTodo(@ModelAttribute ("todo") Todo todo) {
+        todoService.saveTodo(todo);
         return "redirect:list";
     }
 
@@ -47,14 +48,14 @@ public class TodoController {
     }
 
     @GetMapping({"/{id}/edit"})
-    public String renderEdit(@PathVariable (value = "id", required = false) long id, Model model){
+    public String renderEdit(@PathVariable (value = "id", required = false) long id, Model model, @ModelAttribute ("todo") Todo todo){
         model.addAttribute("todo", todoService.findTodoById(id));
         return "edit";
     }
 
     @PostMapping({"/{id}/edit"})
-    public String editTodoById( Model model, @ModelAttribute(name = "todo") Todo todo, @PathVariable(value = "id", required = false) long id, boolean isUrgent, boolean isDone){
-        todoService.editTodoById(id, isDone, isUrgent);
+    public String editTodoById(@ModelAttribute("todo") Todo todo){
+        todoService.saveTodo(todo);
         return "redirect:/todo/list";
     }
 }

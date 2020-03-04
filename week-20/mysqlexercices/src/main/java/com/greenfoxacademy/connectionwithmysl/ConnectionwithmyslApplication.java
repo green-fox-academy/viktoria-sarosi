@@ -23,14 +23,14 @@ public class ConnectionwithmyslApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Todo todo = new Todo("Learn ORM");
+        /*Todo todo = new Todo("Learn ORM");
         todoRepository.save(todo);
         Todo otherTodo = new Todo("Finish excercise");
         todoRepository.save(otherTodo);
         todoRepository.save(new Todo("Cook dinner", true, false));
         todoRepository.save(new Todo("Get presents", true, false));
         todoRepository.save(new Todo("Get haircut", false, true));
-        todoRepository.save(new Todo("Repot the plants"));
+        todoRepository.save(new Todo("Repot the plants"));*/
     }
 
 

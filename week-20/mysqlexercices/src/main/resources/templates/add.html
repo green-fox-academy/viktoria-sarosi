@@ -6,8 +6,8 @@
 </head>
 <body>
 <div>Add new todo</div>
-<form th:action="@{add}" th:method="post">
-    <input type="text" th:name="title">
+<form th:object="${todo}" th:action="@{add}" th:method="post">
+    <input type="text" th:field="*{title}">
     <input  type="submit">
 </form>
 </body>
