@@ -44,10 +44,10 @@ public class MainController {
     public String renderInfo(Model model, @RequestParam(name = "name", required = true) String name) {
         model.addAttribute("fox", foxService.find(name));
         model.addAttribute("active", "information");
-        if (foxService.find(name).getFoodAmount() >= 0) {
+        if (foxService.find(name).getFoodAmount() > 0) {
             foxService.decreaseFood(foxService.find(name));
         }
-        if (foxService.find(name).getDrinkAmount() >= 0) {
+        if (foxService.find(name).getDrinkAmount() > 0) {
             foxService.decreaseDrink(foxService.find(name));
         }
         return "information";

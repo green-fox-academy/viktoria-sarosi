@@ -10,12 +10,6 @@
 <div th:replace="navigation-bar :: topnav">
 </div>
 <img src="/greenfox.png" alt="A fox is hiding here.">
-<!--<div  class="info" th:if="${fox.getDrinkAmount() == null}"  th:text="'This is ' + ${fox.getName()} + '. Currently living on ' + ${fox.getFoodAmount()} + ' ' + ${fox.getFood()} + ' and ' + ${fox.getDrink()} + '. He knows ' + ${fox.getListOfTricks().size()} + ' trics.' "></div><br>
-<div  class="info" th:if="${fox.getFoodAmount() == null}"  th:text="'This is ' + ${fox.getName()} + '. Currently living on '+ ${fox.getFood()} + ' and ' + ${fox.getDrinkAmount()} + ' ' + ${fox.getDrink()} + '. He knows ' + ${fox.getListOfTricks().size()} + ' trics.' "></div><br>
-<div  class="info" th:if="${fox.getFoodAmount() >= 0} && ${fox.getDrinkAmount() >= 0}"  th:text="'This is ' + ${fox.getName()} + '. Currently living on ' + ${fox.getFoodAmount()} + ' ' + ${fox.getFood()} + ' and ' + ${fox.getDrinkAmount()} + ' ' + ${fox.getDrink()} + '. He knows ' + ${fox.getListOfTricks().size()} + ' trics.' "></div><br>
-<div  class="info" th:if="${fox.getFoodAmount() < 0} && ${fox.getDrinkAmount() < 0}"  th:text="'This is ' + ${fox.getName()} + '. Currently living on 0 ' + ${fox.getFood()} + ' and 0 ' + ${fox.getDrink()} + '. He knows ' + ${fox.getListOfTricks().size()} + ' trics.' "></div><br>
-<div  class="info" th:if="${fox.getFoodAmount() >= 0} && ${fox.getDrinkAmount() < 0}"  th:text="'This is ' + ${fox.getName()} + '. Currently living on ' + ${fox.getFoodAmount()} + ' ' + ${fox.getFood()} + ' and 0 ' + ${fox.getDrink()} + '. He knows ' + ${fox.getListOfTricks().size()} + ' trics.' "></div><br>
-<div  class="info" th:if="${fox.getFoodAmount() < 0} && ${fox.getDrinkAmount() >= 0}"  th:text="'This is ' + ${fox.getName()} + '. Currently living on 0 ' + ${fox.getFood()} + ' and ' + ${fox.getDrinkAmount()} + ' ' + ${fox.getDrink()} + '. He knows ' + ${fox.getListOfTricks().size()} + ' trics.' "></div><br>-->
 <div  class="info" th:text="'This is ' + ${fox.getName()} + '. Currently living on ' + ${fox.getFoodAmount()} + ' ' + ${fox.getFood()} + ' and ' + ${fox.getDrinkAmount()} + ' ' + ${fox.getDrink()} + '. He knows ' + ${fox.getListOfTricks().size()} + ' trics.' "></div><br>
 <div class="chapter" >Known Trics:</div>
 <ul th:if="${fox.getListOfTricks().size() > 0}" th:each="trick : ${fox.getListOfTricks()}">

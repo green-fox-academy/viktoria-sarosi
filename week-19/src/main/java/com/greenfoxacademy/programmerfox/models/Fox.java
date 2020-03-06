@@ -32,7 +32,7 @@ public class Fox {
     }
 
     public void setFoodAmount(Integer foodAmount) {
-        if (foodAmount < 0) return;
+        if (foodAmount < FOODAMOUNT_MIN_LIMIT) return;
         this.foodAmount = foodAmount;
     }
 
@@ -41,7 +41,7 @@ public class Fox {
     }
 
     public void setDrinkAmount(Integer drinkAmount) {
-        if (drinkAmount < 0) return;
+        if (drinkAmount < DRINKAMOUNT_MIN_LIMIT) return;
         this.drinkAmount = drinkAmount;
     }
 
@@ -85,10 +85,10 @@ public class Fox {
         this.getActions().add(action);
     }
 
-    public List<String> getAllOrLatestFiveActions(){
-        if(this.getActions().size() < 5){
+    public List<String> getAllOrLatestFiveActions() {
+        if (this.getActions().size() < 5) {
             return this.getActions();
-        }else {
+        } else {
             List<String> latestFive = new ArrayList<>();
             for (int i = 0; i < 5; i++) {
                 latestFive.add(this.getActions().get(this.getActions().size() - (5 - i)));

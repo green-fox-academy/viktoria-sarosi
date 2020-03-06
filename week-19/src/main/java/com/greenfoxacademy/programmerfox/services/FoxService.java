@@ -128,7 +128,6 @@ public class FoxService {
         }
     }
 
-
     public void decreaseDrink(Fox fox) {
         if (fox.getDrinkAmount() != null && fox.getDrinkAmount() > 0) {
             Timer timer = new Timer();
