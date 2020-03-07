@@ -18,7 +18,7 @@ public class TodoService {
     }
 
     public List<Todo> findAllTodos() {
-        return (List<Todo>) todoRepository.findAll();
+        return (List<Todo>) todoRepository.findAllByOrderByIdAsc();
     }
 
     public List<Todo> findAllTodosByIsDone(String isActive) {
@@ -28,18 +28,11 @@ public class TodoService {
 
     public void saveTodo(Todo todo) {
         todoRepository.save(todo);
-
     }
 
     public void deleteTodoById(long id) {
         todoRepository.deleteById(id);
     }
-
-   /* public void editTodoById(long id, boolean newDone, boolean newUrgent) {
-        Todo todoToEdit = findTodoById(id);
-        todoToEdit.setDone(newDone);
-        todoToEdit.setUrgent(newUrgent);
-    }*/
 
     public Todo findTodoById(long id) {
         if (todoRepository.findById(id).isPresent()) {
@@ -48,6 +41,7 @@ public class TodoService {
             return null;
         }
     }
+
 }
 
 

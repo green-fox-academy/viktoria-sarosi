@@ -21,6 +21,7 @@ public class TodoController {
 
     @RequestMapping(value = {"/", "/list"}, method = RequestMethod.GET)
     public String renderList(Model model, @RequestParam(name = "isActive", required = false) String isActive) {
+
         if (isActive == null) {
             model.addAttribute("todos", todoService.findAllTodos());
         } else {
