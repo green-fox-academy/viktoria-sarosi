@@ -1,6 +1,8 @@
 package com.greenfoxacademy.connectionwithmysl.services;
 
+import com.greenfoxacademy.connectionwithmysl.models.Assignee;
 import com.greenfoxacademy.connectionwithmysl.models.Todo;
+import com.greenfoxacademy.connectionwithmysl.repositories.AssigneeRepository;
 import com.greenfoxacademy.connectionwithmysl.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,10 +13,12 @@ import java.util.List;
 public class TodoService {
 
     private TodoRepository todoRepository;
+    private AssigneeRepository assigneeRepository;
 
     @Autowired
-    public TodoService(TodoRepository todoRepository) {
+    public TodoService(TodoRepository todoRepository, AssigneeRepository assigneeRepository) {
         this.todoRepository = todoRepository;
+        this.assigneeRepository = assigneeRepository;
     }
 
     public List<Todo> findAllTodos() {
@@ -44,6 +48,10 @@ public class TodoService {
 
     public List<Todo> findTodosByTitleFragment(String titleFragment) {
         return (List<Todo>) todoRepository.findAllByTitleContaining(titleFragment);
+    }
+
+    public List<Assignee> findAllAssignees() {
+        return (List<Assignee>) assigneeRepository.findAll();
     }
 }
 

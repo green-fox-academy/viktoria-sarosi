@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Assignees</title>
+</head>
+<body>
+<ul th:each="assignee: ${assigneeslist}" >
+    <li th:text="${getName()}"></li>
+    <li th:text="${getEmail()}"></li>
+</ul>
+</body>
+</html>

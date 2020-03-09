@@ -18,6 +18,7 @@
         <th>Action</th>
         <th>Done</th>
         <th>Urgent</th>
+        <th>Assignee</th>
         <th></th>
         <th></th>
     </tr>
@@ -28,6 +29,7 @@
         <td th:text="*{title}"></td>
         <td th:text="*{getDone()}"></td>
         <td th:text="*{getUrgent()}"></td>
+        <td th:text="*{getAssignee().toString()}"></td>
         <td>
             <form th:action="'/todo/' + *{getId()} + '/delete'" method="post">
                 <button type="submit" th:name="todo" th:value="*{getId()}">Delete</button>
@@ -39,7 +41,7 @@
     </tr>
     </tbody>
 </table>
-<div th:name="no" ></div>
+<div th:name="no"></div>
 <div id="title">TODOS FOR TODAY:</div>
 <a th:href="@{add}">Add new todo</a>
 <table>
@@ -49,6 +51,7 @@
         <th>Action</th>
         <th>Done</th>
         <th>Urgent</th>
+        <th>Assignee</th>
         <th></th>
         <th></th>
     </tr>
@@ -59,6 +62,7 @@
         <td th:text="*{title}"></td>
         <td th:text="*{getDone()}"></td>
         <td th:text="*{getUrgent()}"></td>
+        <td th:text="*{getAssignee()}"></td>
         <td>
             <form th:action="'/todo/' + *{getId()} + '/delete'" method="post">
                 <button type="submit" th:name="todo" th:value="*{getId()}">Delete</button>
@@ -70,5 +74,6 @@
     </tr>
     </tbody>
 </table>
+<a th:href="@{assignees}">List Of Assignees</a>
 </body>
 </html>

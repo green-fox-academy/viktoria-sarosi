@@ -1,13 +1,29 @@
 package com.greenfoxacademy.connectionwithmysl.models;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name = "assignees")
 public class Assignee {
 
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
     private String email;
 
-    public Assignee(String name, String email) {
+    @OneToMany
+    private List<Todo> todos;
+
+    public Assignee(String name) {
+        todos = new ArrayList<>();
         this.name = name;
-        this.email = email;
+    }
+
+    public Assignee() {
+        todos = new ArrayList<>();
     }
 
     public String getName() {
@@ -24,5 +40,10 @@ public class Assignee {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString(){
+        return this.getName();
     }
 }

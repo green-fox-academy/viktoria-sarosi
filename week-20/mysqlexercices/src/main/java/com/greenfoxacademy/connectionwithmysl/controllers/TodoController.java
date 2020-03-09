@@ -30,7 +30,7 @@ public class TodoController {
         if (fragment != null) {
             if (todoService.findTodosByTitleFragment(fragment) != null) {
                 model.addAttribute("todosByTitle", todoService.findTodosByTitleFragment(fragment));
-            } else{
+            } else {
                 model.addAttribute("no", "No Such Todo in Today's Todo List");
             }
         }
@@ -68,5 +68,10 @@ public class TodoController {
         return "redirect:/todo/list";
     }
 
+    @GetMapping("/assignees")
+    public String renderListOfAssignees(Model model) {
+        model.addAttribute("assigneeslist", todoService.findAllAssignees());
+        return "/assignees";
+    }
 }
 

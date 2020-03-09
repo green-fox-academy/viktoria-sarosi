@@ -1,7 +1,6 @@
 package com.greenfoxacademy.connectionwithmysl.models;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "todos")
@@ -13,6 +12,8 @@ public class Todo {
     private String title;
     private boolean isUrgent;
     private boolean isDone;
+    @ManyToOne
+    private Assignee assignee;
 
     public Todo() {
     }
@@ -27,6 +28,13 @@ public class Todo {
         this.title = title;
         this.isUrgent = isUrgent;
         this.isDone = isDone;
+    }
+
+    public Todo(String title, boolean isUrgent, boolean isDone, Assignee assignee) {
+        this.title = title;
+        this.isUrgent = isUrgent;
+        this.isDone = isDone;
+        this.assignee = assignee;
     }
 
     public long getId() {
@@ -59,6 +67,14 @@ public class Todo {
 
     public void setDone(boolean isDone) {
         this.isDone = isDone;
+    }
+
+    public Assignee getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(Assignee assignee) {
+        this.assignee = assignee;
     }
 }
 
