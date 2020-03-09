@@ -42,6 +42,10 @@ public class TodoService {
         }
     }
 
+    public List<Todo> findTodosByTitleFragment(String titleFragment) {
+        return (List<Todo>) todoRepository.findAllByTitleContaining(titleFragment);
+    }
 }
+
 
 
