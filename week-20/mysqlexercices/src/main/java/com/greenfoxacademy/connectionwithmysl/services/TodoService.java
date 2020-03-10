@@ -50,9 +50,7 @@ public class TodoService {
         return (List<Todo>) todoRepository.findAllByTitleContaining(titleFragment);
     }
 
-    public List<Assignee> findAllAssignees() {
-        return (List<Assignee>) assigneeRepository.findAll();
-    }
+
 }
 
 

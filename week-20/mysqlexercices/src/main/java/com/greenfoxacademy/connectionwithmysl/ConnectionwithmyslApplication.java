@@ -35,11 +35,11 @@ public class ConnectionwithmyslApplication implements CommandLineRunner {
         todoRepository.save(new Todo("Get presents", true, false));
         todoRepository.save(new Todo("Get haircut", false, true));
         todoRepository.save(new Todo("Repot the plants"));*/
-        assigneeRepository.save(new Assignee("John"));
+        /*assigneeRepository.save(new Assignee("John"));
         assigneeRepository.save(new Assignee("Bob"));
         assigneeRepository.save(new Assignee("Eleanor"));
         assigneeRepository.save(new Assignee("Robert"));
-        assigneeRepository.save(new Assignee("Sonia"));
+        assigneeRepository.save(new Assignee("Sonia"));*/
 
     }
 

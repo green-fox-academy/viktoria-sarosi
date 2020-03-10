@@ -2,6 +2,7 @@ package com.greenfoxacademy.connectionwithmysl.controllers;
 
 import com.greenfoxacademy.connectionwithmysl.models.Todo;
 import com.greenfoxacademy.connectionwithmysl.repositories.TodoRepository;
+import com.greenfoxacademy.connectionwithmysl.services.AssigneeService;
 import com.greenfoxacademy.connectionwithmysl.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +14,12 @@ import org.springframework.web.bind.annotation.*;
 public class TodoController {
 
     private TodoService todoService;
+    private AssigneeService assigneeService;
 
     @Autowired
-    public TodoController(TodoService todoService) {
+    public TodoController(TodoService todoService, AssigneeService assigneeService) {
         this.todoService = todoService;
+        this.assigneeService = assigneeService;
     }
 
     @RequestMapping(value = {"/", "/list"}, method = RequestMethod.GET)
@@ -40,16 +43,16 @@ public class TodoController {
     @GetMapping("/add")
     public String renderAdd(Model model, @ModelAttribute("todo") Todo todo) {
         model.addAttribute("todo", todo);
-        return "/add";
+        return "add";
     }
 
     @PostMapping("/add")
     public String saveNewTodo(@ModelAttribute("todo") Todo todo) {
         todoService.saveTodo(todo);
-        return "redirect:list";
+        return "redirect:/todo/list";
     }
 
-    @PostMapping(value = "/{id}/delete")
+    @GetMapping(value = "/{id}/delete")
     public String deleteTodoById(@PathVariable(value = "id", required = false) long id) {
         todoService.deleteTodoById(id);
         return "redirect:/todo/list";
@@ -68,10 +71,6 @@ public class TodoController {
         return "redirect:/todo/list";
     }
 
-    @GetMapping("/assignees")
-    public String renderListOfAssignees(Model model) {
-        model.addAttribute("assigneeslist", todoService.findAllAssignees());
-        return "/assignees";
-    }
+
 }
 

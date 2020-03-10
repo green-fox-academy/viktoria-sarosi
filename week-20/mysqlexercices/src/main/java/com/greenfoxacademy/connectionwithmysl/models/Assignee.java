@@ -10,7 +10,7 @@ public class Assignee {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String name;
     private String email;
 
@@ -40,6 +40,14 @@ public class Assignee {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     @Override
