@@ -62,7 +62,7 @@
         <td th:text="*{title}"></td>
         <td th:text="*{getDone()}"></td>
         <td th:text="*{getUrgent()}"></td>
-        <td th:text="*{getAssignee()}"></td>
+        <td th:text="*{assignee}"></td>
         <td>
             <a th:href="'/todo/' + *{getId()} + '/delete'" >
                 <button>Delete</button>

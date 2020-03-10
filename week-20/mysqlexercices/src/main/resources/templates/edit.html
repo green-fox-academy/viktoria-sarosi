@@ -10,7 +10,9 @@
     <label for="title" >Todo description</label>
     <input id="title" type="text" th:field="*{title}" >
     <label for="assignee">Assignee</label>
-    <input id="assignee" type="text" th:field="*{assignee}">
+    <select id="assignee" name="assignee-name">
+        <option th:each="assignee : ${assigneeslist}" th:value="${assignee.id}" th:text="${assignee.name}"></option>
+    </select>
     <label  for="urgent" >Urgent</label>
     <input id="urgent" type="checkbox" name="Urgent" >
     <label  for="done" >Done</label>

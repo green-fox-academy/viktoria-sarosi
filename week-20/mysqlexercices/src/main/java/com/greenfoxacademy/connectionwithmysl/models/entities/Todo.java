@@ -1,4 +1,6 @@
-package com.greenfoxacademy.connectionwithmysl.models;
+package com.greenfoxacademy.connectionwithmysl.models.entities;
+
+import com.greenfoxacademy.connectionwithmysl.models.entities.Assignee;
 
 import javax.persistence.*;
 

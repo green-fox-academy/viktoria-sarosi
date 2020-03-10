@@ -1,7 +1,7 @@
 package com.greenfoxacademy.connectionwithmysl.controllers;
 
-import com.greenfoxacademy.connectionwithmysl.models.Todo;
-import com.greenfoxacademy.connectionwithmysl.repositories.TodoRepository;
+import com.greenfoxacademy.connectionwithmysl.models.entities.Assignee;
+import com.greenfoxacademy.connectionwithmysl.models.entities.Todo;
 import com.greenfoxacademy.connectionwithmysl.services.AssigneeService;
 import com.greenfoxacademy.connectionwithmysl.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,8 +60,9 @@ public class TodoController {
 
     @GetMapping({"/{id}/edit"})
     public String renderEdit(@PathVariable(value = "id", required = false) long id, Model
-            model, @ModelAttribute("todo") Todo todo) {
+            model, @ModelAttribute("todo") Todo todo, @ModelAttribute("assignee") Assignee assignee){
         model.addAttribute("todo", todoService.findTodoById(id));
+        model.addAttribute("assigneeslist", assigneeService.findAllAssignees());
         return "edit";
     }
 

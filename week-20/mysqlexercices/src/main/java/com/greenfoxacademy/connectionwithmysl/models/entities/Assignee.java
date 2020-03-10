@@ -1,4 +1,4 @@
-package com.greenfoxacademy.connectionwithmysl.models;
+package com.greenfoxacademy.connectionwithmysl.models.entities;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -26,6 +26,13 @@ public class Assignee {
         todos = new ArrayList<>();
     }
 
+    public List<Todo> getTodos() {
+        return todos;
+    }
+
+    public void setTodos(List<Todo> todos) {
+        this.todos = todos;
+    }
     public String getName() {
         return name;
     }
@@ -52,6 +59,6 @@ public class Assignee {
 
     @Override
     public String toString(){
-        return this.getName();
+        return name;
     }
 }

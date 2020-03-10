@@ -1,6 +1,6 @@
 package com.greenfoxacademy.connectionwithmysl.repositories;
 
-import com.greenfoxacademy.connectionwithmysl.models.Assignee;
+import com.greenfoxacademy.connectionwithmysl.models.entities.Assignee;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

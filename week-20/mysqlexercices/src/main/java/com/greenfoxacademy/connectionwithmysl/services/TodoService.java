@@ -1,7 +1,6 @@
 package com.greenfoxacademy.connectionwithmysl.services;
 
-import com.greenfoxacademy.connectionwithmysl.models.Assignee;
-import com.greenfoxacademy.connectionwithmysl.models.Todo;
+import com.greenfoxacademy.connectionwithmysl.models.entities.Todo;
 import com.greenfoxacademy.connectionwithmysl.repositories.AssigneeRepository;
 import com.greenfoxacademy.connectionwithmysl.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
