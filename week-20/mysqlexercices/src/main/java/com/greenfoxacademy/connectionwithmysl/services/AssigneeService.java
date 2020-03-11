@@ -24,7 +24,16 @@ public class AssigneeService {
     }
 
     public void deleteAssigneeById(long id) {
-        assigneeRepository.deleteById(id);
+        if (assigneeRepository.findById(id).isPresent()) {
+            if (assigneeRepository.findById(id).get().getTodos().isEmpty()) {
+                assigneeRepository.deleteById(id);
+            } else {
+                for (int i = 0; i < assigneeRepository.findById(id).get().getTodos().size(); i++) {
+                    assigneeRepository.findById(id).get().getTodos().get(i).setAssignee(null);
+                }
+                assigneeRepository.deleteById(id);
+            }
+        }
     }
 
     public void saveAssignee(Assignee assignee) {
@@ -32,9 +41,9 @@ public class AssigneeService {
     }
 
     public Assignee findAssigneeById(long id) {
-        if(assigneeRepository.findById(id).isPresent()){
+        if (assigneeRepository.findById(id).isPresent()) {
             return assigneeRepository.findById(id).get();
-        }else{
+        } else {
             return null;
         }
     }

@@ -6,6 +6,7 @@
     <link rel="stylesheet" th:href="@{/todoliststyle.css}"/>
 </head>
 <body>
+<span>
 <form action="list" th:method="get">
     <label for="searchByTitle">Search by Title</label>
     <input id="searchByTitle" type="text" name="fragment">
@@ -33,7 +34,7 @@
             <a th:href="'/assignees/' + *{getAssigneeId()} + '/todos-per-assignee'" th:text="*{assignee}"></a>
         </td>
         <td>
-            <a th:href="'/todo/' + *{getId()} + '/delete'" >
+            <a th:href="'/todo/' + *{getId()} + '/delete'">
                 <button>Delete</button>
             </a>
         </td>
@@ -43,13 +44,23 @@
     </tr>
     </tbody>
 </table>
+</span>
 <div th:name="no"></div>
+<br>
+<br>
+<span>
 <div id="title">TODOS FOR TODAY:</div>
-<a href="add">Add new todo</a>
+    <a href="add">Add new todo</a>
+</span>
+<span><a href="/assignees">List Of Assignees</a></span>
+</span>
+<span>
 <table>
     <thead>
     <tr>
         <th>ID</th>
+        <th>Date of Creation</th>
+        <th>Due date</th>
         <th>Action</th>
         <th>Done</th>
         <th>Urgent</th>
@@ -61,6 +72,8 @@
     <tbody th:each="todo : ${todos}" th:object="${todo}">
     <tr>
         <td th:text="*{id}"></td>
+        <td th:text="*{creation}"></td>
+        <td ></td>
         <td th:text="*{title}"></td>
         <td th:text="*{getDone()}"></td>
         <td th:text="*{getUrgent()}"></td>
@@ -68,7 +81,7 @@
             <a th:href="'/assignees/' + *{getAssigneeId()} + '/todos-per-assignee'" th:text="*{assignee}"></a>
         </td>
         <td>
-            <a th:href="'/todo/' + *{getId()} + '/delete'" >
+            <a th:href="'/todo/' + *{getId()} + '/delete'">
                 <button>Delete</button>
             </a>
         </td>
@@ -80,6 +93,7 @@
     </tr>
     </tbody>
 </table>
-<a href="/assignees">List Of Assignees</a>
+    </span>
+
 </body>
 </html>

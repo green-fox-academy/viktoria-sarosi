@@ -13,10 +13,12 @@
     <select id="assignee" name="assigneeName">
         <option th:each="assignee : ${assigneeslist}" th:value="${assignee.name}" th:text="${assignee.name}"></option>
     </select>
+    <!--<label for="due" >Due Date</label>
+    <input id="due" type="date" th:field="*{due}">-->
     <label  for="urgent" >Urgent</label>
-    <input id="urgent" type="checkbox" name="Urgent" th:checked="${isUrgent}">
+    <input id="urgent" type="checkbox" th:field="*{urgent}" >
     <label  for="done" >Done</label>
-    <input id="done" type="checkbox" name="Done" th:checked="${isDone}">
+    <input id="done" type="checkbox" th:field="*{done}">
     <input type="submit" >
 </form>
 
