@@ -9,12 +9,12 @@ import java.util.List;
 public class Assignee {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private String email;
 
-    @OneToMany
+    @OneToMany(mappedBy = "assignee")
     private List<Todo> todos;
 
     public Assignee(String name) {
@@ -30,9 +30,10 @@ public class Assignee {
         return todos;
     }
 
-    public void setTodos(List<Todo> todos) {
-        this.todos = todos;
+    public void setTodos(Todo todo) {
+        todos.add(todo);
     }
+
     public String getName() {
         return name;
     }
@@ -58,7 +59,7 @@ public class Assignee {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return name;
     }
 }

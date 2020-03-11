@@ -10,13 +10,13 @@
     <label for="title" >Todo description</label>
     <input id="title" type="text" th:field="*{title}" >
     <label for="assignee">Assignee</label>
-    <select id="assignee" name="assignee-name">
-        <option th:each="assignee : ${assigneeslist}" th:value="${assignee.id}" th:text="${assignee.name}"></option>
+    <select id="assignee" name="assigneeName">
+        <option th:each="assignee : ${assigneeslist}" th:value="${assignee.name}" th:text="${assignee.name}"></option>
     </select>
     <label  for="urgent" >Urgent</label>
-    <input id="urgent" type="checkbox" name="Urgent" >
+    <input id="urgent" type="checkbox" name="Urgent" th:checked="${isUrgent}">
     <label  for="done" >Done</label>
-    <input id="done" type="checkbox" name="Done" >
+    <input id="done" type="checkbox" name="Done" th:checked="${isDone}">
     <input type="submit" >
 </form>
 

@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/assignees")
 public class AssigneeController {
@@ -65,5 +67,11 @@ public class AssigneeController {
             model, @ModelAttribute("assignee") Assignee assignee){
         model.addAttribute("assignee", assigneeService.findAssigneeById(id));
         return "todos-per-assignee";
+    }
+
+    @PostMapping({"/{id}/todos-per-assignee"})
+    public String showTodosOfAssignee(@PathVariable(value = "id", required = false) long id, Model model, @ModelAttribute("assignee") Assignee assignee){
+        assigneeService.findAssigneeById(id).getTodos();
+        return "/{id}/todos-per-assignee";
     }
 }

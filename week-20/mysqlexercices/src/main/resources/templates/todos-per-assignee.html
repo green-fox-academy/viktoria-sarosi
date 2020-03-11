@@ -5,11 +5,15 @@
     <title>Todos per assignee</title>
 </head>
 <body>
+<div>
 <span>Assignee:</span>
 <span th:text="${assignee.name}"></span>
+</div>
+<div>
 <span>Todos:</span>
 <ul>
-    <li th:each="todo : ${todolist}" th:text="${todo.title}" ></li>
+    <li th:each="todo : ${assignee.getTodos()}" th:text="${todo.title}" ></li>
 </ul>
+</div>
 </body>
 </html>
