@@ -78,5 +78,14 @@ public class Todo {
     public void setAssignee(Assignee assignee) {
         this.assignee = assignee;
     }
+
+    public long getAssigneeId() {
+        if (this.getAssignee() == null) {
+            return 0L;
+        }
+        return this.getAssignee().getId();
+    }
+
+
 }
 

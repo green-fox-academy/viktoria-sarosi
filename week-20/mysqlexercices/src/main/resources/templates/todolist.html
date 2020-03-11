@@ -29,11 +29,13 @@
         <td th:text="*{title}"></td>
         <td th:text="*{getDone()}"></td>
         <td th:text="*{getUrgent()}"></td>
-        <td th:text="*{assignee.name}"></td>
         <td>
-            <form th:action="'/todo/' + *{getId()} + '/delete'" method="post">
-                <button type="submit" th:name="todo" th:value="*{getId()}">Delete</button>
-            </form>
+            <a th:href="'/assignees/' + *{getAssigneeId()} + '/todos-per-assignee'" th:text="*{assignee}"></a>
+        </td>
+        <td>
+            <a th:href="'/todo/' + *{getId()} + '/delete'" >
+                <button>Delete</button>
+            </a>
         </td>
         <td>
             <a th:href="'/todo/' + *{getId()} + '/edit'">Edit</a>
@@ -62,7 +64,9 @@
         <td th:text="*{title}"></td>
         <td th:text="*{getDone()}"></td>
         <td th:text="*{getUrgent()}"></td>
-        <td th:text="*{assignee}"></td>
+        <td>
+            <a th:href="'/assignees/' + *{getAssigneeId()} + '/todos-per-assignee'" th:text="*{assignee}"></a>
+        </td>
         <td>
             <a th:href="'/todo/' + *{getId()} + '/delete'" >
                 <button>Delete</button>

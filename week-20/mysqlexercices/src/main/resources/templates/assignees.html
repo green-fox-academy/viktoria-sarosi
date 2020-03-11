@@ -15,13 +15,15 @@
         <th>Email</th>
         <th>Edit</th>
         <th>Delete</th>
-        <th>Show Todos</th>
     </tr>
     </thead>
     <tbody th:each="assignee : ${assigneeslist}">
     <tr>
         <td th:text="${assignee.id}"></td>
-        <td th:text="${assignee.name}"></td>
+        <td >
+            <a th:href="'/assignees/' + ${assignee.id} + '/todos-per-assignee'" th:text="${assignee.name}" >
+            </a>
+        </td>
         <td th:text="${assignee.email}"></td>
         <td>
             <a th:href="'/assignees/' + ${assignee.getId()} + '/edit-assignee'">
@@ -31,11 +33,6 @@
         <td>
             <a th:href="'/assignees/' + ${assignee.id} + '/delete'">
                 <button >Delete</button>
-            </a>
-        </td>
-        <td>
-            <a th:href="'/assignees/' + ${assignee.id} + '/todos-per-assignee'">
-                <button>Todos</button>
             </a>
         </td>
     </tr>
