@@ -1,5 +1,7 @@
 package com.greenfoxacademy.connectionwithmysl.models.entities;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 
 import java.util.Date;
@@ -17,7 +19,9 @@ public class Todo {
     @ManyToOne
     private Assignee assignee;
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date creation;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date due;
 
     public Todo() {
@@ -44,10 +48,6 @@ public class Todo {
         this.assignee = assignee;
         this.due = new Date();
     }
-
-    /*public boolean isDone() {
-        return isDone;
-    }*/
 
     public void setCreation(Date creation) {
         this.creation = creation;

@@ -50,9 +50,8 @@ public class TodoService {
     }
 
 
-    public Todo setNewAssignee(Long id, String assigneeName) {
-        todoRepository.findById(id).get().setAssignee(assigneeRepository.findByName(assigneeName));
-        return todoRepository.findById(id).get();
+    public void setNewAssignee(Todo todo, String assigneeName) {
+        todo.setAssignee(assigneeRepository.findByName(assigneeName));
     }
 
 
