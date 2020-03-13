@@ -1,6 +1,7 @@
 package com.greenfoxacademy.connectionwithmysl.services;
 
 import com.greenfoxacademy.connectionwithmysl.models.entities.Assignee;
+import com.greenfoxacademy.connectionwithmysl.models.entities.Todo;
 import com.greenfoxacademy.connectionwithmysl.repositories.AssigneeRepository;
 import com.greenfoxacademy.connectionwithmysl.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,5 +47,13 @@ public class AssigneeService {
         } else {
             return null;
         }
+    }
+
+    public void addTodo(Todo todo, String assigneeName) {
+        assigneeRepository.findByName(assigneeName).setTodos(todo);
+    }
+
+    public Assignee findAssigneeByName(String name) {
+        return assigneeRepository.findByName(name);
     }
 }

@@ -1,10 +1,7 @@
 package com.greenfoxacademy.connectionwithmysl.models.entities;
 
-import com.greenfoxacademy.connectionwithmysl.models.entities.Assignee;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
-import java.time.LocalDate;
+
 import java.util.Date;
 
 @Entity
@@ -24,37 +21,36 @@ public class Todo {
     private Date due;
 
     public Todo() {
-        this.creation = new Date();
-    }
+        creation = new Date();
+}
 
     public Todo(String title) {
         this.title = title;
         isUrgent = false;
         isDone = false;
-        this.creation =  new Date();
+        creation = new Date();
     }
 
     public Todo(String title, boolean isUrgent, boolean isDone) {
         this.title = title;
         this.isUrgent = isUrgent;
         this.isDone = isDone;
-        this.creation = new Date();
     }
 
-    public Todo(String title, boolean isUrgent, boolean isDone, Assignee assignee) {
+    public Todo(String title, boolean isUrgent, boolean isDone, Assignee assignee, Date due) {
         this.title = title;
         this.isUrgent = isUrgent;
         this.isDone = isDone;
         this.assignee = assignee;
-        this.creation = new Date();
+        this.due = new Date();
     }
 
-    public boolean isUrgent() {
-        return isUrgent;
-    }
-
-    public boolean isDone() {
+    /*public boolean isDone() {
         return isDone;
+    }*/
+
+    public void setCreation(Date creation) {
+        this.creation = creation;
     }
 
     public Date getCreation() {
