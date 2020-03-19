@@ -45,17 +45,30 @@ public class TodoService {
         }
     }
 
-    public List<Todo> findTodosByTitleFragment(String titleFragment) {
-        return (List<Todo>) todoRepository.findAllByTitleContaining(titleFragment);
-    }
+    public List<Todo> findTodosByTitleFragment(String titleFragment, String isActive) {
+        if (isActive == null) {
+            return (List<Todo>) todoRepository.findAllByTitleContaining(titleFragment);
+        } else {
+            return (List<Todo>) todoRepository.findAllByTitleContainingAndIsDone(titleFragment, isActive);
+        }
 
+    }
 
     public void setNewAssignee(Todo todo, String assigneeName) {
         todo.setAssignee(assigneeRepository.findByName(assigneeName));
     }
 
 
+    public List<Todo> findTodosByAssigneeFragment(String input, String isActive) {
+        if (isActive == null) {
+            return (List<Todo>) todoRepository.findAllByAssigneeContaining(input);
+        } else {
+            return (List<Todo>) todoRepository.findAllByAssigneeContainingAndIsDone(input, isActive);
+        }
+
+    }
 }
+
 
 
 

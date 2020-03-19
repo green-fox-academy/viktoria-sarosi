@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/todo")
 public class TodoController {
@@ -23,16 +25,20 @@ public class TodoController {
     }
 
     @RequestMapping(value = {"/", "/list"}, method = RequestMethod.GET)
-    public String renderList(Model model, @RequestParam(name = "isActive", required = false) String isActive, @RequestParam(name = "fragment", required = false) String fragment) {
+    public String renderList(Model model, @RequestParam(name = "isActive", required = false) String isActive, @RequestParam(name = "input", required = false) String input, @RequestParam(name = "category", required = false) String category) {
 
-        if (isActive == null) {
+        if (isActive == null && input == null) {
             model.addAttribute("todos", todoService.findAllTodos());
-        } else {
+        } else if (isActive != null && input == null) {
             model.addAttribute("todos", todoService.findAllTodosByIsDone(isActive));
-        }
-        if (fragment != null) {
-            if (todoService.findTodosByTitleFragment(fragment) != null) {
-                model.addAttribute("todosByTitle", todoService.findTodosByTitleFragment(fragment));
+        } else {
+            if (todoService.findTodosByTitleFragment(input, isActive) != null) {
+                if (category == "byTitle") {
+                    model.addAttribute("todos", todoService.findTodosByTitleFragment(input, isActive));
+                }
+                if (category == "byAssignee") {
+                    model.addAttribute("todos", todoService.findTodosByAssigneeFragment(input, isActive));
+                }
             } else {
                 model.addAttribute("no", "No Such Todo in Today's Todo List");
             }
@@ -60,14 +66,14 @@ public class TodoController {
 
     @GetMapping({"/{id}/edit"})
     public String renderEdit(@PathVariable(value = "id", required = false) long id, Model
-            model, @ModelAttribute("todo") Todo todo, @ModelAttribute("assignee") Assignee assignee){
+            model, @ModelAttribute("todo") Todo todo, @ModelAttribute("assignee") Assignee assignee) {
         model.addAttribute("todo", todoService.findTodoById(id));
         model.addAttribute("assigneeslist", assigneeService.findAllAssignees());
         return "edit";
     }
 
     @PostMapping({"/{id}/edit"})
-    public String editTodoById(@PathVariable(value = "id", required = false) long id, @ModelAttribute("todo") Todo todo, String assigneeName){
+    public String editTodoById(@PathVariable(value = "id", required = false) long id, @ModelAttribute("todo") Todo todo, String assigneeName) {
         todo.setCreation(todoService.findTodoById(id).getCreation());
         todoService.setNewAssignee(todo, assigneeName);
         todoService.saveTodo(todo);

@@ -13,5 +13,12 @@ public interface TodoRepository extends CrudRepository<Todo, Long> {
     Iterable<Todo> findAllByOrderByIdAsc();
 
     Iterable<Todo> findAllByTitleContaining(String titleFragment);
+
+    Iterable<Todo> findAllByAssigneeContaining(String fragment);
+
+    Iterable<Todo> findAllByAssigneeContainingAndIsDone(String fragment, String isActive);
+
+    Iterable<Todo> findAllByTitleContainingAndIsDone(String titleFragment, String isActive);
+
 }
 

@@ -8,11 +8,16 @@
 <body>
 <span>
 <form action="list" th:method="get">
-    <label for="searchByTitle">Search by Title</label>
-    <input id="searchByTitle" type="text" name="fragment">
+    <label for="searchByThis">Search This:</label>
+    <input id="searchByThis" type="text" name="input">
+    <label for="category">In this Category</label>
+    <select id="category" th:name="category" >
+        <option value="byTitle">Title</option>
+        <option value="byAssignee">Assignee</option>
+    </select>
     <input type="submit">
 </form>
-<table>
+<!--<table>
     <thead>
     <tr>
         <th>ID</th>
@@ -24,7 +29,7 @@
         <th></th>
     </tr>
     </thead>
-    <tbody th:each="todo : ${todosByTitle}" th:object="${todo}">
+    <tbody th:each="todo : ${todosToLookFor}" th:object="${todo}">
     <tr>
         <td th:text="*{id}"></td>
         <td th:text="*{title}"></td>
@@ -43,7 +48,7 @@
         </td>
     </tr>
     </tbody>
-</table>
+</table>-->
 </span>
 <div th:name="no"></div>
 <br>
@@ -73,7 +78,7 @@
     <tr>
         <td th:text="*{id}"></td>
         <td th:text="*{creation}"></td>
-        <td th:text="*{due}"></td>
+        <td th:text="*{#dates.format(due, 'yyyy-MM-dd')}"></td>
         <td th:text="*{title}"></td>
         <td th:text="*{getDone()}"></td>
         <td th:text="*{getUrgent()}"></td>
