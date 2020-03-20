@@ -1,4 +1,4 @@
-package com.greenfoxacademy.reddit.models;
+package com.greenfoxacademy.reddit.models.entities;
 
 import javax.persistence.*;
 
