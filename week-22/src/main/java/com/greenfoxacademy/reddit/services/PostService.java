@@ -20,7 +20,12 @@ public class PostService {
         return (List<Post>) postRepository.findAllByOrderByPointAsc();
     }
 
+
     public void upVote(long id){
         postRepository.findById(id).get().upVote();
+    }
+
+    public void submitNewPost(Post post) {
+        postRepository.save(post);
     }
 }

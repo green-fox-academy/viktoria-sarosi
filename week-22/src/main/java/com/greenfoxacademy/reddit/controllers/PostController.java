@@ -1,13 +1,11 @@
 package com.greenfoxacademy.reddit.controllers;
 
+import com.greenfoxacademy.reddit.models.Post;
 import com.greenfoxacademy.reddit.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PostController {
@@ -28,6 +26,18 @@ public class PostController {
     @GetMapping("/{id}/up")
     public String upVote(@PathVariable(value = "id", required = false) long id) {
         postService.upVote(id);
-        return "redirect:index";
+        return "redirect:/index";
+    }
+
+    @GetMapping("submit")
+    public String renderSubmit(Model model, @ModelAttribute("post") Post post) {
+        model.addAttribute("post", post);
+        return "submit";
+    }
+
+    @PostMapping("submit")
+    public String SubmitNewPost(@ModelAttribute("post") Post post) {
+        postService.submitNewPost(post);
+        return "redirect:/";
     }
 }
