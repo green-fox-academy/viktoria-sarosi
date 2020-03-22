@@ -23,11 +23,10 @@ public class RedditApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        postRepository.save(new Post("First"));
-        postRepository.save(new Post("Second"));
-        postRepository.save(new Post("Third"));
-        postRepository.save(new Post("Fourth"));
-        postRepository.save(new Post("Fifth"));
+        postRepository.save(new Post("Aish.com", "https://www.aish.com/"));
+        postRepository.save(new Post("Alfbeta.org", "https://www.alephbeta.org/"));
+        postRepository.save(new Post("TorahAnyTime.com", "https://www.torahanytime.com/"));
+        postRepository.save(new Post("Lativ.hu", "https://lativ.hu/"));
 
     }
 }
