@@ -17,15 +17,29 @@ public class PostService {
     }
 
     public List<Post> findAllPosts() {
-        return (List<Post>) postRepository.findAllByOrderByPointAsc();
+        return (List<Post>) postRepository.findAllByOrderByPointDesc();
     }
 
 
     public void upVote(long id){
-        postRepository.findById(id).get().upVote();
+        Post post = new Post();
+        if (postRepository.findById(id).isPresent()){
+            post = postRepository.findById(id).get();
+            post.upVote();
+            postRepository.save(post);
+        }
     }
 
     public void submitNewPost(Post post) {
         postRepository.save(post);
+    }
+
+    public void downVote(long id) {
+        Post post = new Post();
+        if (postRepository.findById(id).isPresent()){
+            post = postRepository.findById(id).get();
+            post.downVote();
+            postRepository.save(post);
+        }
     }
 }

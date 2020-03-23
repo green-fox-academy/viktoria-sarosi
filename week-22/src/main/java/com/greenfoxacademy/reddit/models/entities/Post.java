@@ -60,4 +60,7 @@ public class Post {
     public void upVote() {
         setPoint(getPoint() + 1);
     }
+    public void downVote() {
+        setPoint(getPoint() - 1);
+    }
 }

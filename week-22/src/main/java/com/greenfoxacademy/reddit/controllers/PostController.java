@@ -26,9 +26,14 @@ public class PostController {
     @GetMapping("/{id}/up")
     public String upVote(@PathVariable(value = "id", required = false) long id) {
         postService.upVote(id);
-        return "redirect:/index";
+        return "redirect:/";
     }
 
+    @GetMapping("/{id}/down")
+    public String downVote(@PathVariable(value = "id", required = false) long id) {
+        postService.downVote(id);
+        return "redirect:/";
+    }
     @GetMapping("submit")
     public String renderSubmit(Model model, @ModelAttribute("post") Post post) {
         model.addAttribute("post", post);
