@@ -1,6 +1,8 @@
 package com.greenfoxacademy.reddit.models.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Post")
@@ -12,6 +14,8 @@ public class Post {
     private String title;
     private String url;
     private int point;
+    @ManyToOne
+    private User owner;
 
     public Post() {
     }
@@ -27,6 +31,14 @@ public class Post {
 
     public int getPoint() {
         return point;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
     public void setPoint(int point) {
@@ -57,10 +69,11 @@ public class Post {
         this.url = url;
     }
 
-    public void upVote() {
+    public void upVote(User user) {
         setPoint(getPoint() + 1);
     }
-    public void downVote() {
+
+    public void downVote(User user) {
         setPoint(getPoint() - 1);
     }
 }

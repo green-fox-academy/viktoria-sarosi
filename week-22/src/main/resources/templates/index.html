@@ -5,19 +5,19 @@
     <title>Posts</title>
 </head>
 <body>
-<a href="submit">Submit New Post</a>
+<a th:href="'submit' + ${userId}">Submit New Post</a>
 <div>Trending Posts</div>
 <table>
     <tbody th:object="${post}" th:each="post : ${posts}">
     <tr>
         <td th:text="*{point}"></td>
         <td>
-            <a th:href="'/' + *{id} + '/up'">
+            <a th:href="'/' + *{id} + '/up' + ${userId}">
                 <button>Up</button>
             </a>
         </td>
         <td>
-            <a th:href="'/' + *{id} + '/down'">
+            <a th:href="'/' + *{id} + '/down' + ${userId}">
                 <button>Down</button>
             </a>
         </td>
