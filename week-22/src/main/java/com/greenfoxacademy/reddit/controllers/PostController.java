@@ -41,8 +41,9 @@ public class PostController {
     }
 
     @GetMapping("submit/{userId}")
-    public String renderSubmit(Model model, @ModelAttribute Post post, @PathVariable(name = "userId", required = false) Long userId) {
-        model.addAttribute("post", post);
+    public String renderSubmit(Model model, @PathVariable(name = "userId", required = false) Long userId) {
+        model.addAttribute("post", new Post());
+        model.addAttribute("userId", userId);
         return "submit";
     }
 

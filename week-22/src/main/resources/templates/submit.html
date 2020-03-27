@@ -6,7 +6,7 @@
 </head>
 <body>
 <div>Submit a New Post</div>
-<form th:object="${post}" th:action="submit" th:method="post">
+<form th:object="${post}" th:action="'/submit/' + ${userId}" method="post">
     <div>
         <label for="title">Title:</label>
         <input id="title" type="text" th:field="*{title}">

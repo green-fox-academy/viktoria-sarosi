@@ -24,8 +24,9 @@ public class UserController {
 
     @PostMapping("login")
     public String logUserIn(@ModelAttribute User user) {
-        if (userService.logUserIn(user)) {
-            return "redirect:/" + user.getId();
+        User loggedInUser = userService.logUserIn(user);
+        if (loggedInUser != null){
+            return "redirect:/" + loggedInUser.getId();
         } else {
             return "login";
         }

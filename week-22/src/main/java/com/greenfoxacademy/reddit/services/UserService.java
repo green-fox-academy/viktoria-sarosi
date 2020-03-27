@@ -21,11 +21,10 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public boolean logUserIn(User user) {
+    public User logUserIn(User user) {
         Optional<User> possibleUser = userRepository.findById(user.getId());
         User existingUser = possibleUser.orElse(null);
-        assert existingUser != null;
-        return existingUser.equals(user);
+        return existingUser;
     }
 
     public User findUserByUserId(Long userId) {

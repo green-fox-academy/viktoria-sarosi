@@ -1,35 +1,51 @@
 package com.greenfoxacademy.reddit.models.dtos;
 
+import com.greenfoxacademy.reddit.models.entities.Post;
+import com.greenfoxacademy.reddit.models.entities.User;
+
+import javax.persistence.*;
+
+@Entity
 public class Vote {
-    private long id;
-    private long userId;
-    private boolean up;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long voteId;
+    @ManyToOne
+    private Post post;
+    @ManyToOne
+    private User user;
+    private int vote;
 
     public Vote() {
     }
 
-    public long getId() {
-        return id;
+    public Vote(Post post, User user, int vote) {
+        this.post = post;
+        this.user = user;
+        this.vote = vote;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public Post getPost() {
+        return post;
     }
 
-    public long getUserId() {
-        return userId;
+    public void setPost(Post post) {
+        this.post = post;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public User getUser() {
+        return user;
     }
 
-    public boolean isUp() {
-        return up;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public void setUp(boolean up) {
-        this.up = up;
+    public int getVote() {
+        return vote;
     }
 
+    public void setVote(int vote) {
+        this.vote = vote;
+    }
 }

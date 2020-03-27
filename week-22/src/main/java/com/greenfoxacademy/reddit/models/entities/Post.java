@@ -1,5 +1,9 @@
 package com.greenfoxacademy.reddit.models.entities;
 
+
+
+import com.greenfoxacademy.reddit.models.dtos.Vote;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +20,8 @@ public class Post {
     private int point;
     @ManyToOne
     private User owner;
+    @OneToMany
+    private List<Vote> votes;
 
     public Post() {
     }
@@ -76,4 +82,15 @@ public class Post {
     public void downVote(User user) {
         setPoint(getPoint() - 1);
     }
+
+    public List<Vote> getVotes() {
+        return votes;
+    }
+
+    public void setVotes(List<Vote> votes) {
+        this.votes = votes;
+    }
+     public void add(Vote vote){
+        votes.add(vote);
+     }
 }

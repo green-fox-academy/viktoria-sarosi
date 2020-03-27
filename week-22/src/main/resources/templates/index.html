@@ -24,6 +24,7 @@
         <td >
             <a th:text="*{title}" th:href="*{url}" ></a>
         </td>
+        <td th:if="*{owner != null}" th:text="*{owner.getName()}" ></td>
     </tr>
     </tbody>
 </table>
