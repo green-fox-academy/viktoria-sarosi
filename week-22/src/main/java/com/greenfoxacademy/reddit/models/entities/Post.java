@@ -2,10 +2,7 @@ package com.greenfoxacademy.reddit.models.entities;
 
 
 
-import com.greenfoxacademy.reddit.models.dtos.Vote;
-
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,7 +17,7 @@ public class Post {
     private int point;
     @ManyToOne
     private User owner;
-    @OneToMany
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Vote> votes;
 
     public Post() {
@@ -75,12 +72,11 @@ public class Post {
         this.url = url;
     }
 
-    public void upVote(User user) {
-        setPoint(getPoint() + 1);
+    public void upVote(int n) {
+        point += n;
     }
-
-    public void downVote(User user) {
-        setPoint(getPoint() - 1);
+    public void downVote(int n) {
+        point -= n;
     }
 
     public List<Vote> getVotes() {

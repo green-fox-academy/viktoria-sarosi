@@ -1,7 +1,5 @@
 package com.greenfoxacademy.reddit.models.entities;
 
-import com.greenfoxacademy.reddit.models.dtos.Vote;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,8 +15,6 @@ public class User {
     private String password2;
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     private List<Post> submittedPosts;
-    @OneToMany
-    private List <Vote> votes;
 
     public User() {
     }
@@ -72,15 +68,4 @@ public class User {
         this.userId = userId;
     }
 
-    public List<Vote> getVotes() {
-        return votes;
-    }
-
-    public void setVotes(List<Vote> votes) {
-        this.votes = votes;
-    }
-
-    public void addVote(Vote vote){
-        votes.add(vote);
-    }
 }

@@ -1,9 +1,11 @@
 package com.greenfoxacademy.reddit.services;
 
+import com.greenfoxacademy.reddit.models.entities.Vote;
 import com.greenfoxacademy.reddit.models.entities.Post;
 import com.greenfoxacademy.reddit.models.entities.User;
 import com.greenfoxacademy.reddit.repositories.PostRepository;
 import com.greenfoxacademy.reddit.repositories.UserRepository;
+import com.greenfoxacademy.reddit.repositories.VoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +16,13 @@ import java.util.Optional;
 public class PostService {
     private PostRepository postRepository;
     private UserRepository userRepository;
+    private VoteRepository voteRepository;
 
     @Autowired
-    public PostService(PostRepository postRepository, UserRepository userRepository) {
+    public PostService(PostRepository postRepository, UserRepository userRepository, VoteRepository voteRepository) {
         this.postRepository = postRepository;
         this.userRepository = userRepository;
+        this.voteRepository = voteRepository;
     }
 
     public List<Post> findAllPosts() {
@@ -31,9 +35,20 @@ public class PostService {
         Post post = optionalPost.orElse(null);
         Optional<User> optionalUser = userRepository.findById(userId);
         User user = optionalUser.orElse(null);
-        assert post != null;
-        post.upVote(user);
-        postRepository.save(post);
+        if (post != null && user != null) {
+            Vote vote = new Vote(post, user, 1);
+            Optional<Vote> optionalVote = voteRepository.findByPostAndUser(post, user);
+            if (!optionalVote.isPresent()) {
+                post.upVote(1);
+                postRepository.save(post);
+                voteRepository.save(vote);
+            }else if (optionalVote.get().getVote() == -1){
+                post.upVote(2);
+                postRepository.save(post);
+                vote.setVoteId(optionalVote.get().getVoteId());
+                voteRepository.save(vote);
+            }
+        }
     }
 
     public void submitNewPost(Post post, Long userId) {
@@ -48,10 +63,19 @@ public class PostService {
         Post post = optionalPost.orElse(null);
         Optional<User> optionalUser = userRepository.findById(userId);
         User user = optionalUser.orElse(null);
-        assert post != null;
-        post.downVote(user);
-        postRepository.save(post);
+        if (post != null & user != null) {
+            Vote vote = new Vote(post, user, -1);
+            Optional<Vote> optionalVote = voteRepository.findByPostAndUser(post, user);
+            if (!optionalVote.isPresent()) {
+                post.downVote(1);
+                postRepository.save(post);
+                voteRepository.save(vote);
+            }else if (optionalVote.get().getVote() == 1){
+                post.downVote(2);
+                postRepository.save(post);
+                vote.setVoteId(optionalVote.get().getVoteId());
+                voteRepository.save(vote);
+            }
+        }
     }
-
-
 }

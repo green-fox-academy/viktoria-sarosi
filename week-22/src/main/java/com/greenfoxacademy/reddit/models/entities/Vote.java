@@ -1,4 +1,4 @@
-package com.greenfoxacademy.reddit.models.dtos;
+package com.greenfoxacademy.reddit.models.entities;
 
 import com.greenfoxacademy.reddit.models.entities.Post;
 import com.greenfoxacademy.reddit.models.entities.User;
@@ -47,5 +47,13 @@ public class Vote {
 
     public void setVote(int vote) {
         this.vote = vote;
+    }
+
+    public Long getVoteId() {
+        return voteId;
+    }
+
+    public void setVoteId(Long voteId) {
+        this.voteId = voteId;
     }
 }
