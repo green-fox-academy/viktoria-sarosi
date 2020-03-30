@@ -22,9 +22,8 @@ public class UserService {
     }
 
     public User logUserIn(User user) {
-        Optional<User> possibleUser = userRepository.findById(user.getId());
-        User existingUser = possibleUser.orElse(null);
-        return existingUser;
+        Optional<User> possibleUser = userRepository.findByNameAndPassword(user.getName(), user.getPassword());
+        return possibleUser.orElse(null);
     }
 
     public User findUserByUserId(Long userId) {
