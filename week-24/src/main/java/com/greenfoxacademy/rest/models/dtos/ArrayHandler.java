@@ -32,7 +32,7 @@ public class ArrayHandler {
     public Result sumElements() {
         Integer tempResult = 0;
         Result result = new Result();
-        for (int i = 0; i < this.getNumbers().length - 1; i++) {
+        for (int i = 0; i < this.getNumbers().length; i++) {
             tempResult += this.getNumbers()[i];
             result.setResult(tempResult);
         }
@@ -42,7 +42,7 @@ public class ArrayHandler {
     public Result multiplyElements(){
         Integer tempResult = 1;
         Result result = new Result();
-        for (int i = 0; i < this.getNumbers().length - 1; i++) {
+        for (int i = 0; i < this.getNumbers().length; i++) {
             tempResult *= this.getNumbers()[i];
             result.setResult(tempResult);
         }

@@ -58,7 +58,7 @@ public class Services {
     public ArrayResult handleArray(ArrayHandler arrayhandler) {
         int[] single = arrayhandler.getNumbers();
         int[] doubled = new int[single.length];
-        for (int i = 0; i < single.length - 1; i++) {
+        for (int i = 0; i < single.length; i++) {
             doubled[i] = single[i] * 2;
         }
         ArrayResult arrayResult = new ArrayResult();
