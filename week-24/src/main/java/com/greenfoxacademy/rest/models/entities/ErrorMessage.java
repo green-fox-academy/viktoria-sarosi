@@ -1,4 +1,4 @@
-package com.greenfoxacademy.rest.models;
+package com.greenfoxacademy.rest.models.entities;
 
 public class ErrorMessage {
     private String error;

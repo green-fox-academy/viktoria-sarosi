@@ -1,7 +1,7 @@
 package com.greenfoxacademy.rest.controllers;
 
-import com.greenfoxacademy.rest.models.Doubled;
-import com.greenfoxacademy.rest.models.DoubledError;
+import com.greenfoxacademy.rest.models.entities.Doubled;
+import com.greenfoxacademy.rest.models.entities.DoubledError;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,7 +1,8 @@
 package com.greenfoxacademy.rest.controllers;
 
 import com.greenfoxacademy.rest.Services;
-import com.greenfoxacademy.rest.models.*;
+import com.greenfoxacademy.rest.models.dtos.ArrayHandler;
+import com.greenfoxacademy.rest.models.entities.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,9 +41,20 @@ public class Rest {
     public ResponseEntity doUntil(@PathVariable(name = "action", required = false) String action, @RequestBody DoUntil until) {
         if ((action != null) && (until != null)) {
             return ResponseEntity.status(200).body(service.doUntil(until, action));
-        }else{
+        } else {
             return ResponseEntity.status(400).body(new ErrorMessage("Please provide a number!"));
         }
     }
-}
 
+    @PostMapping("/arrays")
+    public ResponseEntity arrayHandler(@RequestBody ArrayHandler arrayhandler) {
+        if ((arrayhandler.getWhat() == null) || (arrayhandler.getNumbers() == null)) {
+            return ResponseEntity.status(400).body(new ErrorMessage("Please provide what to do with the numbers!"));
+        } else if (arrayhandler.getWhat().equals("double")) {
+            return ResponseEntity.status(200).body(service.handleArray(arrayhandler));
+        } else {
+            return ResponseEntity.status(200).body(service.handleSumOrMultiply(arrayhandler));
+        }
+    }
+
+}
