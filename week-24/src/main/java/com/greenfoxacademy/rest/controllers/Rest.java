@@ -1,6 +1,6 @@
 package com.greenfoxacademy.rest.controllers;
 
-import com.greenfoxacademy.rest.Services;
+import com.greenfoxacademy.rest.services.Services;
 import com.greenfoxacademy.rest.models.dtos.ArrayHandler;
 import com.greenfoxacademy.rest.models.entities.*;
 import org.springframework.http.ResponseEntity;

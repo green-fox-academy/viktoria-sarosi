@@ -10,8 +10,10 @@ public class Vote {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long voteId;
+    @JoinColumn (name = "id")
     @ManyToOne
     private Post post;
+    @JoinColumn (name = "user_id")
     @ManyToOne
     private User user;
     private int vote;

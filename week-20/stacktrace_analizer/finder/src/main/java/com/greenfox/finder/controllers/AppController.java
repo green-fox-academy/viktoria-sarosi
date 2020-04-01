@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by aze on 25/10/17.
  */
 @Controller
-@RequestMapping("/app")
 public class AppController {
 
      private UserService service;
@@ -24,15 +24,15 @@ public class AppController {
     }
 
     @GetMapping("/")
-    public String index(Model model) {
-        model.addAttribute("user", new User());
+    public String index(Model model, @ModelAttribute ("user") User newUser) {
+        model.addAttribute("user", newUser);
         model.addAttribute("yolo", service.getAll());
         return "main";
     }
 
     @PostMapping("/main")
-    public String create() {
-        service.save(new User());
-        return "main";
+    public String create(@ModelAttribute ("user") User newUser) {
+        service.save(newUser);
+        return "redirect:/";
     }
 }

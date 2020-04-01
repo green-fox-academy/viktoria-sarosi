@@ -11,14 +11,14 @@ public class JosephusProblem {
     private static int josephus(int numberOfPeople) {
         ArrayList<Integer> group = new ArrayList<>();
         for (int i = 0; i < numberOfPeople; i++) {
-            group.add(i, i + 1);
+            group.add(i + 1);
         }
         int indexToRemove = 1;
         for (int i = 0; i < group.size(); i++) {
             group.remove(indexToRemove);
             indexToRemove += 2;
         }
-
+        return indexToRemove;
     }
 }
-}
+

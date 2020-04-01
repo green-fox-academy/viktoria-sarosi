@@ -1,4 +1,4 @@
-package com.greenfoxacademy.rest;
+package com.greenfoxacademy.rest.services;
 
 import com.greenfoxacademy.rest.models.dtos.ArrayHandler;
 import com.greenfoxacademy.rest.models.entities.ArrayResult;
