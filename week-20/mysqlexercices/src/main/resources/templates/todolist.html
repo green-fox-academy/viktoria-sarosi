@@ -11,44 +11,44 @@
     <label for="searchByThis">Search This:</label>
     <input id="searchByThis" type="text" name="input">
     <label for="category">In this Category</label>
-    <select id="category" th:name="category" >
+    <select id="category" th:name="category">
         <option value="byTitle">Title</option>
         <option value="byAssignee">Assignee</option>
     </select>
     <input type="submit">
 </form>
-<!--<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Action</th>
-        <th>Done</th>
-        <th>Urgent</th>
-        <th>Assignee</th>
-        <th></th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody th:each="todo : ${todosToLookFor}" th:object="${todo}">
-    <tr>
-        <td th:text="*{id}"></td>
-        <td th:text="*{title}"></td>
-        <td th:text="*{getDone()}"></td>
-        <td th:text="*{getUrgent()}"></td>
-        <td>
-            <a th:href="'/assignees/' + *{getAssigneeId()} + '/todos-per-assignee'" th:text="*{assignee}"></a>
-        </td>
-        <td>
-            <a th:href="'/todo/' + *{getId()} + '/delete'">
-                <button>Delete</button>
-            </a>
-        </td>
-        <td>
-            <a th:href="'/todo/' + *{getId()} + '/edit'">Edit</a>
-        </td>
-    </tr>
-    </tbody>
-</table>-->
+    <!--<table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Action</th>
+            <th>Done</th>
+            <th>Urgent</th>
+            <th>Assignee</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody th:each="todo : ${todosToLookFor}" th:object="${todo}">
+        <tr>
+            <td th:text="*{id}"></td>
+            <td th:text="*{title}"></td>
+            <td th:text="*{getDone()}"></td>
+            <td th:text="*{getUrgent()}"></td>
+            <td>
+                <a th:href="'/assignees/' + *{getAssigneeId()} + '/todos-per-assignee'" th:text="*{assignee}"></a>
+            </td>
+            <td>
+                <a th:href="'/todo/' + *{getId()} + '/delete'">
+                    <button>Delete</button>
+                </a>
+            </td>
+            <td>
+                <a th:href="'/todo/' + *{getId()} + '/edit'">Edit</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>-->
 </span>
 <div th:name="no"></div>
 <br>

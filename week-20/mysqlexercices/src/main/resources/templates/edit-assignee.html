@@ -6,10 +6,10 @@
 </head>
 <body>
 <form th:object="${assignee}" th:action="edit-assignee" th:method="post">
-    <label for="name" >Assignee Name</label>
-    <input id="name" type="text" th:field="*{name}" >
-    <label for="email" >Assignee Email</label>
-    <input id="email" type="text" th:field="*{email}" >
+    <label for="name">Assignee Name</label>
+    <input id="name" type="text" th:field="*{name}">
+    <label for="email">Assignee Email</label>
+    <input id="email" type="text" th:field="*{email}">
     <!--<label for="todos"  >Todos</label>
     <select id="todos" th:field="*{todos}" >
         <option th:each="todo : ${todolist}" th:value="${todo}" th:text="${todo.title}" ></option>
