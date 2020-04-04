@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AssigneeService {
@@ -25,12 +26,13 @@ public class AssigneeService {
     }
 
     public void deleteAssigneeById(long id) {
-        if (assigneeRepository.findById(id).isPresent()) {
-            if (assigneeRepository.findById(id).get().getTodos().isEmpty()) {
+        Optional<Assignee> optionalAssignee = assigneeRepository.findById(id);
+        if (optionalAssignee.isPresent()) {
+            if (optionalAssignee.get().getTodos().isEmpty()) {
                 assigneeRepository.deleteById(id);
             } else {
-                for (int i = 0; i < assigneeRepository.findById(id).get().getTodos().size(); i++) {
-                    assigneeRepository.findById(id).get().getTodos().get(i).setAssignee(null);
+                for (int i = 0; i < optionalAssignee.get().getTodos().size(); i++) {
+                    optionalAssignee.get().getTodos().get(i).setAssignee(null);
                 }
                 assigneeRepository.deleteById(id);
             }
@@ -42,11 +44,8 @@ public class AssigneeService {
     }
 
     public Assignee findAssigneeById(long id) {
-        if (assigneeRepository.findById(id).isPresent()) {
-            return assigneeRepository.findById(id).get();
-        } else {
-            return null;
-        }
+        Optional<Assignee> optionalAssignee = assigneeRepository.findById(id);
+        return optionalAssignee.orElse(null);
     }
 
     public void addTodo(Todo todo, String assigneeName) {

@@ -14,7 +14,7 @@ public class Assignee {
     private String name;
     private String email;
 
-    @OneToMany(mappedBy = "assignee", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "assignee", fetch = FetchType.EAGER) /* ha itt van cascad, akkor ha töröljük az assigneet, törlődnek a todoi is, és igy a delete Assignee By Id function lehet csak egy repo hivas delete-re*/
     private List<Todo> todos;
 
     public Assignee(String name) {

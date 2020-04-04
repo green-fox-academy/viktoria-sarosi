@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TodoService {
@@ -38,11 +39,8 @@ public class TodoService {
     }
 
     public Todo findTodoById(long id) {
-        if (todoRepository.findById(id).isPresent()) {
-            return todoRepository.findById(id).get();
-        } else {
-            return null;
-        }
+        Optional <Todo> optionalTodo = todoRepository.findById(id);
+        return optionalTodo.orElse(null);
     }
 
     public List<Todo> findTodosByTitleFragment(String titleFragment, String isActive) {
@@ -66,6 +64,12 @@ public class TodoService {
             return (List<Todo>) todoRepository.findAllByAssigneeContainingAndIsDone(input, isActive);
         }
 
+    }
+
+    public void editTodoById(long id, Todo todo, String assigneeName){
+        todo.setCreation(findTodoById(id).getCreation());
+        setNewAssignee(todo, assigneeName);
+        saveTodo(todo);
     }
 }
 

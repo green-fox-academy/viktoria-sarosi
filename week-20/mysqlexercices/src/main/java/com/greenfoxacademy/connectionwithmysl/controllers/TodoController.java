@@ -33,10 +33,10 @@ public class TodoController {
             model.addAttribute("todos", todoService.findAllTodosByIsDone(isActive));
         } else {
             if (todoService.findTodosByTitleFragment(input, isActive) != null) {
-                if (category == "byTitle") {
+                if (category.equals("byTitle")) {
                     model.addAttribute("todos", todoService.findTodosByTitleFragment(input, isActive));
                 }
-                if (category == "byAssignee") {
+                if (category.equals("byAssignee")) {
                     model.addAttribute("todos", todoService.findTodosByAssigneeFragment(input, isActive));
                 }
             } else {
@@ -74,9 +74,7 @@ public class TodoController {
 
     @PostMapping({"/{id}/edit"})
     public String editTodoById(@PathVariable(value = "id", required = false) long id, @ModelAttribute("todo") Todo todo, String assigneeName) {
-        todo.setCreation(todoService.findTodoById(id).getCreation());
-        todoService.setNewAssignee(todo, assigneeName);
-        todoService.saveTodo(todo);
+        todoService.editTodoById(id, todo, assigneeName);
         assigneeService.addTodo(todo, assigneeName);
         return "redirect:/todo/list";
     }
